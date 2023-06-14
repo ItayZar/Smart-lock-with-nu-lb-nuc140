@@ -233,17 +233,17 @@
     </File>
     <File>
       <GroupNumber>2</GroupNumber>
-      <FileNumber>0</FileNumber>
+      <FileNumber>6</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>60</ColumnNumber>
+      <ColumnNumber>38</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>72</TopLine>
-      <CurrentLine>95</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Smart-lock-with-nu-lb-nuc140.c</PathWithFileName>
-      <FilenameWithoutPath>Smart-lock-with-nu-lb-nuc140.c</FilenameWithoutPath>
+      <PathWithFileName>.\Smpl_Timer_SR04_Task7.c</PathWithFileName>
+      <FilenameWithoutPath>Smpl_Timer_SR04_Task7.c</FilenameWithoutPath>
     </File>
   </Group>
 
@@ -1351,10 +1351,10 @@
       <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
-          <Name>.\Smart-lock-with-nu-lb-nuc140.c</Name>
-          <ColumnNumber>60</ColumnNumber>
-          <TopLine>72</TopLine>
-          <CurrentLine>95</CurrentLine>
+          <Name>.\Smpl_Timer_SR04_Task7.c</Name>
+          <ColumnNumber>38</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>1</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
