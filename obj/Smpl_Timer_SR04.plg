@@ -408,3 +408,12 @@ User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_
 User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
 ".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 1 Warning(s).
 Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
+Build target 'Smpl_Timer_SR04'
+creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
+compiling Smart-lock-with-nu-lb-nuc140.c...
+Smart-lock-with-nu-lb-nuc140.c(206): warning:  #177-D: variable "flag" was declared but never referenced
+linking...
+Program Size: Code=3560 RO-data=224 RW-data=1648 ZI-data=1024  
+User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
+User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
+".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 1 Warning(s).
