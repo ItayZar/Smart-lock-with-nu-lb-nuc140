@@ -11,11 +11,16 @@
 // pin3 ECHO: to GPB2/T2EX (NUC140VE3xN pin34)
 // pin4 Gnd : to GND
 
+
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
 #include <stdio.h>
 #include "NUC1xx.h"
 #include "DrvGPIO.h"
 #include "DrvSYS.h"
 #include "LCD_Driver.h"
+
 
 // Global definition
 #define	_SR04A_ECHO		   (GPB_2)			//NUC140VE3xN, Pin19
@@ -27,6 +32,7 @@
 #define  PERIODIC 1   // counting and interrupt when reach TCMPR number, then counting from 0 again
 #define  TOGGLE   2   // keep counting and interrupt when reach TCMPR number, tout toggled (between 0 and 1)
 #define  CONTINUOUS 3 // keep counting and interrupt when reach TCMPR number
+#define  OTP_LENGTH 4
 
 // Global variables
 volatile uint32_t SR04A_Echo_Width = 0;
@@ -34,6 +40,7 @@ volatile uint32_t SR04A_Echo_Flag  = FALSE;
 
 char	TEXT2[17] = "Dist: ";
 char	TEXT3[17] = "P.Time: ";
+char 	otp[OTP_LENGTH + 1];
 
 uint32_t time_s =0;
 uint32_t distance_mm;
@@ -144,7 +151,7 @@ void SR04_Trigger(void)
 
 
 
-void DistMeasure(void)
+int DistMeasure(void)
 {
 	SR04_Trigger();                 // Trigger Ultrasound Sensor for 10us   		
 	DrvSYS_Delay(40000);            // Wait 40ms for Echo to trigger interrupt
@@ -157,6 +164,7 @@ void DistMeasure(void)
 		print_lcd(2, TEXT2);	        //Line 2: distance [mm]
  	}   
 	DrvSYS_Delay(10000);           // 10ms from Echo to next Trigger
+	return distance_mm; 
 }
 
 
@@ -167,6 +175,28 @@ void Init_GPIO_SR04(void)
 	GPIOB->PMD.PMD4 = 1;              //_SR04_TRIG pin, Output
   	_SR04A_TRIG_Low;                  // set Trig output to Low
 }
+
+
+void generateOTP()
+{
+	// Function to generate a random 4-digit OTP
+	int i;
+	srand(DistMeasure());
+
+    for (i = 0; i < OTP_LENGTH; i++) {
+        otp[i] = '0' + (rand() % 10);
+    }
+    otp[OTP_LENGTH] = '\0';  // Add null terminator	
+}
+
+
+void sendOTP()
+{
+	// Function to send the OTP to a Bluetooth terminal
+    printf("Sending OTP: %s\n", otp);
+    printf("OTP sent to Bluetooth terminal!\n");
+}
+
 
 //------------------------------
 // MAIN function
@@ -185,19 +215,22 @@ int main (void)
 	clr_all_panel();                  // clear LCD display
 	print_lcd(0, "  Gate Control  "); // Line 0 display
 	sprintf(TEXT3+8, "IDLE   ");
-	print_lcd(3, TEXT3);
 	                          
 	InitTIMER0();
 	Init_TMR2();
 	Init_GPIO_SR04();
+	
+	generateOTP();
+	print_lcd(3, otp);
+
   
-	while(1) {
+	/*while(1) {
 		DistMeasure();
 		if(distance_mm <= 100)
 		{
 			TIMER0->TCSR.CEN = 1;		// Enable Timer0
 		}
-		if(distance_mm <= 30 && time_s > 0 && time_s < 10)
+		if(distance_mm <= 30 && time_s > 0 && time_s < 3)
 		{
 				print_lcd(1, "Car Parked!");
 				print_lcd(2, "                ");
@@ -240,6 +273,6 @@ int main (void)
 			TIMER0->TISR.TIF =1;		// Reset Timer0
 			TIMER0->TCSR.CEN = 0;		// Disable Timer0
 		}
-	}
+	}*/
 	
 }

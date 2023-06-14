@@ -1,4 +1,7 @@
 .\obj\smart-lock-with-nu-lb-nuc140.o: Smart-lock-with-nu-lb-nuc140.c
+.\obj\smart-lock-with-nu-lb-nuc140.o: C:\Keil\ARM\RV31\INC\stdlib.h
+.\obj\smart-lock-with-nu-lb-nuc140.o: C:\Keil\ARM\RV31\INC\time.h
+.\obj\smart-lock-with-nu-lb-nuc140.o: C:\Keil\ARM\RV31\INC\string.h
 .\obj\smart-lock-with-nu-lb-nuc140.o: C:\Keil\ARM\RV31\INC\stdio.h
 .\obj\smart-lock-with-nu-lb-nuc140.o: ..\..\..\..\CMSIS\CM0\DeviceSupport\Nuvoton\NUC1xx\NUC1xx.h
 .\obj\smart-lock-with-nu-lb-nuc140.o: ..\..\..\..\CMSIS\CM0\CoreSupport\core_cm0.h
