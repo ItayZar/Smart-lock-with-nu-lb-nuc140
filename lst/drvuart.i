@@ -1,1380 +1,9 @@
-#line 1 "Smart-lock-with-nu-lb-nuc140.c"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 1 "C:\\Keil\\ARM\\RV31\\INC\\stdlib.h"
+#line 1 "..\\..\\..\\Src\\Driver\\DrvUART.c"
  
  
  
-
-
-
-
  
  
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
- 
-
-
-
-
-
-
-
-
-#line 45 "C:\\Keil\\ARM\\RV31\\INC\\stdlib.h"
-
-
-  
-  typedef unsigned int size_t;
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    typedef unsigned short wchar_t;  
-#line 74 "C:\\Keil\\ARM\\RV31\\INC\\stdlib.h"
-
-typedef struct div_t { int quot, rem; } div_t;
-    
-typedef struct ldiv_t { long int quot, rem; } ldiv_t;
-    
-
-typedef struct lldiv_t { __int64 quot, rem; } lldiv_t;
-    
-
-
-#line 95 "C:\\Keil\\ARM\\RV31\\INC\\stdlib.h"
-   
-
-
-
- 
-
-   
-
-
-
-
- 
-#line 114 "C:\\Keil\\ARM\\RV31\\INC\\stdlib.h"
-   
-
-
- 
-extern __declspec(__nothrow) int __aeabi_MB_CUR_MAX(void);
-
-   
-
-
-
-
- 
-
-   
-
-
-
-
- 
-
-
-
-
-extern __declspec(__nothrow) double atof(const char *  ) __attribute__((__nonnull__(1)));
-   
-
-
-
- 
-extern __declspec(__nothrow) int atoi(const char *  ) __attribute__((__nonnull__(1)));
-   
-
-
-
- 
-extern __declspec(__nothrow) long int atol(const char *  ) __attribute__((__nonnull__(1)));
-   
-
-
-
- 
-
-extern __declspec(__nothrow) __int64 atoll(const char *  ) __attribute__((__nonnull__(1)));
-   
-
-
-
- 
-
-
-extern __declspec(__nothrow) double strtod(const char * __restrict  , char ** __restrict  ) __attribute__((__nonnull__(1)));
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) float strtof(const char * __restrict  , char ** __restrict  ) __attribute__((__nonnull__(1)));
-extern __declspec(__nothrow) long double strtold(const char * __restrict  , char ** __restrict  ) __attribute__((__nonnull__(1)));
-   
-
- 
-
-extern __declspec(__nothrow) long int strtol(const char * __restrict  ,
-                        char ** __restrict  , int  ) __attribute__((__nonnull__(1)));
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) unsigned long int strtoul(const char * __restrict  ,
-                                       char ** __restrict  , int  ) __attribute__((__nonnull__(1)));
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
- 
-extern __declspec(__nothrow) __int64 strtoll(const char * __restrict  ,
-                               char ** __restrict  , int  ) __attribute__((__nonnull__(1)));
-   
-
-
-
-
- 
-extern __declspec(__nothrow) unsigned __int64 strtoull(const char * __restrict  ,
-                                         char ** __restrict  , int  ) __attribute__((__nonnull__(1)));
-   
-
-
-
- 
-
-extern __declspec(__nothrow) int rand(void);
-   
-
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) void srand(unsigned int  );
-   
-
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) void *calloc(size_t  , size_t  );
-   
-
-
-
- 
-extern __declspec(__nothrow) void free(void *  );
-   
-
-
-
-
-
- 
-extern __declspec(__nothrow) void *malloc(size_t  );
-   
-
-
-
- 
-extern __declspec(__nothrow) void *realloc(void *  , size_t  );
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-typedef int (*__heapprt)(void *, char const *, ...);
-extern __declspec(__nothrow) void __heapstats(int (*  )(void *  ,
-                                           char const *  , ...),
-                        void *  ) __attribute__((__nonnull__(1)));
-   
-
-
-
-
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) int __heapvalid(int (*  )(void *  ,
-                                           char const *  , ...),
-                       void *  , int  ) __attribute__((__nonnull__(1)));
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) __declspec(__noreturn) void abort(void);
-   
-
-
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) int atexit(void (*  )(void)) __attribute__((__nonnull__(1)));
-   
-
-
-
-
- 
-#line 389 "C:\\Keil\\ARM\\RV31\\INC\\stdlib.h"
-
-
-extern __declspec(__nothrow) __declspec(__noreturn) void exit(int  );
-   
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) __declspec(__noreturn) void _Exit(int  );
-   
-
-
-
-
-
-
-
-      
-
-extern __declspec(__nothrow) char *getenv(const char *  ) __attribute__((__nonnull__(1)));
-   
-
-
-
-
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) int  system(const char *  );
-   
-
-
-
-
-
-
-
-
-
- 
-
-extern  void *bsearch(const void *  , const void *  ,
-              size_t  , size_t  ,
-              int (*  )(const void *, const void *)) __attribute__((__nonnull__(1,2,5)));
-   
-
-
-
-
-
-
-
-
-
-
-
-
- 
-#line 477 "C:\\Keil\\ARM\\RV31\\INC\\stdlib.h"
-
-
-extern  void qsort(void *  , size_t  , size_t  ,
-           int (*  )(const void *, const void *)) __attribute__((__nonnull__(1,4)));
-   
-
-
-
-
-
-
-
-
-
- 
-
-#line 506 "C:\\Keil\\ARM\\RV31\\INC\\stdlib.h"
-
-extern __declspec(__nothrow) __pure int abs(int  );
-   
-
-
-
- 
-
-extern __declspec(__nothrow) __pure div_t div(int  , int  );
-   
-
-
-
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) __pure long int labs(long int  );
-   
-
-
-
- 
-
-
-
-
-extern __declspec(__nothrow) __pure ldiv_t ldiv(long int  , long int  );
-   
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-extern __declspec(__nothrow) __pure __int64 llabs(__int64  );
-   
-
-
-
- 
-
-
-
-
-extern __declspec(__nothrow) __pure lldiv_t lldiv(__int64  , __int64  );
-   
-
-
-
-
-
-
-
-
-
-
-
- 
-#line 587 "C:\\Keil\\ARM\\RV31\\INC\\stdlib.h"
-
-
-
- 
-typedef struct __sdiv32by16 { int quot, rem; } __sdiv32by16;
-typedef struct __udiv32by16 { unsigned int quot, rem; } __udiv32by16;
-    
-typedef struct __sdiv64by32 { int rem, quot; } __sdiv64by32;
-
-__value_in_regs extern __declspec(__nothrow) __pure __sdiv32by16 __rt_sdiv32by16(
-     int  ,
-     short int  );
-   
-
- 
-__value_in_regs extern __declspec(__nothrow) __pure __udiv32by16 __rt_udiv32by16(
-     unsigned int  ,
-     unsigned short  );
-   
-
- 
-__value_in_regs extern __declspec(__nothrow) __pure __sdiv64by32 __rt_sdiv64by32(
-     int  , unsigned int  ,
-     int  );
-   
-
- 
-
-
-
- 
-extern __declspec(__nothrow) unsigned int __fp_status(unsigned int  , unsigned int  );
-   
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) int mblen(const char *  , size_t  );
-   
-
-
-
-
-
-
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) int mbtowc(wchar_t * __restrict  ,
-                   const char * __restrict  , size_t  );
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) int wctomb(char *  , wchar_t  );
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
- 
-extern __declspec(__nothrow) size_t mbstowcs(wchar_t * __restrict  ,
-                      const char * __restrict  , size_t  ) __attribute__((__nonnull__(2)));
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) size_t wcstombs(char * __restrict  ,
-                      const wchar_t * __restrict  , size_t  ) __attribute__((__nonnull__(2)));
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) void __use_realtime_heap(void);
-extern __declspec(__nothrow) void __use_realtime_division(void);
-extern __declspec(__nothrow) void __use_two_region_memory(void);
-extern __declspec(__nothrow) void __use_no_heap(void);
-extern __declspec(__nothrow) void __use_no_heap_region(void);
-
-extern __declspec(__nothrow) char const *__C_library_version_string(void);
-extern __declspec(__nothrow) int __C_library_version_number(void);
-
-
-
-
-
-
-
-
-
-
-
-#line 832 "C:\\Keil\\ARM\\RV31\\INC\\stdlib.h"
-
-
- 
-#line 24 "Smart-lock-with-nu-lb-nuc140.c"
-#line 1 "C:\\Keil\\ARM\\RV31\\INC\\time.h"
- 
- 
- 
- 
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-#line 40 "C:\\Keil\\ARM\\RV31\\INC\\time.h"
-
-
-  
-  typedef unsigned int size_t;
-
-
-
-
-
-
-
-
-    
- 
-#line 64 "C:\\Keil\\ARM\\RV31\\INC\\time.h"
-
-
-
-
-
-typedef unsigned int clock_t;     
-typedef unsigned int time_t;      
-
-#pragma push
-#pragma anon_unions
-
-struct tm {
-    int tm_sec;   
- 
-    int tm_min;    
-    int tm_hour;   
-    int tm_mday;   
-    int tm_mon;    
-    int tm_year;   
-    int tm_wday;   
-    int tm_yday;   
-    int tm_isdst;  
-    union {        
-        struct {
-            int __extra_1, __extra_2;
-        };
-        struct {
-            long __extra_1_long, __extra_2_long;
-        };
-        struct {
-            char *__extra_1_cptr, *__extra_2_cptr;
-        };
-        struct {
-            void *__extra_1_vptr, *__extra_2_vptr;
-        };
-    };
-};
-
-#pragma pop
-
-   
-
-
-
- 
-
-extern __declspec(__nothrow) clock_t clock(void);
-   
-
-
-
-
-
- 
-extern __declspec(__nothrow) double difftime(time_t  , time_t  );
-   
-
-
- 
-extern __declspec(__nothrow) time_t mktime(struct tm *  ) __attribute__((__nonnull__(1)));
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) time_t time(time_t *  );
-   
-
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) char *asctime(const struct tm *  ) __attribute__((__nonnull__(1)));
-extern __declspec(__nothrow) char *_asctime_r(const struct tm *  ,
-                                char * __restrict  ) __attribute__((__nonnull__(1,2)));
-
-extern __declspec(__nothrow) char *asctime_r(const struct tm *  ,
-                               char * __restrict  ) __attribute__((__nonnull__(1,2)));
-
-   
-
-
-
- 
-extern __declspec(__nothrow) char *ctime(const time_t *  ) __attribute__((__nonnull__(1)));
-   
-
-
-
-
- 
-extern __declspec(__nothrow) struct tm *gmtime(const time_t *  ) __attribute__((__nonnull__(1)));
-   
-
-
-
- 
-extern __declspec(__nothrow) struct tm *localtime(const time_t *  ) __attribute__((__nonnull__(1)));
-extern __declspec(__nothrow) struct tm *_localtime_r(const time_t * __restrict  ,
-                                       struct tm * __restrict  ) __attribute__((__nonnull__(1,2)));
-
-extern __declspec(__nothrow) struct tm *localtime_r(const time_t * __restrict  ,
-                                      struct tm * __restrict  ) __attribute__((__nonnull__(1,2)));
-
-   
-
-
-
- 
-extern __declspec(__nothrow) size_t strftime(char * __restrict  , size_t  ,
-                       const char * __restrict  ,
-                       const struct tm * __restrict  ) __attribute__((__nonnull__(1,3,4)));
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-#line 271 "C:\\Keil\\ARM\\RV31\\INC\\time.h"
-
-
-
- 
-#line 25 "Smart-lock-with-nu-lb-nuc140.c"
-#line 1 "C:\\Keil\\ARM\\RV31\\INC\\string.h"
- 
- 
- 
- 
-
-
-
-
- 
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-#line 37 "C:\\Keil\\ARM\\RV31\\INC\\string.h"
-
-
-  
-  typedef unsigned int size_t;
-
-
-
-
-
-
-
-
-extern __declspec(__nothrow) void *memcpy(void * __restrict  ,
-                    const void * __restrict  , size_t  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
- 
-extern __declspec(__nothrow) void *memmove(void *  ,
-                    const void *  , size_t  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) char *strcpy(char * __restrict  , const char * __restrict  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
- 
-extern __declspec(__nothrow) char *strncpy(char * __restrict  , const char * __restrict  , size_t  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) char *strcat(char * __restrict  , const char * __restrict  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
- 
-extern __declspec(__nothrow) char *strncat(char * __restrict  , const char * __restrict  , size_t  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) int memcmp(const void *  , const void *  , size_t  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
-
- 
-extern __declspec(__nothrow) int strcmp(const char *  , const char *  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
- 
-extern __declspec(__nothrow) int strncmp(const char *  , const char *  , size_t  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) int strcasecmp(const char *  , const char *  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
-
- 
-extern __declspec(__nothrow) int strncasecmp(const char *  , const char *  , size_t  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
-
-
- 
-extern __declspec(__nothrow) int strcoll(const char *  , const char *  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) size_t strxfrm(char * __restrict  , const char * __restrict  , size_t  ) __attribute__((__nonnull__(2)));
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-#line 184 "C:\\Keil\\ARM\\RV31\\INC\\string.h"
-extern __declspec(__nothrow) void *memchr(const void *  , int  , size_t  ) __attribute__((__nonnull__(1)));
-
-   
-
-
-
-
-
- 
-
-#line 200 "C:\\Keil\\ARM\\RV31\\INC\\string.h"
-extern __declspec(__nothrow) char *strchr(const char *  , int  ) __attribute__((__nonnull__(1)));
-
-   
-
-
-
-
- 
-
-extern __declspec(__nothrow) size_t strcspn(const char *  , const char *  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
- 
-
-#line 223 "C:\\Keil\\ARM\\RV31\\INC\\string.h"
-extern __declspec(__nothrow) char *strpbrk(const char *  , const char *  ) __attribute__((__nonnull__(1,2)));
-
-   
-
-
-
-
- 
-
-#line 238 "C:\\Keil\\ARM\\RV31\\INC\\string.h"
-extern __declspec(__nothrow) char *strrchr(const char *  , int  ) __attribute__((__nonnull__(1)));
-
-   
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) size_t strspn(const char *  , const char *  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
- 
-
-#line 261 "C:\\Keil\\ARM\\RV31\\INC\\string.h"
-extern __declspec(__nothrow) char *strstr(const char *  , const char *  ) __attribute__((__nonnull__(1,2)));
-
-   
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) char *strtok(char * __restrict  , const char * __restrict  ) __attribute__((__nonnull__(2)));
-extern __declspec(__nothrow) char *_strtok_r(char *  , const char *  , char **  ) __attribute__((__nonnull__(2,3)));
-
-extern __declspec(__nothrow) char *strtok_r(char *  , const char *  , char **  ) __attribute__((__nonnull__(2,3)));
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) void *memset(void *  , int  , size_t  ) __attribute__((__nonnull__(1)));
-   
-
-
-
- 
-extern __declspec(__nothrow) char *strerror(int  );
-   
-
-
-
-
-
- 
-extern __declspec(__nothrow) size_t strlen(const char *  ) __attribute__((__nonnull__(1)));
-   
-
-
-
- 
-
-extern __declspec(__nothrow) size_t strlcpy(char *  , const char *  , size_t  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) size_t strlcat(char *  , const char *  , size_t  ) __attribute__((__nonnull__(1,2)));
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-extern __declspec(__nothrow) void _membitcpybl(void *  , const void *  , int  , int  , size_t  ) __attribute__((__nonnull__(1,2)));
-extern __declspec(__nothrow) void _membitcpybb(void *  , const void *  , int  , int  , size_t  ) __attribute__((__nonnull__(1,2)));
-extern __declspec(__nothrow) void _membitcpyhl(void *  , const void *  , int  , int  , size_t  ) __attribute__((__nonnull__(1,2)));
-extern __declspec(__nothrow) void _membitcpyhb(void *  , const void *  , int  , int  , size_t  ) __attribute__((__nonnull__(1,2)));
-extern __declspec(__nothrow) void _membitcpywl(void *  , const void *  , int  , int  , size_t  ) __attribute__((__nonnull__(1,2)));
-extern __declspec(__nothrow) void _membitcpywb(void *  , const void *  , int  , int  , size_t  ) __attribute__((__nonnull__(1,2)));
-extern __declspec(__nothrow) void _membitmovebl(void *  , const void *  , int  , int  , size_t  ) __attribute__((__nonnull__(1,2)));
-extern __declspec(__nothrow) void _membitmovebb(void *  , const void *  , int  , int  , size_t  ) __attribute__((__nonnull__(1,2)));
-extern __declspec(__nothrow) void _membitmovehl(void *  , const void *  , int  , int  , size_t  ) __attribute__((__nonnull__(1,2)));
-extern __declspec(__nothrow) void _membitmovehb(void *  , const void *  , int  , int  , size_t  ) __attribute__((__nonnull__(1,2)));
-extern __declspec(__nothrow) void _membitmovewl(void *  , const void *  , int  , int  , size_t  ) __attribute__((__nonnull__(1,2)));
-extern __declspec(__nothrow) void _membitmovewb(void *  , const void *  , int  , int  , size_t  ) __attribute__((__nonnull__(1,2)));
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-#line 493 "C:\\Keil\\ARM\\RV31\\INC\\string.h"
-
-
-
- 
-#line 26 "Smart-lock-with-nu-lb-nuc140.c"
 #line 1 "C:\\Keil\\ARM\\RV31\\INC\\stdio.h"
  
  
@@ -2222,7 +851,7 @@ extern __declspec(__nothrow) void __use_no_semihosting(void);
 
 
  
-#line 27 "Smart-lock-with-nu-lb-nuc140.c"
+#line 7 "..\\..\\..\\Src\\Driver\\DrvUART.c"
 #line 1 "..\\..\\..\\..\\CMSIS\\CM0\\DeviceSupport\\Nuvoton\\NUC1xx\\NUC1xx.h"
  
  
@@ -10205,391 +8834,11 @@ typedef volatile unsigned short vu16;
 
 
                                                                                                  
-#line 28 "Smart-lock-with-nu-lb-nuc140.c"
-#line 1 "..\\..\\..\\Include\\Driver\\DrvGPIO.h"
- 
- 
- 
- 
- 
-
-
-
-#line 10 "..\\..\\..\\Include\\Driver\\DrvGPIO.h"
+#line 8 "..\\..\\..\\Src\\Driver\\DrvUART.c"
 
  
  
  
-
-
-
-
- 
- 
- 
-
-							   
- 
- 
- 
-
-
-
-
-typedef void (*GPIO_GPAB_CALLBACK)(uint32_t u32GPAStatus, uint32_t u32GPBStatus);
-typedef void (*GPIO_GPCDE_CALLBACK)(uint32_t u32GPCStatus, uint32_t u32GPDStatus, uint32_t u32GPEStatus);
-typedef void (*GPIO_EINT0_CALLBACK)(void);
-typedef void (*GPIO_EINT1_CALLBACK)(void);
-
- 
-#line 117 "..\\..\\..\\Include\\Driver\\DrvGPIO.h"
-
-typedef enum 
-{
-	E_GPA = 0,
-	E_GPB = 1, 
-	E_GPC = 2, 
-	E_GPD = 3, 
-	E_GPE = 4
-} E_DRVGPIO_PORT;
-
-typedef enum 
-{
-    E_IO_INPUT = 0,
-    E_IO_OUTPUT,
-    E_IO_OPENDRAIN,
-    E_IO_QUASI
-} E_DRVGPIO_IO;
-
-typedef enum 
-{
-    E_IO_RISING = 0,
-    E_IO_FALLING,
-    E_IO_BOTH_EDGE
-} E_DRVGPIO_INT_TYPE;
-
-typedef enum
-{
-    E_MODE_EDGE = 0,
-    E_MODE_LEVEL
-} E_DRVGPIO_INT_MODE;
-
-typedef enum
-{
-    E_DBCLKSRC_HCLK = 0, 
-    E_DBCLKSRC_10K = 1
-} E_DRVGPIO_DBCLKSRC;	   
-
-typedef enum
-{
-	  E_FUNC_GPIO,    E_FUNC_CLKO,    E_FUNC_I2C0,    E_FUNC_I2C1,    E_FUNC_I2S,     E_FUNC_CAN0,	
-    E_FUNC_ACMP0,   E_FUNC_ACMP1,   
-    E_FUNC_SPI0,    E_FUNC_SPI0_SS1,    E_FUNC_SPI0_2BIT_MODE,
-    E_FUNC_SPI1,    E_FUNC_SPI1_SS1,    E_FUNC_SPI1_2BIT_MODE,
-    E_FUNC_SPI2,    E_FUNC_SPI2_SS1,    E_FUNC_SPI2_2BIT_MODE,
-    E_FUNC_SPI3,    E_FUNC_SPI3_SS1,    E_FUNC_SPI3_2BIT_MODE,      
-    E_FUNC_SPI0_QFN36PIN,   E_FUNC_SPI0_SS1_QFN36PIN,   E_FUNC_SPI0_2BIT_MODE_QFN36PIN,
-    E_FUNC_ADC0,    E_FUNC_ADC1,    E_FUNC_ADC2,    E_FUNC_ADC3,    E_FUNC_ADC4,    E_FUNC_ADC5,
-    E_FUNC_ADC6,    E_FUNC_ADC7,    E_FUNC_EXTINT0, E_FUNC_EXTINT1, E_FUNC_TMR0,    E_FUNC_TMR1,      
-    E_FUNC_TMR2,    E_FUNC_TMR3,    E_FUNC_T0EX,    E_FUNC_T1EX,    E_FUNC_T2EX,    E_FUNC_T3EX,
-    E_FUNC_UART0,   E_FUNC_UART0_RX_TX, E_FUNC_UART0_RTS_CTS,
-    E_FUNC_UART1,   E_FUNC_UART1_RX_TX, E_FUNC_UART1_RTS_CTS,       E_FUNC_UART2,
-    E_FUNC_PWM01,   E_FUNC_PWM23,   E_FUNC_PWM45,   E_FUNC_PWM67,   E_FUNC_PWM0,    E_FUNC_PWM1,
-    E_FUNC_PWM2,    E_FUNC_PWM3,    E_FUNC_PWM4,    E_FUNC_PWM5,    E_FUNC_PWM6,    E_FUNC_PWM7,    
-    E_FUNC_EBI_8B,  E_FUNC_EBI_16B,          
-} E_DRVGPIO_FUNC;
-			  
- 
- 
- 
-int32_t DrvGPIO_Open(E_DRVGPIO_PORT port, int32_t i32Bit, E_DRVGPIO_IO mode);
-int32_t DrvGPIO_Close(E_DRVGPIO_PORT port, int32_t i32Bit);
-int32_t DrvGPIO_SetBit(E_DRVGPIO_PORT port, int32_t i32Bit);
-int32_t DrvGPIO_GetBit(E_DRVGPIO_PORT port, int32_t i32Bit);
-int32_t DrvGPIO_ClrBit(E_DRVGPIO_PORT port, int32_t i32Bit);
-int32_t DrvGPIO_SetPortBits(E_DRVGPIO_PORT port, int32_t i32Data);
-int32_t DrvGPIO_GetPortBits(E_DRVGPIO_PORT port);
-int32_t DrvGPIO_GetDoutBit(E_DRVGPIO_PORT port, int32_t i32Bit);
-int32_t DrvGPIO_GetPortDoutBits(E_DRVGPIO_PORT port);
-int32_t DrvGPIO_SetBitMask(E_DRVGPIO_PORT port, int32_t i32Bit);
-int32_t DrvGPIO_GetBitMask(E_DRVGPIO_PORT port, int32_t i32Bit);
-int32_t DrvGPIO_ClrBitMask(E_DRVGPIO_PORT port, int32_t i32Bit);
-int32_t DrvGPIO_SetPortMask(E_DRVGPIO_PORT port, int32_t i32MaskData);
-int32_t DrvGPIO_GetPortMask(E_DRVGPIO_PORT port);
-int32_t DrvGPIO_ClrPortMask(E_DRVGPIO_PORT port, int32_t i32MaskData);
-int32_t DrvGPIO_EnableDigitalInputBit(E_DRVGPIO_PORT port, int32_t i32Bit);
-int32_t DrvGPIO_DisableDigitalInputBit(E_DRVGPIO_PORT port, int32_t i32Bit);
-int32_t DrvGPIO_EnableDebounce(E_DRVGPIO_PORT port, int32_t i32Bit);
-int32_t DrvGPIO_DisableDebounce(E_DRVGPIO_PORT port, int32_t i32Bit);
-int32_t DrvGPIO_SetDebounceTime(uint32_t u32CycleSelection, E_DRVGPIO_DBCLKSRC ClockSource);
-int32_t DrvGPIO_GetDebounceSampleCycle(void);
-int32_t DrvGPIO_EnableInt(E_DRVGPIO_PORT port, int32_t i32Bit, E_DRVGPIO_INT_TYPE TriggerType, E_DRVGPIO_INT_MODE Mode);
-int32_t DrvGPIO_DisableInt(E_DRVGPIO_PORT port, int32_t i32Bit);
-void DrvGPIO_SetIntCallback(GPIO_GPAB_CALLBACK pfGPABCallback, GPIO_GPCDE_CALLBACK pfGPCDECallback);
-void DrvGPIO_EnableEINT0(E_DRVGPIO_INT_TYPE TriggerType, E_DRVGPIO_INT_MODE Mode, GPIO_EINT0_CALLBACK pfEINT0Callback);
-void DrvGPIO_DisableEINT0(void);
-void DrvGPIO_EnableEINT1(E_DRVGPIO_INT_TYPE TriggerType, E_DRVGPIO_INT_MODE Mode, GPIO_EINT1_CALLBACK pfEINT1Callback);
-void DrvGPIO_DisableEINT1(void);
-int32_t DrvGPIO_GetIntStatus(E_DRVGPIO_PORT port);
-int32_t DrvGPIO_InitFunction(E_DRVGPIO_FUNC function);
-int32_t DrvGPIO_GetVersion(void);
-
-
-
-
-
-
-
-
-
-
-#line 29 "Smart-lock-with-nu-lb-nuc140.c"
-#line 1 "..\\..\\..\\Include\\Driver\\DrvSYS.h"
- 
- 
- 
- 
- 
-
-
-
-#line 10 "..\\..\\..\\Include\\Driver\\DrvSYS.h"
-
-
- 
- 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 35 "..\\..\\..\\Include\\Driver\\DrvSYS.h"
-
- 
- 
- 
-typedef enum 
-{
-    E_SYS_EXTERNAL_12M = 0,
-    E_SYS_INTERNAL_22M = 1, 
-}E_SYS_PLL_CLKSRC;
-
-
- 
- 
- 
-typedef enum 
-{
-    E_SYS_GPIO_RST  = 1,
-    E_SYS_TMR0_RST  = 2,
-    E_SYS_TMR1_RST  = 3,
-    E_SYS_TMR2_RST  = 4,
-    E_SYS_TMR3_RST  = 5,
-    E_SYS_I2C0_RST  = 8,
-    E_SYS_I2C1_RST  = 9,
-    E_SYS_SPI0_RST  = 12,
-    E_SYS_SPI1_RST  = 13,
-    E_SYS_SPI2_RST  = 14,
-    E_SYS_SPI3_RST  = 15,
-    E_SYS_UART0_RST = 16,
-    E_SYS_UART1_RST = 17,
-    E_SYS_UART2_RST = 18,
-    E_SYS_PWM03_RST = 20,
-    E_SYS_PWM47_RST = 21,
-    E_SYS_ACMP_RST  = 22,
-    E_SYS_PS2_RST   = 23,
-    E_SYS_CAN0_RST  = 24,
-    E_SYS_USBD_RST  = 27,
-    E_SYS_ADC_RST   = 28,
-    E_SYS_I2S_RST   = 29,
-    E_SYS_PDMA_RST  = 32,
-    E_SYS_EBI_RST   = 33
-}E_SYS_IP_RST;
-
- 
- 
- 
-
-typedef enum 
-{
-    E_SYS_WDT_CLK   = 0,
-    E_SYS_RTC_CLK   = 1,
-    E_SYS_TMR0_CLK  = 2,
-    E_SYS_TMR1_CLK  = 3,
-    E_SYS_TMR2_CLK  = 4,
-    E_SYS_TMR3_CLK  = 5,
-    E_SYS_FDIV_CLK  = 6,
-    E_SYS_I2C0_CLK  = 8,
-    E_SYS_I2C1_CLK  = 9,
-    E_SYS_SPI0_CLK  = 12,
-    E_SYS_SPI1_CLK  = 13,
-    E_SYS_SPI2_CLK  = 14,
-    E_SYS_SPI3_CLK  = 15,
-    E_SYS_UART0_CLK = 16,
-    E_SYS_UART1_CLK = 17,
-    E_SYS_UART2_CLK = 18,
-    E_SYS_PWM01_CLK = 20,
-    E_SYS_PWM23_CLK = 21,
-    E_SYS_PWM45_CLK = 22,
-    E_SYS_PWM67_CLK = 23,
-    E_SYS_CAN0_CLK  = 24,
-    E_SYS_USBD_CLK  = 27,
-    E_SYS_ADC_CLK   = 28,
-    E_SYS_I2S_CLK   = 29,
-    E_SYS_ACMP_CLK  = 30,
-    E_SYS_PS2_CLK   = 31,
-    E_SYS_PDMA_CLK  = 33,
-    E_SYS_ISP_CLK   = 34,
-    E_SYS_EBI_CLK   = 35
-}E_SYS_IP_CLK;
-
-
- 
- 
- 
-typedef enum 
-{
-    E_SYS_ADC_DIV,
-    E_SYS_UART_DIV,
-    E_SYS_USB_DIV,
-    E_SYS_HCLK_DIV
-
-}E_SYS_IP_DIV;
-
-
- 
- 
- 
-typedef enum 
-{
-    E_SYS_WDT_CLKSRC,
-    E_SYS_ADC_CLKSRC,
-    E_SYS_TMR0_CLKSRC,
-    E_SYS_TMR1_CLKSRC,
-    E_SYS_TMR2_CLKSRC,
-    E_SYS_TMR3_CLKSRC,
-    E_SYS_UART_CLKSRC,
-    E_SYS_PWM01_CLKSRC,
-    E_SYS_PWM23_CLKSRC,
-    E_SYS_I2S_CLKSRC,
-    E_SYS_FRQDIV_CLKSRC,
-    E_SYS_PWM45_CLKSRC,
-    E_SYS_PWM67_CLKSRC
-
-}E_SYS_IP_CLKSRC;
-
-
- 
- 
- 
-typedef enum 
-{
-    E_SYS_XTL12M,
-    E_SYS_XTL32K,
-    E_SYS_OSC22M,
-    E_SYS_OSC10K,
-    E_SYS_PLL,
-}E_SYS_CHIP_CLKSRC;
-
-
- 
- 
- 
-typedef enum 
-{
-    E_SYS_IMMEDIATE, 
-    E_SYS_WAIT_FOR_CPU
-}E_SYS_PD_TYPE;
-
-
-typedef void (*BOD_CALLBACK)(void);
-typedef void (*PWRWU_CALLBACK)(void);
-
- 
- 
- 
-void     DrvSYS_ClearClockSwitchStatus(void);
-uint32_t DrvSYS_ClearResetSource(uint32_t u32Src);
-
-void     DrvSYS_Delay(uint32_t us);
-void     DrvSYS_DisableBODLowPowerMode(void);
-void     DrvSYS_DisableHighPerformanceMode(void);
-void     DrvSYS_DisableLowVoltReset(void);
-void     DrvSYS_DisablePOR(void);
-void     DrvSYS_DisableTemperatureSensor(void);
-
-void     DrvSYS_EnableBODLowPowerMode(void);
-void     DrvSYS_EnableHighPerformanceMode(void);
-void     DrvSYS_EnableLowVoltReset(void);
-void     DrvSYS_EnablePOR(void);
-void     DrvSYS_EnableTemperatureSensor(void);
-void     DrvSYS_EnterPowerDown(E_SYS_PD_TYPE ePDType);
-
-uint32_t DrvSYS_GetBODState(void);
-int32_t  DrvSYS_GetChipClockSourceStatus(E_SYS_CHIP_CLKSRC eClkSrc);
-uint32_t DrvSYS_GetClockSwitchStatus(void);
-uint32_t DrvSYS_GetExtClockFreq(void);
-uint32_t DrvSYS_GetHCLKFreq(void);
-uint32_t DrvSYS_GetPLLClockFreq(void);
-uint32_t DrvSYS_GetPLLContent(E_SYS_PLL_CLKSRC ePllSrc, uint32_t u32PllClk);
-uint32_t DrvSYS_GetResetSource(void);
-uint32_t DrvSYS_GetVersion(void);
-
-int32_t  DrvSYS_IsProtectedRegLocked(void);
-
-int32_t  DrvSYS_LockProtectedReg(void);
-
-int32_t  DrvSYS_Open(uint32_t u32Hclk);
-
-uint32_t DrvSYS_ReadProductID(void);
-void     DrvSYS_ResetChip(void);
-void     DrvSYS_ResetCPU(void);
-void     DrvSYS_ResetIP(E_SYS_IP_RST eIpRst);
-
-void     DrvSYS_SelectBODVolt(uint8_t u8Volt);
-int32_t  DrvSYS_SelectHCLKSource(uint8_t u8ClkSrcSel);
-int32_t  DrvSYS_SelectIPClockSource(E_SYS_IP_CLKSRC eIpClkSrc, uint8_t u8ClkSrcSel);
-void     DrvSYS_SelectPLLSource(E_SYS_PLL_CLKSRC ePllSrc);
-int32_t  DrvSYS_SelectSysTickSource(uint8_t u8ClkSrcSel);
-void     DrvSYS_SetBODFunction(int32_t i32Enable, int32_t i32Mode, BOD_CALLBACK bodcallbackFn);
-int32_t  DrvSYS_SetClockDivider(E_SYS_IP_DIV eIpDiv , int32_t i32value);
-int32_t  DrvSYS_SetFreqDividerOutput(int32_t i32Flag, uint8_t u8Divider);
-void     DrvSYS_SetIPClock(E_SYS_IP_CLK eIpClk, int32_t i32Enable);
-int32_t  DrvSYS_SetOscCtrl(E_SYS_CHIP_CLKSRC eClkSrc, int32_t i32Enable);
-void     DrvSYS_SetPLLContent(uint32_t u32PllContent);
-void     DrvSYS_SetPLLMode(int32_t i32Flag);
-void     DrvSYS_SetPowerDownWakeUpInt(int32_t i32Enable, PWRWU_CALLBACK pdwucallbackFn, int32_t i32enWUDelay);
-
-int32_t  DrvSYS_UnlockProtectedReg(void);
-
-
-
-#line 30 "Smart-lock-with-nu-lb-nuc140.c"
-#line 1 "..\\..\\..\\Include\\NUC1xx-LB_002\\LCD_Driver.h"
-
-
-     
-extern void SysTimerDelay(uint32_t us);
-extern void Initial_panel(void);
-extern void Disable_Buzzer(void);
-
-extern void Show_Word(unsigned char x, unsigned char y,unsigned char ascii_word);
-
-extern void print_lcd(unsigned char line, char *str);
-
-extern void clr_all_panel(void);
-
-extern void draw_LCD(unsigned char *buffer);
-#line 31 "Smart-lock-with-nu-lb-nuc140.c"
 #line 1 "..\\..\\..\\Include\\Driver\\DrvUART.h"
  
  
@@ -10854,10 +9103,8 @@ void DrvUART_SetFnRS485(E_UART_PORT u32Port,STR_RS485_T *str_RS485);
 
 
 
-#line 32 "Smart-lock-with-nu-lb-nuc140.c"
-#line 33 "Smart-lock-with-nu-lb-nuc140.c"
-#line 34 "Smart-lock-with-nu-lb-nuc140.c"
-#line 1 "..\\..\\..\\Include\\NUC1xx-LB_002\\scankey.h"
+#line 13 "..\\..\\..\\Src\\Driver\\DrvUART.c"
+#line 1 "..\\..\\..\\Include\\Driver\\DrvSYS.h"
  
  
  
@@ -10866,333 +9113,1086 @@ void DrvUART_SetFnRS485(E_UART_PORT u32Port,STR_RS485_T *str_RS485);
 
 
 
-void OpenKeyPad(void);
-void CloseKeyPad(void);
-uint8_t Scankey(void);
+#line 10 "..\\..\\..\\Include\\Driver\\DrvSYS.h"
 
 
-
-#line 35 "Smart-lock-with-nu-lb-nuc140.c"
-
-
-
+ 
+ 
+ 
 
 
 
 
 
-#line 51 "Smart-lock-with-nu-lb-nuc140.c"
-
-unsigned char DisplayBuf [128*8];
-char TEXT[16];
-volatile uint8_t comRbuf[9];
-volatile uint8_t comRbytes = 0;
-
-
-volatile uint32_t SR04A_Echo_Width = 0;
-volatile uint32_t SR04A_Echo_Flag  = 0;
-
-char	TEXT2[17] = "        ";
-char	TEXT3[17] = "P.Time: ";
-char 	otp[4 + 1];
-char 	inputOTP[4 + 1];
-
-uint32_t time_s =0;
-uint32_t distance_mm;
 
 
 
-void InitTIMER0(void)
+
+
+
+
+
+#line 35 "..\\..\\..\\Include\\Driver\\DrvSYS.h"
+
+ 
+ 
+ 
+typedef enum 
 {
-	           
-	((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->CLKSEL1.TMR0_S = 0;	
-  	((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->APBCLK.TMR0_EN = 1;	
-
-	 	
-	((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.MODE=1;		
-
-	 
-	((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.PRESCALE=255;	
-	((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCMPR = 46875;		
-								
-
-	 
-	((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.IE = 1;
-	((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TISR.TIF = 1;		
-	NVIC_EnableIRQ(TMR0_IRQn);	
-
-	 
-	((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CRST = 1;		
-	
+    E_SYS_EXTERNAL_12M = 0,
+    E_SYS_INTERNAL_22M = 1, 
+}E_SYS_PLL_CLKSRC;
 
 
-}
-
-void TMR0_IRQHandler(void) 
+ 
+ 
+ 
+typedef enum 
 {
-	time_s += 1;
-	
-	
+    E_SYS_GPIO_RST  = 1,
+    E_SYS_TMR0_RST  = 2,
+    E_SYS_TMR1_RST  = 3,
+    E_SYS_TMR2_RST  = 4,
+    E_SYS_TMR3_RST  = 5,
+    E_SYS_I2C0_RST  = 8,
+    E_SYS_I2C1_RST  = 9,
+    E_SYS_SPI0_RST  = 12,
+    E_SYS_SPI1_RST  = 13,
+    E_SYS_SPI2_RST  = 14,
+    E_SYS_SPI3_RST  = 15,
+    E_SYS_UART0_RST = 16,
+    E_SYS_UART1_RST = 17,
+    E_SYS_UART2_RST = 18,
+    E_SYS_PWM03_RST = 20,
+    E_SYS_PWM47_RST = 21,
+    E_SYS_ACMP_RST  = 22,
+    E_SYS_PS2_RST   = 23,
+    E_SYS_CAN0_RST  = 24,
+    E_SYS_USBD_RST  = 27,
+    E_SYS_ADC_RST   = 28,
+    E_SYS_I2S_RST   = 29,
+    E_SYS_PDMA_RST  = 32,
+    E_SYS_EBI_RST   = 33
+}E_SYS_IP_RST;
 
-	
-	
-	
-	
-	
+ 
+ 
+ 
 
- 	((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TISR.TIF =1;	   
-}
-
-
-void Init_TMR2(void)
-{	
-	
-	((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->GPBMFP.UART0_nRTS_nWRL = 1;	
-	((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->ALTMFP.PB2_T2EX = 1;
-	
-  	
-	((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->IPRSTC2.TMR2_RST = 1;          
-	((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->IPRSTC2.TMR2_RST = 0;          
-	((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->CLKSEL1.TMR2_S = 0;	        
-	((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->APBCLK.TMR2_EN = 1;         
-
-	
-	
-	((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->TCMPR = 0xffffff;           
-	((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->TCSR.PRESCALE = 11;         
-	((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->TCSR.MODE = 0;        
-
-	
-	((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->TEXCON.TEXEN = 1;	          
-	((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->TEXCON.RSTCAPSEL = 0;	      
-	((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->TEXCON.TEX_EDGE = 2;	      
-
-	
-
-
-	((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->TEXCON.TEXIEN = 1;		      
-	((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->u32TEXISR |= 0x01;		      
-	NVIC_EnableIRQ(TMR2_IRQn);		      
-
-	
-
-
-}
-
-
-void TMR2_IRQHandler(void)
+typedef enum 
 {
-	((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->TEXCON.RSTCAPSEL = 0;       
-	((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->TCSR.CEN = 1;					      
+    E_SYS_WDT_CLK   = 0,
+    E_SYS_RTC_CLK   = 1,
+    E_SYS_TMR0_CLK  = 2,
+    E_SYS_TMR1_CLK  = 3,
+    E_SYS_TMR2_CLK  = 4,
+    E_SYS_TMR3_CLK  = 5,
+    E_SYS_FDIV_CLK  = 6,
+    E_SYS_I2C0_CLK  = 8,
+    E_SYS_I2C1_CLK  = 9,
+    E_SYS_SPI0_CLK  = 12,
+    E_SYS_SPI1_CLK  = 13,
+    E_SYS_SPI2_CLK  = 14,
+    E_SYS_SPI3_CLK  = 15,
+    E_SYS_UART0_CLK = 16,
+    E_SYS_UART1_CLK = 17,
+    E_SYS_UART2_CLK = 18,
+    E_SYS_PWM01_CLK = 20,
+    E_SYS_PWM23_CLK = 21,
+    E_SYS_PWM45_CLK = 22,
+    E_SYS_PWM67_CLK = 23,
+    E_SYS_CAN0_CLK  = 24,
+    E_SYS_USBD_CLK  = 27,
+    E_SYS_ADC_CLK   = 28,
+    E_SYS_I2S_CLK   = 29,
+    E_SYS_ACMP_CLK  = 30,
+    E_SYS_PS2_CLK   = 31,
+    E_SYS_PDMA_CLK  = 33,
+    E_SYS_ISP_CLK   = 34,
+    E_SYS_EBI_CLK   = 35
+}E_SYS_IP_CLK;
 
-	if(((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->TEXISR.TEXIF == 1)	      
+
+ 
+ 
+ 
+typedef enum 
+{
+    E_SYS_ADC_DIV,
+    E_SYS_UART_DIV,
+    E_SYS_USB_DIV,
+    E_SYS_HCLK_DIV
+
+}E_SYS_IP_DIV;
+
+
+ 
+ 
+ 
+typedef enum 
+{
+    E_SYS_WDT_CLKSRC,
+    E_SYS_ADC_CLKSRC,
+    E_SYS_TMR0_CLKSRC,
+    E_SYS_TMR1_CLKSRC,
+    E_SYS_TMR2_CLKSRC,
+    E_SYS_TMR3_CLKSRC,
+    E_SYS_UART_CLKSRC,
+    E_SYS_PWM01_CLKSRC,
+    E_SYS_PWM23_CLKSRC,
+    E_SYS_I2S_CLKSRC,
+    E_SYS_FRQDIV_CLKSRC,
+    E_SYS_PWM45_CLKSRC,
+    E_SYS_PWM67_CLKSRC
+
+}E_SYS_IP_CLKSRC;
+
+
+ 
+ 
+ 
+typedef enum 
+{
+    E_SYS_XTL12M,
+    E_SYS_XTL32K,
+    E_SYS_OSC22M,
+    E_SYS_OSC10K,
+    E_SYS_PLL,
+}E_SYS_CHIP_CLKSRC;
+
+
+ 
+ 
+ 
+typedef enum 
+{
+    E_SYS_IMMEDIATE, 
+    E_SYS_WAIT_FOR_CPU
+}E_SYS_PD_TYPE;
+
+
+typedef void (*BOD_CALLBACK)(void);
+typedef void (*PWRWU_CALLBACK)(void);
+
+ 
+ 
+ 
+void     DrvSYS_ClearClockSwitchStatus(void);
+uint32_t DrvSYS_ClearResetSource(uint32_t u32Src);
+
+void     DrvSYS_Delay(uint32_t us);
+void     DrvSYS_DisableBODLowPowerMode(void);
+void     DrvSYS_DisableHighPerformanceMode(void);
+void     DrvSYS_DisableLowVoltReset(void);
+void     DrvSYS_DisablePOR(void);
+void     DrvSYS_DisableTemperatureSensor(void);
+
+void     DrvSYS_EnableBODLowPowerMode(void);
+void     DrvSYS_EnableHighPerformanceMode(void);
+void     DrvSYS_EnableLowVoltReset(void);
+void     DrvSYS_EnablePOR(void);
+void     DrvSYS_EnableTemperatureSensor(void);
+void     DrvSYS_EnterPowerDown(E_SYS_PD_TYPE ePDType);
+
+uint32_t DrvSYS_GetBODState(void);
+int32_t  DrvSYS_GetChipClockSourceStatus(E_SYS_CHIP_CLKSRC eClkSrc);
+uint32_t DrvSYS_GetClockSwitchStatus(void);
+uint32_t DrvSYS_GetExtClockFreq(void);
+uint32_t DrvSYS_GetHCLKFreq(void);
+uint32_t DrvSYS_GetPLLClockFreq(void);
+uint32_t DrvSYS_GetPLLContent(E_SYS_PLL_CLKSRC ePllSrc, uint32_t u32PllClk);
+uint32_t DrvSYS_GetResetSource(void);
+uint32_t DrvSYS_GetVersion(void);
+
+int32_t  DrvSYS_IsProtectedRegLocked(void);
+
+int32_t  DrvSYS_LockProtectedReg(void);
+
+int32_t  DrvSYS_Open(uint32_t u32Hclk);
+
+uint32_t DrvSYS_ReadProductID(void);
+void     DrvSYS_ResetChip(void);
+void     DrvSYS_ResetCPU(void);
+void     DrvSYS_ResetIP(E_SYS_IP_RST eIpRst);
+
+void     DrvSYS_SelectBODVolt(uint8_t u8Volt);
+int32_t  DrvSYS_SelectHCLKSource(uint8_t u8ClkSrcSel);
+int32_t  DrvSYS_SelectIPClockSource(E_SYS_IP_CLKSRC eIpClkSrc, uint8_t u8ClkSrcSel);
+void     DrvSYS_SelectPLLSource(E_SYS_PLL_CLKSRC ePllSrc);
+int32_t  DrvSYS_SelectSysTickSource(uint8_t u8ClkSrcSel);
+void     DrvSYS_SetBODFunction(int32_t i32Enable, int32_t i32Mode, BOD_CALLBACK bodcallbackFn);
+int32_t  DrvSYS_SetClockDivider(E_SYS_IP_DIV eIpDiv , int32_t i32value);
+int32_t  DrvSYS_SetFreqDividerOutput(int32_t i32Flag, uint8_t u8Divider);
+void     DrvSYS_SetIPClock(E_SYS_IP_CLK eIpClk, int32_t i32Enable);
+int32_t  DrvSYS_SetOscCtrl(E_SYS_CHIP_CLKSRC eClkSrc, int32_t i32Enable);
+void     DrvSYS_SetPLLContent(uint32_t u32PllContent);
+void     DrvSYS_SetPLLMode(int32_t i32Flag);
+void     DrvSYS_SetPowerDownWakeUpInt(int32_t i32Enable, PWRWU_CALLBACK pdwucallbackFn, int32_t i32enWUDelay);
+
+int32_t  DrvSYS_UnlockProtectedReg(void);
+
+
+
+#line 14 "..\\..\\..\\Src\\Driver\\DrvUART.c"
+
+
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+static PFN_DRVUART_CALLBACK *g_pfnUART0callback = 0;
+static PFN_DRVUART_CALLBACK *g_pfnUART1callback = 0;
+static PFN_DRVUART_CALLBACK *g_pfnUART2callback = 0;
+
+
+
+ 
+ 
+ 
+void UART02_IRQHandler(void)
+{
+    uint32_t u32uart0IntStatus,u32uart2IntStatus;
+
+    u32uart0IntStatus = (*((volatile unsigned int *)(&((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->ISR))) ;
+	
+	u32uart2IntStatus = (*((volatile unsigned int *)(&((UART_T *) ((( uint32_t)0x40100000) + 0x54000))->ISR))) ;
+	
+    if(g_pfnUART0callback != 0)
 	{
-	 	((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->u32TEXISR |= 0x01;				
-		SR04A_Echo_Width = ((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->TCAP;	
-		SR04A_Echo_Flag  = 1;
-	}
-}
-
-
-void SR04_Trigger(void)
-{
-	
-	((*((volatile uint32_t *) (((((( uint32_t)0x50000000) + 0x4000) + 0x200)+(0x40*1)) + (0x4*4))))=1);
-	DrvSYS_Delay(10);							
-	((*((volatile uint32_t *) (((((( uint32_t)0x50000000) + 0x4000) + 0x200)+(0x40*1)) + (0x4*4))))=0);
-	
-	DrvGPIO_Open(E_GPB, 11, E_IO_OUTPUT); 
-
-  	((TIMER_T *) ((( uint32_t)0x40100000) + 0x10000))->TEXCON.RSTCAPSEL = 1; 
-}
-
-
-
-int DistMeasure(void)
-{
-	SR04_Trigger();                 
-	DrvSYS_Delay(40000);            
-	
-	if(SR04A_Echo_Flag==1)
-	{
-		SR04A_Echo_Flag = 0;			
-		distance_mm = SR04A_Echo_Width * (340/2) / 1000;
-		sprintf(TEXT2+6, " %d mm  ", distance_mm);	
-		print_lcd(2, TEXT2);	        
- 	}   
-	DrvSYS_Delay(10000);           
-	return distance_mm; 
-}
-
-
-void Init_GPIO_SR04(void)
-{
-	
-	((GPIO_T *) (((( uint32_t)0x50000000) + 0x4000) + 0x0040))->PMD.PMD2 = 0;							
-	((GPIO_T *) (((( uint32_t)0x50000000) + 0x4000) + 0x0040))->PMD.PMD4 = 1;              
-  	((*((volatile uint32_t *) (((((( uint32_t)0x50000000) + 0x4000) + 0x200)+(0x40*1)) + (0x4*4))))=0);                  
-}
-
-void UART_INT_HANDLE(void)
-{
-	uint8_t TxString[9] = "igotchu\r\n";
-
-	while(((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->ISR.RDA_IF==1) 
-	{
-		comRbuf[comRbytes]=((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->DATA;
-		comRbytes++;
-		
-		
-		if (comRbytes==3) {
-			DrvUART_Write(UART_PORT0 , TxString , 9);
-			sprintf(TEXT,"cmd: %s",comRbuf);
-			print_lcd(0,TEXT);
-
-			if (comRbuf[0] == 'p' && comRbuf[1] == 'r' && comRbuf[2] == 'n')	
-			{
-				print_lcd(1,"Chai            ");
-				print_lcd(2,"Itay            ");
-				print_lcd(3,"Kirill          ");	
-			}
-			if (comRbuf[0] == 'l' && comRbuf[1] == 'e' && comRbuf[2] == 'd')	
-			{
-				DrvGPIO_ClrBit(E_GPC, 15); 		
-				DrvGPIO_ClrBit(E_GPC, 14); 		
-				DrvGPIO_ClrBit(E_GPC, 13); 		
-				DrvGPIO_ClrBit(E_GPC, 12); 
-			}
-			if (comRbuf[0] == 'r' && comRbuf[1] == 'g' && comRbuf[2] == 'b')	
-			{
-				DrvGPIO_ClrBit(E_GPA, 12); 						
-				DrvGPIO_ClrBit(E_GPA, 13); 						
-				DrvGPIO_ClrBit(E_GPA, 14);	
-			}
-			if (comRbuf[0] == 's' && comRbuf[1] == 'm' && comRbuf[2] == 'l')	
-			{
-				print_lcd(1,"       :)       ");
-				print_lcd(2,"     Smile      ");
-				print_lcd(3,"                ");
-			}
-			if (comRbuf[0] == 'c' && comRbuf[1] == 'l' && comRbuf[2] == 'r')	
-			{
-				clr_all_panel();
-				DrvGPIO_SetBit(E_GPA, 12); 						
-				DrvGPIO_SetBit(E_GPA, 13); 						
-				DrvGPIO_SetBit(E_GPA, 14);
-				DrvGPIO_SetBit(E_GPC, 12); 
-				DrvGPIO_SetBit(E_GPC, 13); 
-				DrvGPIO_SetBit(E_GPC, 14);
-				DrvGPIO_SetBit(E_GPC, 15);
-			}				
-			comRbytes=0;
-		}
-	}
-}
-
-
-void generateOTP()
-{
-	
-	int i;
-	srand(DistMeasure());
-
-    for (i = 0; i < 4; i++) {
-        otp[i] = '1' + (rand() % 9);   
+        g_pfnUART0callback(u32uart0IntStatus);
     }
-    otp[4] = '\0';  
+	if(g_pfnUART2callback != 0)
+    {
+        g_pfnUART2callback(u32uart2IntStatus);
+    }
 }
 
 
-void sendOTP()
+void UART1_IRQHandler(void)
 {
-	
-	comRbuf[comRbytes]=((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->DATA;
-	comRbytes++;
-	DrvUART_Write(UART_PORT0 , otp , 4);
-	comRbytes=0;
+    uint32_t u32IntStatus;
+
+	u32IntStatus = (*((volatile unsigned int *)(&((UART_T *) ((( uint32_t)0x40100000) + 0x50000))->ISR))) ;
+
+    if(g_pfnUART1callback != 0)
+    {
+       g_pfnUART1callback(u32IntStatus);
+    }
+
 }
 
 
+ 
+ 
+ 
+ 
+ 	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
 
 
 
-int main (void)
-{	
-	STR_UART_T sParam;
-	int flag;
-	int i,attemps,tmp;
-	
-	
-	*((volatile uint32_t *)(((( uint32_t)0x50000000) + 0x00000) + 0x100)) = 0x59;*((volatile uint32_t *)(((( uint32_t)0x50000000) + 0x00000) + 0x100)) = 0x16;*((volatile uint32_t *)(((( uint32_t)0x50000000) + 0x00000) + 0x100)) = 0x88;
-	DrvSYS_SetOscCtrl(E_SYS_XTL12M, 1);
-	while(DrvSYS_GetChipClockSourceStatus(E_SYS_XTL12M) == 0);
-	DrvSYS_Open(50000000);
-	*((volatile uint32_t *)(((( uint32_t)0x50000000) + 0x00000) + 0x100)) = 0x00;;
 
-	DrvGPIO_InitFunction(E_FUNC_UART0);	
 
-		 
-    sParam.u32BaudRate 		  = 9600;
-    sParam.u8cDataBits 		  = DRVUART_DATABITS_8;
-    sParam.u8cStopBits 		  = DRVUART_STOPBITS_1;
-    sParam.u8cParity 		    = DRVUART_PARITY_NONE;
-    sParam.u8cRxTriggerLevel= DRVUART_FIFO_1BYTES;
 
-	 
- 	if(DrvUART_Open(UART_PORT0,&sParam) != 0);
-	DrvUART_EnableInt(UART_PORT0, DRVUART_RDAINT, UART_INT_HANDLE);
-	
-	Initial_panel();                  
-	clr_all_panel();                  
-	print_lcd(0, "  Gate Control  "); 
-	sprintf(TEXT3+8, "IDLE   ");
-	                          
-	InitTIMER0();
-	Init_TMR2();
-	Init_GPIO_SR04();
-	
 
-	while(1) {
-		DistMeasure();
-		if(distance_mm <= 100)
+
+
+ 
+
+
+static void BaudRateCalculator(uint32_t clk, uint32_t baudRate, E_UART_PORT u32Port)
+{
+  	int32_t tmp;
+	int32_t div;
+  
+  	UART_T * tUART;
+	tUART = (UART_T *)((uint32_t)((UART_T *) ((( uint32_t)0x40000000) + 0x50000)) + u32Port);  
+
+	if(((clk / baudRate)%16)<3)	        
+	{								  
+		tUART->BAUD.DIV_X_EN = 0;
+	    tUART->BAUD.DIV_X_ONE   = 0;
+		tmp = clk / baudRate/16  -2;
+	}
+	else							   
+	{
+	    tUART->BAUD.DIV_X_EN = 1;			   
+	    tUART->BAUD.DIV_X_ONE   = 1;
+		tmp = clk / baudRate  -2;
+
+		if(tmp > 0xFFFF)			   
 		{
-			((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 1;		
-		}
-		if(distance_mm <= 100 &&  time_s == 3)
-		{
-				
-				print_lcd(2, "                ");
-				
-				
-				generateOTP();
-				sendOTP();
-				print_lcd(1,otp);
-				time_s = 0;
-				while(time_s <= 30)
+			tUART->BAUD.DIV_X_EN = 1;		   
+			tUART->BAUD.DIV_X_ONE   = 0;
+
+			for(div = 8; div <16;div++)
+			{
+				if(((clk / baudRate)%(div+1))<3)
 				{
-					for(i=0;i<4;i++)
-					{
-						tmp=0;
-						while(tmp==0){
-							tmp=Scankey();
-						}
-						if(tmp!=0)
-						{ 
-							inputOTP[i] = 48 + tmp; 
-						}
-						while(tmp!=0){
-							tmp=Scankey();
-						}
-					}
-					inputOTP[4] = '\0';
-
-					
-					
-					
-				 	print_lcd(3,inputOTP); 
+					tUART->BAUD.DIVIDER_X   = div;
+					tmp = clk / baudRate / (div+1) -2;
+					break;
 				}
-				((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 0;		
+			}
 		}
 	}
+
+	tUART->BAUD.BRD = tmp; 
+
+}
+
+ 
+ 
+ 
+ 	
+ 
+ 
+ 
+ 
+ 
+ 
+static uint32_t GetUartClk(void)
+{
+	uint32_t clk =0 , div;
+
+    div = ((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->CLKDIV.UART_N;				 
+													
+	if(((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->CLKSEL1.UART_S == 0)			     
+	{
+		clk = DrvSYS_GetExtClockFreq();			 
+	}
+	else if(((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->CLKSEL1.UART_S == 1)
+	{
+		clk = DrvSYS_GetPLLClockFreq();
+	}
+	else
+		clk = (22118400UL);								 
+
+	return (clk/(div+1));
+}
+
+ 
+
+ 
+ 
+ 
+ 	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+void DrvUART_SetRTS(E_UART_PORT u32Port,uint8_t u8Value,uint16_t u16TriggerLevel)
+{
+	
+	UART_T * tUART;
+
+	tUART = (UART_T *)((uint32_t)((UART_T *) ((( uint32_t)0x40000000) + 0x50000)) + u32Port);  
+
+	tUART->MCR.RTS = u8Value;
+
+	tUART->FCR.RTS_TRI_LEV = u16TriggerLevel;
+}	
+
+
+
+ 
+ 
+ 
+ 	
+ 
+ 
+ 
+ 									        
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+int32_t DrvUART_Open(E_UART_PORT u32Port, STR_UART_T *sParam)
+{
+
+	UART_T * tUART;
+   
+     
+     
+     
+    if ((u32Port != UART_PORT0) &&
+        (u32Port != UART_PORT1) &&
+		(u32Port != UART_PORT2))
+    {
+
+		return (((1) ? 0xFFFF0000 : 0x00000000) | ((((MODULE_ID_DRVUART) & 0xFF) | ((1) ? 0x100 : 0x00)) << 7) | ((2) & 0x7F));
+    }
+
+
+     
+     
+     
+    if ((sParam->u8cParity != DRVUART_PARITY_NONE) &&
+        (sParam->u8cParity != DRVUART_PARITY_EVEN) &&
+        (sParam->u8cParity != DRVUART_PARITY_ODD)  &&
+        (sParam->u8cParity != DRVUART_PARITY_MARK) &&
+        (sParam->u8cParity != DRVUART_PARITY_SPACE))
+    {
+ 		return (((1) ? 0xFFFF0000 : 0x00000000) | ((((MODULE_ID_DRVUART) & 0xFF) | ((1) ? 0x100 : 0x00)) << 7) | ((3) & 0x7F));		
+    }
+     
+     
+     
+    else if ((sParam->u8cDataBits != DRVUART_DATABITS_5) &&
+             (sParam->u8cDataBits != DRVUART_DATABITS_6) &&
+             (sParam->u8cDataBits != DRVUART_DATABITS_7) &&
+             (sParam->u8cDataBits != DRVUART_DATABITS_8))
+    {
+ 		return (((1) ? 0xFFFF0000 : 0x00000000) | ((((MODULE_ID_DRVUART) & 0xFF) | ((1) ? 0x100 : 0x00)) << 7) | ((4) & 0x7F));	 
+    }
+     
+     
+     
+    else if ((sParam->u8cStopBits != DRVUART_STOPBITS_1) &&
+             (sParam->u8cStopBits != DRVUART_STOPBITS_2) &&
+             (sParam->u8cStopBits != DRVUART_STOPBITS_1_5)
+             )
+    {
+      	return (((1) ? 0xFFFF0000 : 0x00000000) | ((((MODULE_ID_DRVUART) & 0xFF) | ((1) ? 0x100 : 0x00)) << 7) | ((5) & 0x7F));	 
+    }
+
+
+     
+     
+     
+    else if ((sParam->u8cRxTriggerLevel != DRVUART_FIFO_1BYTES) &&
+             (sParam->u8cRxTriggerLevel != DRVUART_FIFO_4BYTES) &&
+             (sParam->u8cRxTriggerLevel != DRVUART_FIFO_8BYTES) &&
+             (sParam->u8cRxTriggerLevel != DRVUART_FIFO_14BYTES)&&
+             (sParam->u8cRxTriggerLevel != DRVUART_FIFO_30BYTES)&&
+             (sParam->u8cRxTriggerLevel != DRVUART_FIFO_46BYTES)&&
+             (sParam->u8cRxTriggerLevel != DRVUART_FIFO_62BYTES))
+    {
+		return (((1) ? 0xFFFF0000 : 0x00000000) | ((((MODULE_ID_DRVUART) & 0xFF) | ((1) ? 0x100 : 0x00)) << 7) | ((6) & 0x7F));		 
+    }				
+
+	if(u32Port == UART_PORT0)
+	{
+		 
+		((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->IPRSTC2.UART0_RST = 1;
+		((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->IPRSTC2.UART0_RST = 0;
+		
+		 
+	    ((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->APBCLK.UART0_EN = 1;
+	}
+	else if(u32Port == UART_PORT1)
+	{
+		 
+		((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->IPRSTC2.UART1_RST = 1;
+		((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->IPRSTC2.UART1_RST = 0;
+		
+		 
+	    ((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->APBCLK.UART1_EN = 1;
+	}
+	else
+	{
+		 
+		((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->IPRSTC2.UART2_RST = 1;
+		((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->IPRSTC2.UART2_RST = 0;
+		
+		 
+	    ((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->APBCLK.UART2_EN = 1;
+	}
+	
+	tUART = (UART_T *)((uint32_t)((UART_T *) ((( uint32_t)0x40000000) + 0x50000)) + u32Port); 
+
+
+	 
+  	tUART->FCR.TFR =1;
+  	tUART->FCR.RFR =1;
+
+	 
+	tUART->FCR.RFITL = sParam->u8cRxTriggerLevel;  
+	
+	 
+	tUART->LCR.SPE	=((sParam->u8cParity)&0x4)?1:0;
+	tUART->LCR.EPE	=((sParam->u8cParity)&0x2)?1:0;
+	tUART->LCR.PBE	=((sParam->u8cParity)&0x1)?1:0;
+		
+	tUART->LCR.WLS	=sParam->u8cDataBits;
+	tUART->LCR.NSB	=sParam->u8cStopBits;
+		
+	 
+	tUART->TOR.TOIC	=sParam->u8TimeOut;
+
+     
+    if(((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->PWRCON.XTL12M_EN)
+        ((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->CLKSEL1.UART_S = 0;
+    else
+    {
+        if(((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->PLLCON.PD==0)
+            ((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->CLKSEL1.UART_S = 1;
+        else
+            if(((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->PWRCON.OSC22M_EN)
+                ((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->CLKSEL1.UART_S = 3;
+            else
+                return (((1) ? 0xFFFF0000 : 0x00000000) | ((((MODULE_ID_DRVUART) & 0xFF) | ((1) ? 0x100 : 0x00)) << 7) | ((8) & 0x7F));
+    }
+ 
+	 
+    BaudRateCalculator(GetUartClk(), sParam->u32BaudRate, u32Port);
+    
+
+	return 0;
+}
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+void DrvUART_Close(E_UART_PORT u32Port)
+{
+	if(u32Port == UART_PORT1)	
+	{
+		while(!((UART_T *) ((( uint32_t)0x40100000) + 0x50000))->FSR.TE_FLAG);
+		((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->APBCLK.UART1_EN = 0;
+		g_pfnUART1callback = 0;
+        NVIC_DisableIRQ (UART1_IRQn); 
+	}
+	else if(u32Port == UART_PORT2)	
+	{
+		while(!((UART_T *) ((( uint32_t)0x40100000) + 0x54000))->FSR.TE_FLAG);
+		((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->APBCLK.UART2_EN = 0;
+		g_pfnUART2callback = 0;
+        NVIC_DisableIRQ (UART0_IRQn); 
+	}
+	else
+	{
+		while(!((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->FSR.TE_FLAG);
+		((SYSCLK_T *) ((( uint32_t)0x50000000) + 0x00200))->APBCLK.UART0_EN = 0;
+		g_pfnUART0callback = 0;
+        NVIC_DisableIRQ(UART0_IRQn);      
+	}
+}
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+void DrvUART_EnableInt(
+	E_UART_PORT   u32Port,
+	uint32_t  u32InterruptFlag,
+	PFN_DRVUART_CALLBACK pfncallback
+)
+{
+	UART_T * tUART;
+    
+	tUART = (UART_T *)((uint32_t)((UART_T *) ((( uint32_t)0x40000000) + 0x50000)) + u32Port); 
+
+	tUART->IER.RDA_IEN		=(u32InterruptFlag & DRVUART_RDAINT)?1:0 ;
+	tUART->IER.THRE_IEN		=(u32InterruptFlag & DRVUART_THREINT)?1:0;
+	tUART->IER.RLS_IEN		=(u32InterruptFlag & DRVUART_RLSINT)?1:0;
+	tUART->IER.MODEM_IEN	=(u32InterruptFlag & DRVUART_MOSINT)?1:0;
+		
+	tUART->IER.TIME_OUT_EN		=(u32InterruptFlag & DRVUART_TOUTINT)?1:0;   	 
+	tUART->IER.RTO_IEN		=(u32InterruptFlag & DRVUART_TOUTINT)?1:0;		 
+
+	tUART->IER.BUF_ERR_IEN	=(u32InterruptFlag & DRVUART_BUFERRINT)?1:0;
+	tUART->IER.WAKE_EN		=(u32InterruptFlag & DRVUART_WAKEUPINT)?1:0;
+	tUART->IER.LIN_RX_BRK_IEN=(u32InterruptFlag & DRVUART_LININT)?1:0;
+
+
+    if(u32Port == UART_PORT0)											   	 
+    {
+		g_pfnUART0callback = pfncallback;        
+		NVIC_EnableIRQ(UART0_IRQn); 
+    }
+	else if(u32Port == UART_PORT1)										   	 
+	{
+		g_pfnUART1callback = pfncallback;
+		NVIC_EnableIRQ(UART1_IRQn); 
+	}
+	else															    	 
+    {
+		g_pfnUART2callback = pfncallback;
+		NVIC_EnableIRQ(UART0_IRQn); 
+    }
+
+}
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+void DrvUART_DisableInt(E_UART_PORT u32Port,uint32_t u32InterruptFlag)
+{
+	if(u32Port == UART_PORT0)			   
+	{
+		*((volatile unsigned int *)(&((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->IER + u32Port))=(*((volatile unsigned int *)(&((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->IER + u32Port))) &~u32InterruptFlag;	    
+	}
+	
+	if(u32InterruptFlag & DRVUART_TOUTINT)			  							  
+	{
+		if(u32Port == UART_PORT0)
+			((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->IER.RTO_IEN = 0;
+		else if(u32Port == UART_PORT1)
+			((UART_T *) ((( uint32_t)0x40100000) + 0x50000))->IER.RTO_IEN = 0;
+		else
+			((UART_T *) ((( uint32_t)0x40100000) + 0x54000))->IER.RTO_IEN = 0;
+			
+	}
+	
+	switch (u32Port)									   			  
+    {
+        case UART_PORT0:
+			g_pfnUART0callback = 0;
+            NVIC_DisableIRQ(UART0_IRQn);   
+            break;
+
+        case UART_PORT1:
+			g_pfnUART1callback = 0;
+           	NVIC_DisableIRQ(UART1_IRQn);    
+            break;
+        
+		case UART_PORT2:
+			g_pfnUART2callback = 0;
+           	NVIC_DisableIRQ(UART0_IRQn);    
+            break;
+
+        default:
+            break;
+    }
+
+}
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+uint32_t DrvUART_ClearIntFlag(E_UART_PORT u32Port,uint32_t u32InterruptFlag)
+{
+	UART_T * tUART;
+
+	tUART = (UART_T *)((uint32_t)((UART_T *) ((( uint32_t)0x40000000) + 0x50000)) + u32Port); 
+
+    if((u32InterruptFlag & DRVUART_RDAINT_FLAG) ||
+       (u32InterruptFlag & DRVUART_THREINT_FLAG)||
+       (u32InterruptFlag & DRVUART_TOUTINT_FLAG))
+        return (((1) ? 0xFFFF0000 : 0x00000000) | ((((MODULE_ID_DRVUART) & 0xFF) | ((1) ? 0x100 : 0x00)) << 7) | ((7) & 0x7F));
+
+	if(u32InterruptFlag & DRVUART_RLSINT)			        	 	   
+	{
+		tUART->FSR.BIF = 1;
+		tUART->FSR.FEF = 1;
+		tUART->FSR.PEF = 1;
+	}
+
+	if(u32InterruptFlag & DRVUART_MOSINT_FLAG)				     	   
+		tUART->MSR.DCTSF = 1;
+
+
+  	if(u32InterruptFlag & DRVUART_LININT_FLAG)      			 	   
+		tUART->ISR.LIN_RX_BREAK_IF = 1;
+
+	if(u32InterruptFlag & DRVUART_BUFERRINT_FLAG)       		 	   
+	{
+		tUART->FSR.TX_OVER_IF = 1;
+		tUART->FSR.RX_OVER_IF = 1;
+	}
+	return 0;
+}
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+int32_t DrvUART_GetIntStatus(E_UART_PORT u32Port,uint32_t u32InterruptFlag)
+{
+
+	UART_T * tUART;
+
+	tUART = (UART_T *)((uint32_t)((UART_T *) ((( uint32_t)0x40000000) + 0x50000)) + u32Port); 
+   
+    return (tUART->u32ISR & u32InterruptFlag)>>u32InterruptFlag ;
+
+}
+
+
+ 
+ 
+ 
+ 	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+void DrvUART_GetCTSInfo(E_UART_PORT u32Port,uint8_t *pu8CTSValue,	uint8_t	*pu8CTSChangeState)
+{
+	UART_T * tUART;
+
+	tUART = (UART_T *)((uint32_t)((UART_T *) ((( uint32_t)0x40000000) + 0x50000)) + u32Port);  
+
+ 	*pu8CTSValue 		= tUART->MSR.CTS_ST;
+	*pu8CTSChangeState 	= tUART->MSR.DCTSF;
+}	
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+int32_t DrvUART_Read(E_UART_PORT	u32Port,uint8_t	*pu8RxBuf, uint32_t	u32ReadBytes)
+{
+    uint32_t  u32Count, u32delayno;
+
+	UART_T * tUART;
+
+	tUART = (UART_T *)((uint32_t)((UART_T *) ((( uint32_t)0x40000000) + 0x50000)) + u32Port);  
+
+    for (u32Count=0; u32Count < u32ReadBytes; u32Count++)
+    {
+		 u32delayno = 0;
+	     while (tUART->FSR.RX_EMPTY ==1)					     	   
+	     {
+	     	u32delayno++;        
+	        if ( u32delayno >= 0x40000000 )        
+	        	return (((1) ? 0xFFFF0000 : 0x00000000) | ((((MODULE_ID_DRVUART) & 0xFF) | ((1) ? 0x100 : 0x00)) << 7) | ((1) & 0x7F));               
+         }
+         pu8RxBuf[u32Count] = tUART->DATA;					     
+    }
+
+    return 0;
 	
 }
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+int32_t DrvUART_Write(E_UART_PORT	u32Port,uint8_t	*pu8TxBuf, 	uint32_t u32WriteBytes)
+{
+    uint32_t  u32Count, u32delayno;
+
+	UART_T * tUART;
+
+	tUART = (UART_T *)((uint32_t)((UART_T *) ((( uint32_t)0x40000000) + 0x50000)) + u32Port);  
+
+    for (u32Count=0; u32Count<u32WriteBytes; u32Count++)
+    {
+       u32delayno = 0;
+	   while (tUART->FSR.TE_FLAG !=1)						    	 
+       {
+       	    u32delayno++;
+       	    if ( u32delayno >= 0x40000000 )     	    
+       	       return (((1) ? 0xFFFF0000 : 0x00000000) | ((((MODULE_ID_DRVUART) & 0xFF) | ((1) ? 0x100 : 0x00)) << 7) | ((1) & 0x7F));     	       
+				   
+       }
+	   tUART->DATA = pu8TxBuf[u32Count];						 
+    }
+
+    return 0;
+	
+  
+}
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+void DrvUART_EnablePDMA(E_UART_PORT u32Port)
+{
+	
+	if(u32Port == UART_PORT0)
+	{
+		((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->IER.DMA_TX_EN 	= 1;
+		((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->IER.DMA_RX_EN	= 1;	
+	}
+	else if(u32Port == UART_PORT1)
+	{
+		((UART_T *) ((( uint32_t)0x40100000) + 0x50000))->IER.DMA_TX_EN 	= 1;
+		((UART_T *) ((( uint32_t)0x40100000) + 0x50000))->IER.DMA_RX_EN	= 1;
+	}
+
+}
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+void DrvUART_DisablePDMA(E_UART_PORT u32Port)
+{
+	
+	if(u32Port == UART_PORT0)
+	{
+		((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->IER.DMA_TX_EN 	= 0;
+		((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->IER.DMA_RX_EN	= 0;	
+	}
+	else if(u32Port == UART_PORT1)
+	{
+		((UART_T *) ((( uint32_t)0x40100000) + 0x50000))->IER.DMA_TX_EN 	= 0;
+		((UART_T *) ((( uint32_t)0x40100000) + 0x50000))->IER.DMA_RX_EN	= 0;
+	}
+
+}
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+void DrvUART_SetFnIRDA(E_UART_PORT u32Port,STR_IRCR_T *str_IRCR )
+{
+	UART_T * tUART;
+
+	tUART = (UART_T *)((uint32_t)((UART_T *) ((( uint32_t)0x40000000) + 0x50000)) + u32Port);  
+
+	tUART->FUNSEL.FUN_SEL 	= FUN_IRCR;							   	 
+	tUART->IRCR.TX_SELECT	= (str_IRCR->u8cTXSelect) ?1:0;
+	tUART->IRCR.INV_TX		= str_IRCR->u8cInvTX ;
+	tUART->IRCR.INV_RX		= str_IRCR->u8cInvRX ;
+}
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+void DrvUART_SetFnLIN(E_UART_PORT u32Port,uint16_t u16Mode,uint16_t u16BreakLength)
+{
+	UART_T * tUART;
+
+	tUART = (UART_T *)((uint32_t)((UART_T *) ((( uint32_t)0x40000000) + 0x50000)) + u32Port);  
+
+	tUART->FUNSEL.FUN_SEL 	= FUN_LIN;
+	
+	tUART->ALTCON.LIN_BKFL  = u16BreakLength;
+	tUART->ALTCON.LIN_TX_EN	= (u16Mode & 1) ?1:0;
+	tUART->ALTCON.LIN_RX_EN	= (u16Mode & 2) ?1:0;
+
+}
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+void DrvUART_SetFnRS485(E_UART_PORT u32Port,STR_RS485_T *str_RS485)
+{
+					 
+	UART_T * tUART;
+
+	tUART = (UART_T *)((uint32_t)((UART_T *) ((( uint32_t)0x40000000) + 0x50000)) + u32Port);  
+
+	tUART->FUNSEL.FUN_SEL 			= FUN_RS485;					
+	tUART->ALTCON.RS485_ADD_EN	    = (str_RS485-> u8cAddrEnable) ?1:0;
+	tUART->ALTCON.ADDR_MATCH		= str_RS485-> u8cAddrValue ;
+	tUART->ALTCON.RS485_NMM		    = (str_RS485-> u8cModeSelect & MODE_RS485_NMM)?1:0;	
+	tUART->ALTCON.RS485_AAD		    = (str_RS485-> u8cModeSelect & MODE_RS485_AAD)?1:0;	
+	tUART->ALTCON.RS485_AUD		    = (str_RS485-> u8cModeSelect & MODE_RS485_AUD)?1:0;	
+	tUART->TOR.DLY                  = str_RS485-> u8cDelayTime;
+	tUART->FCR.RX_DIS               = (str_RS485-> u8cRxDisable) ?1:0;
+	
+
+} 
+ 
+ 
+ 
+ 	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+int32_t	DrvUART_GetVersion(void)
+{
+	return (((1) << 16) | ((02) << 8) | (004));
+	
+}
+
+
+
+
+

@@ -420,6 +420,11 @@
               <FileType>1</FileType>
               <FilePath>.\Smart-lock-with-nu-lb-nuc140.c</FilePath>
             </File>
+            <File>
+              <FileName>ScanKey.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Src\NUC1xx-LB_002\ScanKey.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -434,6 +439,11 @@
               <FileName>DrvGPIO.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\Src\Driver\DrvGPIO.c</FilePath>
+            </File>
+            <File>
+              <FileName>DrvUART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Src\Driver\DrvUART.c</FilePath>
             </File>
           </Files>
         </Group>

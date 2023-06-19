@@ -12,3 +12,5 @@
 .\obj\smart-lock-with-nu-lb-nuc140.o: ..\..\..\Include\Driver\DrvGPIO.h
 .\obj\smart-lock-with-nu-lb-nuc140.o: ..\..\..\Include\Driver\DrvSYS.h
 .\obj\smart-lock-with-nu-lb-nuc140.o: ..\..\..\Include\NUC1xx-LB_002\LCD_Driver.h
+.\obj\smart-lock-with-nu-lb-nuc140.o: ..\..\..\Include\Driver\DrvUART.h
+.\obj\smart-lock-with-nu-lb-nuc140.o: ..\..\..\Include\NUC1xx-LB_002\scankey.h

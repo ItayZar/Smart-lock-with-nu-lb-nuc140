@@ -416,9 +416,9 @@
               <FilePath>..\..\..\Src\NUC1xx-LB_002\Ascii_Table.C</FilePath>
             </File>
             <File>
-              <FileName>Smpl_Timer_SR04_Task7.c</FileName>
+              <FileName>Smart-lock-with-nu-lb-nuc140.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Smpl_Timer_SR04_Task7.c</FilePath>
+              <FilePath>.\Smart-lock-with-nu-lb-nuc140.c</FilePath>
             </File>
           </Files>
         </Group>
