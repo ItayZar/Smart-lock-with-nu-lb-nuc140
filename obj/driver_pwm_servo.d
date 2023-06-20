@@ -1,0 +1,11 @@
+.\obj\driver_pwm_servo.o: Driver_PWM_Servo.c
+.\obj\driver_pwm_servo.o: C:\Keil\ARM\RV31\INC\stdio.h
+.\obj\driver_pwm_servo.o: ..\..\..\..\CMSIS\CM0\DeviceSupport\Nuvoton\NUC1xx\NUC1xx.h
+.\obj\driver_pwm_servo.o: ..\..\..\..\CMSIS\CM0\CoreSupport\core_cm0.h
+.\obj\driver_pwm_servo.o: C:\Keil\ARM\RV31\INC\stdint.h
+.\obj\driver_pwm_servo.o: ..\..\..\..\CMSIS\CM0\DeviceSupport\Nuvoton\NUC1xx\system_NUC1xx.h
+.\obj\driver_pwm_servo.o: ..\..\..\Include\System\SysInfra.h
+.\obj\driver_pwm_servo.o: ..\..\..\Include\System\ModuleID.h
+.\obj\driver_pwm_servo.o: ..\..\..\Include\Driver\DrvUART.h
+.\obj\driver_pwm_servo.o: ..\..\..\Include\Driver\DrvGPIO.h
+.\obj\driver_pwm_servo.o: ..\..\..\Include\Driver\DrvSYS.h

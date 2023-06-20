@@ -1,5 +1,4 @@
 //
-// Smpl_Timer_SR04 : using one SR04 Ultrasound Sensors
 //
 // Timer Capture :
 // GPB2 / RTS0 / T2EX (NUC140 pin34)
@@ -19,6 +18,10 @@
 // pin5 : RXD   to NUC140 UART0-TX (GPB1)
 // pin6 : STATE N.C.
 
+// PWM0 	DC Servo 
+// DATA		PWM3/GPA12 		[orange]	   
+// VCC		Vcc +5V			[red]
+// GND		GND				[brown]
 
 #include <stdlib.h>
 #include <time.h>
@@ -32,7 +35,7 @@
 #include "Driver\DrvGPIO.h"
 #include "Driver\DrvSYS.h"
 #include "scankey.h"
-
+#include "Driver_PWM_Servo.h"
 
 // Global definition
 #define	_SR04A_ECHO		   (GPB_2)			//NUC140VE3xN, Pin19
@@ -40,35 +43,57 @@
 #define	_SR04A_TRIG_Low	 (GPB_4=0)
 #define	_SR04A_TRIG_High (GPB_4=1)
 
+//TIMERS
 #define  ONESHOT  0   // counting and interrupt when reach TCMPR number, then stop
 #define  PERIODIC 1   // counting and interrupt when reach TCMPR number, then counting from 0 again
 #define  TOGGLE   2   // keep counting and interrupt when reach TCMPR number, tout toggled (between 0 and 1)
 #define  CONTINUOUS 3 // keep counting and interrupt when reach TCMPR number
+
+//OTP
 #define  OTP_LENGTH 4
+
+//LEDS
 #define RGB_BLUE			12
 #define RGB_GREEN			13
 #define RGB_RED				14
+
+//PWM
+#define HITIME_MIN 		22  // was 0.17ms [17]
+#define HITIME_MAX 		128 // was 1.2ms  [120]
 
 unsigned char DisplayBuf [128*8];
 char TEXT[16];
 volatile uint8_t comRbuf[9];
 volatile uint8_t comRbytes = 0;
 
-// Global variables
 volatile uint32_t SR04A_Echo_Width = 0;
 volatile uint32_t SR04A_Echo_Flag  = FALSE;
+
 
 char	TEXT0[17] = "                 ";
 char	TEXT1[17] = "                 ";
 char	TEXT2[17] = "                 ";
 char	TEXT3[17] = "                 ";
+
+
 char 	otp[OTP_LENGTH + 1];
 char 	inputOTP[OTP_LENGTH + 1];
 
 uint32_t time_s =0;
 uint32_t distance_mm;
+uint32_t hitime;
 
 
+uint8_t calc_deg(uint8_t value) {
+	return ((value-HITIME_MIN)*90)/(HITIME_MAX-HITIME_MIN); 	// 0 to 90 degrees!
+}
+
+void servo_open(void) {
+	 for (hitime=HITIME_MIN; hitime<=HITIME_MAX; hitime++) {
+		PWM_Servo(0, hitime);
+		DrvSYS_Delay(20000);
+	}
+}
 
 void InitTIMER0(void)
 {
@@ -99,14 +124,6 @@ void InitTIMER0(void)
 void TMR0_IRQHandler(void) // Timer0 interrupt subroutine 
 {
 	time_s += 1;
-	//sprintf(TEXT3+8, "%2d sec  ", time_s);	
-	//print_lcd(3, TEXT3);	        //Line 2: distance [mm]
-
-	//if (time_s ==10)
-	//{
-	//	time_s = 0;
-	//	TIMER0->TCSR.CEN = 0;		//Disable Timer0
-	//}
 
  	TIMER0->TISR.TIF =1;	   
 }
@@ -203,55 +220,18 @@ void Init_GPIO_SR04(void)
 
 void UART_INT_HANDLE(void)
 {
-	uint8_t TxString[9] = "igotchu\r\n";
+	uint8_t TxString[9] = "ACK\r\n";
 
 	while(UART0->ISR.RDA_IF==1) 
 	{
+		// Data recieved to  comRbuf[] array
 		comRbuf[comRbytes]=UART0->DATA;
-		comRbytes++;
-		//sprintf(TEXT,"%d,%d,%d",comRbuf[0],comRbuf[1],comRbuf[2]);
-		//print_lcd(0,TEXT);		
+		comRbytes++;		
 		if (comRbytes==3) {
 			DrvUART_Write(UART_PORT0 , TxString , 9);
 			sprintf(TEXT,"cmd: %s",comRbuf);
 			print_lcd(0,TEXT);
-
-			if (comRbuf[0] == 'p' && comRbuf[1] == 'r' && comRbuf[2] == 'n')	//prn
-			{
-				print_lcd(1,"Chai            ");
-				print_lcd(2,"Itay            ");
-				print_lcd(3,"Kirill          ");	
-			}
-			if (comRbuf[0] == 'l' && comRbuf[1] == 'e' && comRbuf[2] == 'd')	//led
-			{
-				DrvGPIO_ClrBit(E_GPC, 15); 		
-				DrvGPIO_ClrBit(E_GPC, 14); 		
-				DrvGPIO_ClrBit(E_GPC, 13); 		
-				DrvGPIO_ClrBit(E_GPC, 12); 
-			}
-			if (comRbuf[0] == 'r' && comRbuf[1] == 'g' && comRbuf[2] == 'b')	//rgb
-			{
-				DrvGPIO_ClrBit(E_GPA, RGB_BLUE); 						
-				DrvGPIO_ClrBit(E_GPA, RGB_GREEN); 						
-				DrvGPIO_ClrBit(E_GPA, RGB_RED);	
-			}
-			if (comRbuf[0] == 's' && comRbuf[1] == 'm' && comRbuf[2] == 'l')	//sml
-			{
-				print_lcd(1,"       :)       ");
-				print_lcd(2,"     Smile      ");
-				print_lcd(3,"                ");
-			}
-			if (comRbuf[0] == 'c' && comRbuf[1] == 'l' && comRbuf[2] == 'r')	//clr
-			{
-				clr_all_panel();
-				DrvGPIO_SetBit(E_GPA, RGB_BLUE); 						
-				DrvGPIO_SetBit(E_GPA, RGB_GREEN); 						
-				DrvGPIO_SetBit(E_GPA, RGB_RED);
-				DrvGPIO_SetBit(E_GPC, 12); 
-				DrvGPIO_SetBit(E_GPC, 13); 
-				DrvGPIO_SetBit(E_GPC, 14);
-				DrvGPIO_SetBit(E_GPC, 15);
-			}				
+				
 			comRbytes=0;
 		}
 	}
@@ -273,8 +253,24 @@ void generateOTP()
 
 void sendOTP()
 {
-	// Function to send the OTP to a Bluetooth terminal
+   	// Function to send the OTP to a Bluetooth terminal
 	DrvUART_Write(UART_PORT0 , otp , OTP_LENGTH);
+}
+
+
+int unlock_attemp(int attemp)
+{
+ 	if(0==strcmp(otp,inputOTP))
+	{
+		//correct
+	 	attemp=0;
+	}
+	else
+	{
+		//incorrect
+	 	attemp++;
+	}
+	return attemp;
 }
 
 
@@ -285,7 +281,7 @@ int main (void)
 {	
 	STR_UART_T sParam;
 	int flag;
-	int i,attemps,tmp;
+	int i,tmp,attemps=1 ;
 	
 	//System Clock Initial
 	UNLOCKREG();
@@ -309,12 +305,12 @@ int main (void)
 	
 	Initial_panel();                  // initialize LCD
 	clr_all_panel();                  // clear LCD display
-	print_lcd(0, "  Gate Control  "); // Line 0 display
-	sprintf(TEXT3+8, "IDLE   ");
+	print_lcd(0, "  OTP Lock  "); // Line 0 display
 	                          
 	InitTIMER0();
 	Init_TMR2();
 	Init_GPIO_SR04();
+	InitPWM(0);   // initialize PWM0
 	
 
 	while(1) {
@@ -325,12 +321,9 @@ int main (void)
 		}
 		if(distance_mm <= 100 &&  time_s == 3)
 		{
-				//print_lcd(1, "Objet Identified");
 				print_lcd(2, "                ");
-				//print_lcd(3, "                ");
-				//TIMER0->TCSR.CEN = 0;		// Disable Timer0
 				generateOTP();
-				sendOTP();
+				//sendOTP();
 				print_lcd(1,otp);
 				time_s = 0;
 				while(time_s <= 30)
@@ -350,11 +343,20 @@ int main (void)
 						}
 					}
 					inputOTP[OTP_LENGTH] = '\0';
-
-					// 3 attemps -> if coorect or not  -> appropriate LED & SOUND ; 
-					//sprintf(TEXT2, "%d sec", time_s);
-					//clr_all_panel();  
+ 
 				 	print_lcd(3,inputOTP); //Keypad
+					attemps=unlock_attemp(attemps);
+					if(attemps==0)
+					{
+					 	//unlock
+						servo_open();
+					}
+					if(attemps==3)
+					{
+					 	//reached max attemps
+						//add LCD msg and BT msg
+						break;
+					}
 				}
 				TIMER0->TCSR.CEN = 0;		// Disable Timer0
 		}

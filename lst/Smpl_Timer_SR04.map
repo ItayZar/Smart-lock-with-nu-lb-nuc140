@@ -12,106 +12,113 @@ Memory Map of the image
 
   Image Entry point : 0x000000d5
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00001f10, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x000021f4, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x0000188c, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00001b7c, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x000000c0   Data   RO           55    RESET               startup_nuc1xx.o
-    0x000000c0   0x00000000   Code   RO          958  * .ARM.Collect$$$$00000000  entry.o(mc_p.l)
-    0x000000c0   0x00000004   Code   RO         1227    .ARM.Collect$$$$00000001  entry2.o(mc_p.l)
-    0x000000c4   0x00000004   Code   RO         1230    .ARM.Collect$$$$00000004  entry5.o(mc_p.l)
-    0x000000c8   0x00000008   Code   RO         1231    .ARM.Collect$$$$00000007  entry7.o(mc_p.l)
-    0x000000d0   0x00000004   Code   RO         1228    .ARM.Collect$$$$00002712  entry2.o(mc_p.l)
+    0x000000c0   0x00000000   Code   RO         1009  * .ARM.Collect$$$$00000000  entry.o(mc_p.l)
+    0x000000c0   0x00000004   Code   RO         1280    .ARM.Collect$$$$00000001  entry2.o(mc_p.l)
+    0x000000c4   0x00000004   Code   RO         1283    .ARM.Collect$$$$00000004  entry5.o(mc_p.l)
+    0x000000c8   0x00000008   Code   RO         1284    .ARM.Collect$$$$00000007  entry7.o(mc_p.l)
+    0x000000d0   0x00000004   Code   RO         1281    .ARM.Collect$$$$00002712  entry2.o(mc_p.l)
     0x000000d4   0x0000004c   Code   RO           56  * .text               startup_nuc1xx.o
-    0x00000120   0x0000002c   Code   RO          959    .text               uidiv.o(mc_p.l)
-    0x0000014c   0x00000028   Code   RO          961    .text               idiv.o(mc_p.l)
-    0x00000174   0x00000024   Code   RO          963    .text               rand.o(mc_p.l)
-    0x00000198   0x00000024   Code   RO         1248    .text               init.o(mc_p.l)
-    0x000001bc   0x0000001c   Code   RO          299    i.BOD_IRQHandler    drvsys.o
-    0x000001d8   0x00000090   Code   RO          829    i.BaudRateCalculator  drvuart.o
-    0x00000268   0x00000060   Code   RO          147    i.DistMeasure       smart-lock-with-nu-lb-nuc140.o
-    0x000002c8   0x00000024   Code   RO          597    i.DrvGPIO_ClrBit    drvgpio.o
-    0x000002ec   0x00000020   Code   RO          610    i.DrvGPIO_GetBit    drvgpio.o
-    0x0000030c   0x000003a8   Code   RO          619    i.DrvGPIO_InitFunction  drvgpio.o
-    0x000006b4   0x0000005c   Code   RO          620    i.DrvGPIO_Open      drvgpio.o
-    0x00000710   0x00000024   Code   RO          621    i.DrvGPIO_SetBit    drvgpio.o
-    0x00000734   0x00000024   Code   RO          302    i.DrvSYS_Delay      drvsys.o
-    0x00000758   0x00000040   Code   RO          315    i.DrvSYS_GetChipClockSourceStatus  drvsys.o
-    0x00000798   0x00000008   Code   RO          317    i.DrvSYS_GetExtClockFreq  drvsys.o
-    0x000007a0   0x0000005c   Code   RO          319    i.DrvSYS_GetPLLClockFreq  drvsys.o
-    0x000007fc   0x000000a8   Code   RO          320    i.DrvSYS_GetPLLContent  drvsys.o
-    0x000008a4   0x00000010   Code   RO          323    i.DrvSYS_IsProtectedRegLocked  drvsys.o
-    0x000008b4   0x00000088   Code   RO          325    i.DrvSYS_Open       drvsys.o
-    0x0000093c   0x00000030   Code   RO          331    i.DrvSYS_SelectHCLKSource  drvsys.o
-    0x0000096c   0x00000054   Code   RO          339    i.DrvSYS_SetOscCtrl  drvsys.o
-    0x000009c0   0x0000003c   Code   RO          340    i.DrvSYS_SetPLLContent  drvsys.o
-    0x000009fc   0x000000dc   Code   RO          834    i.DrvUART_EnableInt  drvuart.o
-    0x00000ad8   0x000001bc   Code   RO          839    i.DrvUART_Open      drvuart.o
-    0x00000c94   0x00000038   Code   RO          845    i.DrvUART_Write     drvuart.o
-    0x00000ccc   0x0000001c   Code   RO          627    i.EINT0_IRQHandler  drvgpio.o
-    0x00000ce8   0x0000001c   Code   RO          628    i.EINT1_IRQHandler  drvgpio.o
-    0x00000d04   0x00000030   Code   RO          629    i.GPAB_IRQHandler   drvgpio.o
-    0x00000d34   0x00000030   Code   RO          630    i.GPCDE_IRQHandler  drvgpio.o
-    0x00000d64   0x00000060   Code   RO          148    i.InitTIMER0        smart-lock-with-nu-lb-nuc140.o
-    0x00000dc4   0x00000028   Code   RO          149    i.Init_GPIO_SR04    smart-lock-with-nu-lb-nuc140.o
-    0x00000dec   0x00000094   Code   RO          150    i.Init_TMR2         smart-lock-with-nu-lb-nuc140.o
-    0x00000e80   0x00000100   Code   RO           61    i.Initial_panel     lcd_driver.o
-    0x00000f80   0x00000020   Code   RO          345    i.PWRWU_IRQHandler  drvsys.o
-    0x00000fa0   0x00000030   Code   RO          151    i.SR04_Trigger      smart-lock-with-nu-lb-nuc140.o
-    0x00000fd0   0x00000074   Code   RO          260    i.Scankey           scankey.o
-    0x00001044   0x00000078   Code   RO           62    i.SetPACA           lcd_driver.o
-    0x000010bc   0x00000054   Code   RO           63    i.Show_Word         lcd_driver.o
-    0x00001110   0x00000084   Code   RO           17    i.SystemCoreClockUpdate  system_nuc1xx.o
-    0x00001194   0x00000002   Code   RO           18    i.SystemInit        system_nuc1xx.o
-    0x00001196   0x00000002   PAD
-    0x00001198   0x0000001c   Code   RO          152    i.TMR0_IRQHandler   smart-lock-with-nu-lb-nuc140.o
-    0x000011b4   0x00000034   Code   RO          153    i.TMR2_IRQHandler   smart-lock-with-nu-lb-nuc140.o
-    0x000011e8   0x0000002c   Code   RO          847    i.UART02_IRQHandler  drvuart.o
-    0x00001214   0x00000018   Code   RO          848    i.UART1_IRQHandler  drvuart.o
-    0x0000122c   0x000001e8   Code   RO          154    i.UART_INT_HANDLE   smart-lock-with-nu-lb-nuc140.o
-    0x00001414   0x00000030   Code   RO           65    i.WriteData         lcd_driver.o
-    0x00001444   0x00000028   Code   RO         1057    i.__0sprintf$3      printf3.o(mc_p.l)
-    0x0000146c   0x0000001a   Code   RO          584    i.__ARM_common_switch8  drvsys.o
-    0x00001486   0x0000000e   Code   RO         1259    i.__scatterload_copy  handlers.o(mc_p.l)
-    0x00001494   0x00000002   Code   RO         1260    i.__scatterload_null  handlers.o(mc_p.l)
-    0x00001496   0x0000000e   Code   RO         1261    i.__scatterload_zeroinit  handlers.o(mc_p.l)
-    0x000014a4   0x000001bc   Code   RO         1062    i._printf_core      printf3.o(mc_p.l)
-    0x00001660   0x0000000a   Code   RO         1064    i._sputc            printf3.o(mc_p.l)
-    0x0000166a   0x00000024   Code   RO           66    i.clr_all_panel     lcd_driver.o
-    0x0000168e   0x0000000e   Code   RO          261    i.delay             scankey.o
-    0x0000169c   0x0000002c   Code   RO          155    i.generateOTP       smart-lock-with-nu-lb-nuc140.o
-    0x000016c8   0x00000138   Code   RO          156    i.main              smart-lock-with-nu-lb-nuc140.o
-    0x00001800   0x00000022   Code   RO           68    i.print_lcd         lcd_driver.o
-    0x00001822   0x00000002   PAD
-    0x00001824   0x00000034   Code   RO          157    i.sendOTP           smart-lock-with-nu-lb-nuc140.o
-    0x00001858   0x00000004   Data   RO          262    .constdata          scankey.o
-    0x0000185c   0x00000010   Data   RO          346    .constdata          drvsys.o
-    0x0000186c   0x00000020   Data   RO         1257    Region$$Table       anon$$obj.o
+    0x00000120   0x0000002c   Code   RO         1010    .text               uidiv.o(mc_p.l)
+    0x0000014c   0x00000028   Code   RO         1012    .text               idiv.o(mc_p.l)
+    0x00000174   0x00000024   Code   RO         1014    .text               rand.o(mc_p.l)
+    0x00000198   0x0000001c   Code   RO         1017    .text               strcmp.o(mc_p.l)
+    0x000001b4   0x00000024   Code   RO         1301    .text               init.o(mc_p.l)
+    0x000001d8   0x0000001c   Code   RO          352    i.BOD_IRQHandler    drvsys.o
+    0x000001f4   0x00000090   Code   RO          880    i.BaudRateCalculator  drvuart.o
+    0x00000284   0x00000060   Code   RO          147    i.DistMeasure       smart-lock-with-nu-lb-nuc140.o
+    0x000002e4   0x00000024   Code   RO          648    i.DrvGPIO_ClrBit    drvgpio.o
+    0x00000308   0x00000020   Code   RO          661    i.DrvGPIO_GetBit    drvgpio.o
+    0x00000328   0x000003a8   Code   RO          670    i.DrvGPIO_InitFunction  drvgpio.o
+    0x000006d0   0x0000005c   Code   RO          671    i.DrvGPIO_Open      drvgpio.o
+    0x0000072c   0x00000024   Code   RO          672    i.DrvGPIO_SetBit    drvgpio.o
+    0x00000750   0x00000024   Code   RO          355    i.DrvSYS_Delay      drvsys.o
+    0x00000774   0x00000040   Code   RO          368    i.DrvSYS_GetChipClockSourceStatus  drvsys.o
+    0x000007b4   0x00000008   Code   RO          370    i.DrvSYS_GetExtClockFreq  drvsys.o
+    0x000007bc   0x0000005c   Code   RO          372    i.DrvSYS_GetPLLClockFreq  drvsys.o
+    0x00000818   0x000000a8   Code   RO          373    i.DrvSYS_GetPLLContent  drvsys.o
+    0x000008c0   0x00000010   Code   RO          376    i.DrvSYS_IsProtectedRegLocked  drvsys.o
+    0x000008d0   0x00000088   Code   RO          378    i.DrvSYS_Open       drvsys.o
+    0x00000958   0x00000030   Code   RO          384    i.DrvSYS_SelectHCLKSource  drvsys.o
+    0x00000988   0x00000054   Code   RO          392    i.DrvSYS_SetOscCtrl  drvsys.o
+    0x000009dc   0x0000003c   Code   RO          393    i.DrvSYS_SetPLLContent  drvsys.o
+    0x00000a18   0x000000dc   Code   RO          885    i.DrvUART_EnableInt  drvuart.o
+    0x00000af4   0x000001bc   Code   RO          890    i.DrvUART_Open      drvuart.o
+    0x00000cb0   0x00000038   Code   RO          896    i.DrvUART_Write     drvuart.o
+    0x00000ce8   0x0000001c   Code   RO          678    i.EINT0_IRQHandler  drvgpio.o
+    0x00000d04   0x0000001c   Code   RO          679    i.EINT1_IRQHandler  drvgpio.o
+    0x00000d20   0x00000030   Code   RO          680    i.GPAB_IRQHandler   drvgpio.o
+    0x00000d50   0x00000030   Code   RO          681    i.GPCDE_IRQHandler  drvgpio.o
+    0x00000d80   0x000002fc   Code   RO          323    i.InitPWM           driver_pwm_servo.o
+    0x0000107c   0x00000060   Code   RO          148    i.InitTIMER0        smart-lock-with-nu-lb-nuc140.o
+    0x000010dc   0x00000028   Code   RO          149    i.Init_GPIO_SR04    smart-lock-with-nu-lb-nuc140.o
+    0x00001104   0x00000094   Code   RO          150    i.Init_TMR2         smart-lock-with-nu-lb-nuc140.o
+    0x00001198   0x00000100   Code   RO           61    i.Initial_panel     lcd_driver.o
+    0x00001298   0x00000134   Code   RO          324    i.PWM_Servo         driver_pwm_servo.o
+    0x000013cc   0x00000020   Code   RO          398    i.PWRWU_IRQHandler  drvsys.o
+    0x000013ec   0x00000030   Code   RO          151    i.SR04_Trigger      smart-lock-with-nu-lb-nuc140.o
+    0x0000141c   0x00000074   Code   RO          284    i.Scankey           scankey.o
+    0x00001490   0x00000078   Code   RO           62    i.SetPACA           lcd_driver.o
+    0x00001508   0x00000054   Code   RO           63    i.Show_Word         lcd_driver.o
+    0x0000155c   0x00000084   Code   RO           17    i.SystemCoreClockUpdate  system_nuc1xx.o
+    0x000015e0   0x00000002   Code   RO           18    i.SystemInit        system_nuc1xx.o
+    0x000015e2   0x00000002   PAD
+    0x000015e4   0x0000001c   Code   RO          152    i.TMR0_IRQHandler   smart-lock-with-nu-lb-nuc140.o
+    0x00001600   0x00000034   Code   RO          153    i.TMR2_IRQHandler   smart-lock-with-nu-lb-nuc140.o
+    0x00001634   0x0000002c   Code   RO          898    i.UART02_IRQHandler  drvuart.o
+    0x00001660   0x00000018   Code   RO          899    i.UART1_IRQHandler  drvuart.o
+    0x00001678   0x00000068   Code   RO          154    i.UART_INT_HANDLE   smart-lock-with-nu-lb-nuc140.o
+    0x000016e0   0x00000030   Code   RO           65    i.WriteData         lcd_driver.o
+    0x00001710   0x00000028   Code   RO         1110    i.__0sprintf$3      printf3.o(mc_p.l)
+    0x00001738   0x0000001a   Code   RO          344    i.__ARM_common_switch8  driver_pwm_servo.o
+    0x00001752   0x0000000e   Code   RO         1312    i.__scatterload_copy  handlers.o(mc_p.l)
+    0x00001760   0x00000002   Code   RO         1313    i.__scatterload_null  handlers.o(mc_p.l)
+    0x00001762   0x0000000e   Code   RO         1314    i.__scatterload_zeroinit  handlers.o(mc_p.l)
+    0x00001770   0x000001bc   Code   RO         1115    i._printf_core      printf3.o(mc_p.l)
+    0x0000192c   0x0000000a   Code   RO         1117    i._sputc            printf3.o(mc_p.l)
+    0x00001936   0x00000024   Code   RO           66    i.clr_all_panel     lcd_driver.o
+    0x0000195a   0x0000000e   Code   RO          285    i.delay             scankey.o
+    0x00001968   0x0000002c   Code   RO          156    i.generateOTP       smart-lock-with-nu-lb-nuc140.o
+    0x00001994   0x00000140   Code   RO          157    i.main              smart-lock-with-nu-lb-nuc140.o
+    0x00001ad4   0x00000022   Code   RO           68    i.print_lcd         lcd_driver.o
+    0x00001af6   0x00000002   PAD
+    0x00001af8   0x0000002c   Code   RO          159    i.servo_open        smart-lock-with-nu-lb-nuc140.o
+    0x00001b24   0x00000018   Code   RO          160    i.unlock_attemp     smart-lock-with-nu-lb-nuc140.o
+    0x00001b3c   0x00000009   Data   RO          163    .constdata          smart-lock-with-nu-lb-nuc140.o
+    0x00001b45   0x00000003   PAD
+    0x00001b48   0x00000004   Data   RO          286    .constdata          scankey.o
+    0x00001b4c   0x00000010   Data   RO          399    .constdata          drvsys.o
+    0x00001b5c   0x00000020   Data   RO         1310    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Base: 0x20000000, Size: 0x00000684, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Base: 0x20000000, Size: 0x00000678, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000   0x0000001c   Data   RW           19    .data               system_nuc1xx.o
     0x2000001c   0x00000010   Data   RW           69    .data               lcd_driver.o
     0x2000002c   0x000005f0   Data   RW          140    .data               ascii_table.o
-    0x2000061c   0x00000040   Data   RW          160    .data               smart-lock-with-nu-lb-nuc140.o
-    0x2000065c   0x00000008   Data   RW          347    .data               drvsys.o
-    0x20000664   0x00000010   Data   RW          634    .data               drvgpio.o
-    0x20000674   0x0000000c   Data   RW          849    .data               drvuart.o
-    0x20000680   0x00000004   Data   RW          964    .data               rand.o(mc_p.l)
+    0x2000061c   0x00000033   Data   RW          164    .data               smart-lock-with-nu-lb-nuc140.o
+    0x2000064f   0x00000001   PAD
+    0x20000650   0x00000008   Data   RW          400    .data               drvsys.o
+    0x20000658   0x00000010   Data   RW          685    .data               drvgpio.o
+    0x20000668   0x0000000c   Data   RW          900    .data               drvuart.o
+    0x20000674   0x00000004   Data   RW         1015    .data               rand.o(mc_p.l)
 
 
-    Execution Region ER_ZI (Base: 0x20000684, Size: 0x0000041c, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Base: 0x20000678, Size: 0x00000420, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000684   0x00000019   Zero   RW          159    .bss                smart-lock-with-nu-lb-nuc140.o
-    0x2000069d   0x00000003   PAD
-    0x200006a0   0x00000400   Zero   RW           53    STACK               startup_nuc1xx.o
+    0x20000678   0x00000019   Zero   RW          162    .bss                smart-lock-with-nu-lb-nuc140.o
+    0x20000691   0x00000007   PAD
+    0x20000698   0x00000400   Zero   RW           53    STACK               startup_nuc1xx.o
 
 
 ==============================================================================
@@ -123,19 +130,20 @@ Image component sizes
 
          0          0          0       1520          0        492   ascii_table.o
          0          0          0          0          0       4208   core_cm0.o
+      1098         56          0          0          0       1818   driver_pwm_servo.o
       1284        150          0         16          0       7330   drvgpio.o
-       798        148         16          8          0      10945   drvsys.o
+       772        148         16          8          0      10873   drvsys.o
        932         82          0         12          0      13314   drvuart.o
        578         20          0         16          0       4513   lcd_driver.o
        130          4          4          0          0       1678   scankey.o
-      1404        334          0         64         25     140673   smart-lock-with-nu-lb-nuc140.o
+      1044        194          9         51         25     141245   smart-lock-with-nu-lb-nuc140.o
         76         32        192          0       1024        560   startup_nuc1xx.o
        134         22          0         28          0     119358   system_nuc1xx.o
 
     ----------------------------------------------------------------------
-      5340        792        244       1664       1052     303071   Object Totals
+      6052        708        256       1652       1056     305389   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         4          0          0          0          3          1   (incl. Padding)
+         4          0          3          1          7          3   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -150,20 +158,21 @@ Image component sizes
         36          8          0          0          0         68   init.o
        494         10          0          0          0        228   printf3.o
         36         12          0          4          0        116   rand.o
+        28          0          0          0          0         68   strcmp.o
         44          0          0          0          0         68   uidiv.o
 
     ----------------------------------------------------------------------
-       700         38          0          4          0        552   Library Totals
+       728         38          0          4          0        620   Library Totals
          0          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-       700         38          0          4          0        552   mc_p.l
+       728         38          0          4          0        620   mc_p.l
 
     ----------------------------------------------------------------------
-       700         38          0          4          0        552   Library Totals
+       728         38          0          4          0        620   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -172,15 +181,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      6040        830        244       1668       1052     301516   Grand Totals
-      6040        830        244       1668       1052     301516   ELF Image Totals
-      6040        830        244       1668          0          0   ROM Totals
+      6780        746        256       1656       1056     303736   Grand Totals
+      6780        746        256       1656       1056     303736   ELF Image Totals
+      6780        746        256       1656          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 6284 (   6.14kB)
-    Total RW  Size (RW Data + ZI Data)              2720 (   2.66kB)
-    Total ROM Size (Code + RO Data + RW Data)       7952 (   7.77kB)
+    Total RO  Size (Code + RO Data)                 7036 (   6.87kB)
+    Total RW  Size (RW Data + ZI Data)              2712 (   2.65kB)
+    Total ROM Size (Code + RO Data + RW Data)       8692 (   8.49kB)
 
 ==============================================================================
 
