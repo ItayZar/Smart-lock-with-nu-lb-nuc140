@@ -77,7 +77,7 @@ char	TEXT3[17] = "                 ";
 
 
 char 	otp[OTP_LENGTH + 1];
-char 	inputOTP[OTP_LENGTH + 1];
+char 	input_otp[OTP_LENGTH + 1];
 char	local_password[OTP_LENGTH + 1]="1987" ;
 char 	input_local_password[OTP_LENGTH + 1];
 
@@ -86,10 +86,10 @@ uint32_t distance_mm;
 uint32_t hitime;
 
 typedef enum {
-    IDLE,	  //1
-    USR_PSWD, //2
-    OTP_AUTH, //3
-    DR_OPEN	  //4
+    IDLE,	  
+    USR_PSWD, 
+    OTP_AUTH, 
+    DR_OPEN	  
 } State;
 
 State current_state = IDLE;
@@ -273,7 +273,9 @@ void sendOTP()
 {
    	// Function to send the OTP to a Bluetooth terminal
 	DrvUART_Write(UART_PORT0 , "OTP:\t" , strlen("OTP:\t"));
-	DrvUART_Write(UART_PORT0 , strcat(otp,"\n\r") , OTP_LENGTH+2);
+	DrvUART_Write(UART_PORT0 , otp , OTP_LENGTH);
+	DrvUART_Write(UART_PORT0 , "\n\r" , 2); //new line and return cursor for next message
+
 }
 
 void display_status(int locked)
@@ -285,6 +287,22 @@ void display_status(int locked)
 	else{
 		print_lcd(0, "  Status: Unlocked  "); 	
 	}
+}
+
+void delay_sec(int sec)
+{
+	int t=0;
+	for(t=0;t<sec;t++)
+	{
+	 	DrvSYS_Delay(335000);
+		DrvSYS_Delay(335000);
+		DrvSYS_Delay(335000);
+	}
+}
+
+void clearText(char* text) {
+// sets all elements of text to null
+    memset(text, '\0', sizeof(text));
 }
 
 
@@ -322,7 +340,7 @@ int main (void)
 	Initial_panel();                  // initialize LCD
 	clr_all_panel();                  // clear LCD display
 	display_status(1);
-	                          
+	OpenKeyPad();                          
 	InitTIMER0();
 	Init_TMR2();
 	Init_GPIO_SR04();
@@ -330,10 +348,15 @@ int main (void)
 
 	time_s = 0;
 	
+	DrvGPIO_SetDebounceTime(5, 1);
+	DrvGPIO_EnableDebounce(E_GPA, 15);
+	DrvGPIO_EnableDebounce(E_GPE, 15);	
 
 	while(1) {
 		switch(current_state){
 			case(IDLE):
+				clr_all_panel();
+				display_status(1);
 				print_lcd(1,"IDLE");	//prints current state
 				DistMeasure();
 				if(distance_mm <= 100)
@@ -352,29 +375,25 @@ int main (void)
 				display_status(1);
 				print_lcd(1, "Enter Your Code");
 				for(i=0;i<OTP_LENGTH;i++)
-					{
-						tmp=0;
-						while(tmp==0){
-							tmp=Scankey();
-							//print_lcd(1, "STUCK!!!!!");
-						}
-						if(tmp!=0)
-						{ 
-							//print_lcd(1, "IM HERE!!!!");
-							input_local_password[i] = 48 + tmp; // 48 in dec = '0' ASCII
-							sprintf(TEXT2+i,"%c",input_local_password[i]);
-							print_lcd(2, TEXT2);
-						}
-						while(tmp!=0){
-							tmp=Scankey();
-						}
+				{
+					tmp=0;
+					while(tmp==0){
+						tmp=Scankey(); 
 					}
+					input_local_password[i] = 48 + tmp; // 48 in dec = '0' ASCII
+					sprintf(TEXT2+i,"%c",input_local_password[i]);
+					print_lcd(2, TEXT2);
+					while(tmp!=0){
+						tmp=Scankey();
+					}
+				}
 				input_local_password[OTP_LENGTH] = '\0';
 				clr_all_panel();
 				display_status(1);
 				if(0==strcmp(input_local_password,local_password))
 				{
 					print_lcd(2, "Correct !");
+					delay_sec(2);
 				 	current_state = OTP_AUTH;
 					generateOTP();
 					sendOTP();
@@ -385,36 +404,50 @@ int main (void)
 					print_lcd(2, "Incorrect !");
 					sprintf(TEXT3,"%d attemps left", 3-attemps);
 					print_lcd(3,TEXT3);
+					delay_sec(2);
 				 	attemps++;
 				}
-				if(attemps==3)
+				if(attemps==4)
 				{
+					clr_all_panel();
 				 	print_lcd(2, "Reached max attemps");
 					current_state = IDLE;		
 				}
 				break;
 			case(OTP_AUTH):
+				clr_all_panel();
+				clearText(TEXT2);
+				display_status(1);
 				TIMER0->TCSR.CEN = 1;		// Enable Timer0
+				print_lcd(2, "OTP sent via BT");
+				delay_sec(2);
+				clr_all_panel();
 				while(time_s <= 30)
 				{
+					clr_all_panel();
+					print_lcd(1, "Enter Your OTP");
 					for(i=0;i<OTP_LENGTH;i++)
 					{
 						tmp=0;
 						while(tmp==0){
-							tmp=Scankey();
+							tmp=Scankey(); 
 						}
-						if(tmp!=0)
-						{ 
-							inputOTP[i] = 48 + tmp; // 48 in dec = '0' ASCII
-						}
+						input_otp[i] = 48 + tmp; // 48 in dec = '0' ASCII
+						sprintf(TEXT2+i,"%c",input_otp[i]);
+						print_lcd(2, TEXT2);
 						while(tmp!=0){
 							tmp=Scankey();
 						}
 					}
-					inputOTP[OTP_LENGTH] = '\0';
-					if(0==strcmp(inputOTP,otp))
+					input_otp[OTP_LENGTH] = '\0';
+					print_lcd(3,input_otp);
+					delay_sec(2);
+					clr_all_panel();
+					display_status(1);;
+					if(0==strcmp(input_otp,otp))
 					{
 						print_lcd(2, "Correct !");
+						delay_sec(2);
 					 	current_state = DR_OPEN;;
 						TIMER0->TCSR.CEN = 0;		// Disable Timer0
 						time_s = 0;
@@ -425,10 +458,12 @@ int main (void)
 						print_lcd(2, "Incorrect !");
 						sprintf(TEXT3,"%d attemps left", 3-attemps);
 						print_lcd(3,TEXT3);
+						delay_sec(2);
 					 	attemps++;
 					}
-					if(attemps==3)
+					if(attemps==4)
 					{
+						clr_all_panel();
 					 	print_lcd(2, "Reached Max attemps");
 						current_state = IDLE;
 						TIMER0->TCSR.CEN = 0;		// Disable Timer0
@@ -446,13 +481,14 @@ int main (void)
 				}
 				break;
 			case(DR_OPEN):
-					print_lcd(1, "Opening door");
-					servo_open();
-					DrvSYS_Delay(50000);
-					print_lcd(1, "Closing door");
-					servo_close();
-					current_state = IDLE;
-					break;
+				clr_all_panel();
+				print_lcd(1, "Opening door");
+				servo_open();
+				delay_sec(3);
+				print_lcd(1, "Closing door");
+				servo_close();
+				current_state = IDLE;
+				break;
 		}
 	}
 }

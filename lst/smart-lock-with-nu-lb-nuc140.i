@@ -10930,7 +10930,7 @@ char	TEXT3[17] = "                 ";
 
 
 char 	otp[4 + 1];
-char 	inputOTP[4 + 1];
+char 	input_otp[4 + 1];
 char	local_password[4 + 1]="1987" ;
 char 	input_local_password[4 + 1];
 
@@ -11140,6 +11140,22 @@ void display_status(int locked)
 	}
 }
 
+void delay_sec(int sec)
+{
+	int t=0;
+	for(t=0;t<sec;t++)
+	{
+	 	DrvSYS_Delay(335000);
+		DrvSYS_Delay(335000);
+		DrvSYS_Delay(335000);
+	}
+}
+
+void clearText(char* text) {
+
+    memset(text, '\0', sizeof(text));
+}
+
 
 
 
@@ -11175,7 +11191,7 @@ int main (void)
 	Initial_panel();                  
 	clr_all_panel();                  
 	display_status(1);
-	                          
+	OpenKeyPad();                          
 	InitTIMER0();
 	Init_TMR2();
 	Init_GPIO_SR04();
@@ -11183,10 +11199,15 @@ int main (void)
 
 	time_s = 0;
 	
+	DrvGPIO_SetDebounceTime(5, 1);
+	DrvGPIO_EnableDebounce(E_GPA, 15);
+	DrvGPIO_EnableDebounce(E_GPE, 15);	
 
 	while(1) {
 		switch(current_state){
 			case(IDLE):
+				clr_all_panel();
+				display_status(1);
 				print_lcd(1,"IDLE");	
 				DistMeasure();
 				if(distance_mm <= 100)
@@ -11205,29 +11226,25 @@ int main (void)
 				display_status(1);
 				print_lcd(1, "Enter Your Code");
 				for(i=0;i<4;i++)
-					{
-						tmp=0;
-						while(tmp==0){
-							tmp=Scankey();
-							
-						}
-						if(tmp!=0)
-						{ 
-							
-							input_local_password[i] = 48 + tmp; 
-							sprintf(TEXT2+i,"%c",input_local_password[i]);
-							print_lcd(2, TEXT2);
-						}
-						while(tmp!=0){
-							tmp=Scankey();
-						}
+				{
+					tmp=0;
+					while(tmp==0){
+						tmp=Scankey(); 
 					}
+					input_local_password[i] = 48 + tmp; 
+					sprintf(TEXT2+i,"%c",input_local_password[i]);
+					print_lcd(2, TEXT2);
+					while(tmp!=0){
+						tmp=Scankey();
+					}
+				}
 				input_local_password[4] = '\0';
 				clr_all_panel();
 				display_status(1);
 				if(0==strcmp(input_local_password,local_password))
 				{
 					print_lcd(2, "Correct !");
+					delay_sec(2);
 				 	current_state = OTP_AUTH;
 					generateOTP();
 					sendOTP();
@@ -11238,36 +11255,50 @@ int main (void)
 					print_lcd(2, "Incorrect !");
 					sprintf(TEXT3,"%d attemps left", 3-attemps);
 					print_lcd(3,TEXT3);
+					delay_sec(2);
 				 	attemps++;
 				}
-				if(attemps==3)
+				if(attemps==4)
 				{
+					clr_all_panel();
 				 	print_lcd(2, "Reached max attemps");
 					current_state = IDLE;		
 				}
 				break;
 			case(OTP_AUTH):
+				clr_all_panel();
+				clearText(TEXT2);
+				display_status(1);
 				((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 1;		
+				print_lcd(2, "OTP sent via BT");
+				delay_sec(2);
+				clr_all_panel();
 				while(time_s <= 30)
 				{
+					clr_all_panel();
+					print_lcd(1, "Enter Your OTP");
 					for(i=0;i<4;i++)
 					{
 						tmp=0;
 						while(tmp==0){
-							tmp=Scankey();
+							tmp=Scankey(); 
 						}
-						if(tmp!=0)
-						{ 
-							inputOTP[i] = 48 + tmp; 
-						}
+						input_otp[i] = 48 + tmp; 
+						sprintf(TEXT2+i,"%c",input_otp[i]);
+						print_lcd(2, TEXT2);
 						while(tmp!=0){
 							tmp=Scankey();
 						}
 					}
-					inputOTP[4] = '\0';
-					if(0==strcmp(inputOTP,otp))
+					input_otp[4] = '\0';
+					print_lcd(3,input_otp);
+					delay_sec(2);
+					clr_all_panel();
+					display_status(1);;
+					if(0==strcmp(input_otp,otp))
 					{
 						print_lcd(2, "Correct !");
+						delay_sec(2);
 					 	current_state = DR_OPEN;;
 						((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 0;		
 						time_s = 0;
@@ -11278,10 +11309,12 @@ int main (void)
 						print_lcd(2, "Incorrect !");
 						sprintf(TEXT3,"%d attemps left", 3-attemps);
 						print_lcd(3,TEXT3);
+						delay_sec(2);
 					 	attemps++;
 					}
-					if(attemps==3)
+					if(attemps==4)
 					{
+						clr_all_panel();
 					 	print_lcd(2, "Reached Max attemps");
 						current_state = IDLE;
 						((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 0;		
@@ -11299,13 +11332,14 @@ int main (void)
 				}
 				break;
 			case(DR_OPEN):
-					print_lcd(1, "Opening door");
-					servo_open();
-					DrvSYS_Delay(50000);
-					print_lcd(1, "Closing door");
-					servo_close();
-					current_state = IDLE;
-					break;
+				clr_all_panel();
+				print_lcd(1, "Opening door");
+				servo_open();
+				delay_sec(3);
+				print_lcd(1, "Closing door");
+				servo_close();
+				current_state = IDLE;
+				break;
 		}
 	}
 }

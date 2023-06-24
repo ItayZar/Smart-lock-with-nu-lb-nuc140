@@ -1,0 +1,38 @@
+@startuml
+scale 600 width
+
+[*] --> IDLE
+state IDLE {
+  SR04: Looking for an object
+}
+IDLE --> IDLE : No object within the range
+IDLE --> USER_PASSWORD: Object detected by SR04\t\t
+state USER_PASSWORD{
+  Input: The user enters a password using the keypad
+  Input --> Compare
+  Compare: Compare the input password with the hardcoded password
+  Compare --> Input: Password does not match
+}
+
+USER_PASSWORD --> IDLE: \tIf failed for 3 attempts
+USER_PASSWORD --> OTP_AUTH
+state OTP_AUTH{
+  GenerateOTP: Generate one time password
+  GenerateOTP --> SendOTP
+  SendOTP: Send OTP via Bluetooth
+  SendOTP --> Authentication
+  Authentication: The user enters the OTP using the keypad
+}
+
+OTP_AUTH --> IDLE: If timeout of 30 seconds has been reached
+OTP_AUTH --> IDLE : \tIf second authentication has failed after 3 attemps
+OTP_AUTH --> DR_OPEN: Unlock and open door
+state DR_OPEN{
+  Open: Open door
+  Close: Close door
+  Delay: Maintain position for 5 seconds
+  Open --> Delay
+  Delay --> Close
+}
+DR_OPEN --> IDLE
+@enduml
