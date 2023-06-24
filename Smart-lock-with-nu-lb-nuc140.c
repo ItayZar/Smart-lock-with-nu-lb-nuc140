@@ -78,18 +78,36 @@ char	TEXT3[17] = "                 ";
 
 char 	otp[OTP_LENGTH + 1];
 char 	inputOTP[OTP_LENGTH + 1];
+char	local_password[OTP_LENGTH + 1]="1987" ;
+char 	input_local_password[OTP_LENGTH + 1];
 
 uint32_t time_s =0;
 uint32_t distance_mm;
 uint32_t hitime;
 
+typedef enum {
+    IDLE,	  //1
+    USR_PSWD, //2
+    OTP_AUTH, //3
+    DR_OPEN	  //4
+} State;
 
-uint8_t calc_deg(uint8_t value) {
+State current_state = IDLE;
+
+
+/*uint8_t calc_deg(uint8_t value) {
 	return ((value-HITIME_MIN)*90)/(HITIME_MAX-HITIME_MIN); 	// 0 to 90 degrees!
-}
+} */
 
 void servo_open(void) {
 	 for (hitime=HITIME_MIN; hitime<=HITIME_MAX; hitime++) {
+		PWM_Servo(0, hitime);
+		DrvSYS_Delay(20000);
+	}
+}
+
+void servo_close(void) {
+	 for (hitime=HITIME_MAX; hitime<=HITIME_MIN; hitime--) {
 		PWM_Servo(0, hitime);
 		DrvSYS_Delay(20000);
 	}
@@ -254,24 +272,22 @@ void generateOTP()
 void sendOTP()
 {
    	// Function to send the OTP to a Bluetooth terminal
-	DrvUART_Write(UART_PORT0 , otp , OTP_LENGTH);
+	DrvUART_Write(UART_PORT0 , "OTP:\t" , strlen("OTP:\t"));
+	DrvUART_Write(UART_PORT0 , strcat(otp,"\n\r") , OTP_LENGTH+2);
 }
 
-
-int unlock_attemp(int attemp)
+void display_status(int locked)
 {
- 	if(0==strcmp(otp,inputOTP))
-	{
-		//correct
-	 	attemp=0;
+	clr_all_panel();
+ 	if (locked){
+		print_lcd(0, "  Status: Locked  "); 	
 	}
-	else
-	{
-		//incorrect
-	 	attemp++;
+	else{
+		print_lcd(0, "  Status: Unlocked  "); 	
 	}
-	return attemp;
 }
+
+
 
 
 //------------------------------
@@ -305,27 +321,80 @@ int main (void)
 	
 	Initial_panel();                  // initialize LCD
 	clr_all_panel();                  // clear LCD display
-	print_lcd(0, "  OTP Lock  "); // Line 0 display
+	display_status(1);
 	                          
 	InitTIMER0();
 	Init_TMR2();
 	Init_GPIO_SR04();
 	InitPWM(0);   // initialize PWM0
+
+	time_s = 0;
 	
 
 	while(1) {
-		DistMeasure();
-		if(distance_mm <= 100)
-		{
-			TIMER0->TCSR.CEN = 1;		// Enable Timer0
-		}
-		if(distance_mm <= 100 &&  time_s == 3)
-		{
-				print_lcd(2, "                ");
-				generateOTP();
-				//sendOTP();
-				print_lcd(1,otp);
-				time_s = 0;
+		switch(current_state){
+			case(IDLE):
+				print_lcd(1,"IDLE");	//prints current state
+				DistMeasure();
+				if(distance_mm <= 100)
+				{
+					TIMER0->TCSR.CEN = 1;		// Enable Timer0
+				}
+				if(distance_mm <= 100 &&  time_s == 3)
+				{
+				 	current_state = USR_PSWD;
+					TIMER0->TCSR.CEN = 0;		// Disable Timer0
+					time_s = 0;	
+				}
+				break;
+			case(USR_PSWD):
+				clr_all_panel();
+				display_status(1);
+				print_lcd(1, "Enter Your Code");
+				for(i=0;i<OTP_LENGTH;i++)
+					{
+						tmp=0;
+						while(tmp==0){
+							tmp=Scankey();
+							//print_lcd(1, "STUCK!!!!!");
+						}
+						if(tmp!=0)
+						{ 
+							//print_lcd(1, "IM HERE!!!!");
+							input_local_password[i] = 48 + tmp; // 48 in dec = '0' ASCII
+							sprintf(TEXT2+i,"%c",input_local_password[i]);
+							print_lcd(2, TEXT2);
+						}
+						while(tmp!=0){
+							tmp=Scankey();
+						}
+					}
+				input_local_password[OTP_LENGTH] = '\0';
+				clr_all_panel();
+				display_status(1);
+				if(0==strcmp(input_local_password,local_password))
+				{
+					print_lcd(2, "Correct !");
+				 	current_state = OTP_AUTH;
+					generateOTP();
+					sendOTP();
+					attemps=1;
+				}
+				else
+				{
+					print_lcd(2, "Incorrect !");
+					sprintf(TEXT3,"%d attemps left", 3-attemps);
+					print_lcd(3,TEXT3);
+				 	attemps++;
+				}
+				if(attemps==3)
+				{
+				 	print_lcd(2, "Reached max attemps");
+					current_state = IDLE;		
+				}
+				break;
+			case(OTP_AUTH):
+				TIMER0->TCSR.CEN = 1;		// Enable Timer0
 				while(time_s <= 30)
 				{
 					for(i=0;i<OTP_LENGTH;i++)
@@ -343,23 +412,48 @@ int main (void)
 						}
 					}
 					inputOTP[OTP_LENGTH] = '\0';
- 
-				 	print_lcd(3,inputOTP); //Keypad
-					attemps=unlock_attemp(attemps);
-					if(attemps==0)
+					if(0==strcmp(inputOTP,otp))
 					{
-					 	//unlock
-						servo_open();
+						print_lcd(2, "Correct !");
+					 	current_state = DR_OPEN;;
+						TIMER0->TCSR.CEN = 0;		// Disable Timer0
+						time_s = 0;
+						attemps=1;
+					}
+					else
+					{
+						print_lcd(2, "Incorrect !");
+						sprintf(TEXT3,"%d attemps left", 3-attemps);
+						print_lcd(3,TEXT3);
+					 	attemps++;
 					}
 					if(attemps==3)
 					{
-					 	//reached max attemps
-						//add LCD msg and BT msg
-						break;
+					 	print_lcd(2, "Reached Max attemps");
+						current_state = IDLE;
+						TIMER0->TCSR.CEN = 0;		// Disable Timer0
+						time_s = 0;
+						break;		
+					}
+					if(time_s==30)
+					{
+					 	print_lcd(1, "Timed out!");
+						current_state = IDLE;
+						TIMER0->TCSR.CEN = 0;		// Disable Timer0
+						time_s = 0;
+						break;		
 					}
 				}
-				TIMER0->TCSR.CEN = 0;		// Disable Timer0
+				break;
+			case(DR_OPEN):
+					print_lcd(1, "Opening door");
+					servo_open();
+					DrvSYS_Delay(50000);
+					print_lcd(1, "Closing door");
+					servo_close();
+					current_state = IDLE;
+					break;
 		}
 	}
-	
 }
+		

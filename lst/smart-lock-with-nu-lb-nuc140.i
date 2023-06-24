@@ -10931,18 +10931,36 @@ char	TEXT3[17] = "                 ";
 
 char 	otp[4 + 1];
 char 	inputOTP[4 + 1];
+char	local_password[4 + 1]="1987" ;
+char 	input_local_password[4 + 1];
 
 uint32_t time_s =0;
 uint32_t distance_mm;
 uint32_t hitime;
 
+typedef enum {
+    IDLE,	  
+    USR_PSWD, 
+    OTP_AUTH, 
+    DR_OPEN	  
+} State;
 
-uint8_t calc_deg(uint8_t value) {
-	return ((value-22)*90)/(128-22); 	
-}
+State current_state = IDLE;
+
+
+
+
+ 
 
 void servo_open(void) {
 	 for (hitime=22; hitime<=128; hitime++) {
+		PWM_Servo(0, hitime);
+		DrvSYS_Delay(20000);
+	}
+}
+
+void servo_close(void) {
+	 for (hitime=128; hitime<=22; hitime--) {
 		PWM_Servo(0, hitime);
 		DrvSYS_Delay(20000);
 	}
@@ -11107,24 +11125,22 @@ void generateOTP()
 void sendOTP()
 {
    	
-	DrvUART_Write(UART_PORT0 , otp , 4);
+	DrvUART_Write(UART_PORT0 , "OTP:\t" , strlen("OTP:\t"));
+	DrvUART_Write(UART_PORT0 , strcat(otp,"\n\r") , 4+2);
 }
 
-
-int unlock_attemp(int attemp)
+void display_status(int locked)
 {
- 	if(0==strcmp(otp,inputOTP))
-	{
-		
-	 	attemp=0;
+	clr_all_panel();
+ 	if (locked){
+		print_lcd(0, "  Status: Locked  "); 	
 	}
-	else
-	{
-		
-	 	attemp++;
+	else{
+		print_lcd(0, "  Status: Unlocked  "); 	
 	}
-	return attemp;
 }
+
+
 
 
 
@@ -11158,27 +11174,80 @@ int main (void)
 	
 	Initial_panel();                  
 	clr_all_panel();                  
-	print_lcd(0, "  OTP Lock  "); 
+	display_status(1);
 	                          
 	InitTIMER0();
 	Init_TMR2();
 	Init_GPIO_SR04();
 	InitPWM(0);   
+
+	time_s = 0;
 	
 
 	while(1) {
-		DistMeasure();
-		if(distance_mm <= 100)
-		{
-			((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 1;		
-		}
-		if(distance_mm <= 100 &&  time_s == 3)
-		{
-				print_lcd(2, "                ");
-				generateOTP();
-				
-				print_lcd(1,otp);
-				time_s = 0;
+		switch(current_state){
+			case(IDLE):
+				print_lcd(1,"IDLE");	
+				DistMeasure();
+				if(distance_mm <= 100)
+				{
+					((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 1;		
+				}
+				if(distance_mm <= 100 &&  time_s == 3)
+				{
+				 	current_state = USR_PSWD;
+					((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 0;		
+					time_s = 0;	
+				}
+				break;
+			case(USR_PSWD):
+				clr_all_panel();
+				display_status(1);
+				print_lcd(1, "Enter Your Code");
+				for(i=0;i<4;i++)
+					{
+						tmp=0;
+						while(tmp==0){
+							tmp=Scankey();
+							
+						}
+						if(tmp!=0)
+						{ 
+							
+							input_local_password[i] = 48 + tmp; 
+							sprintf(TEXT2+i,"%c",input_local_password[i]);
+							print_lcd(2, TEXT2);
+						}
+						while(tmp!=0){
+							tmp=Scankey();
+						}
+					}
+				input_local_password[4] = '\0';
+				clr_all_panel();
+				display_status(1);
+				if(0==strcmp(input_local_password,local_password))
+				{
+					print_lcd(2, "Correct !");
+				 	current_state = OTP_AUTH;
+					generateOTP();
+					sendOTP();
+					attemps=1;
+				}
+				else
+				{
+					print_lcd(2, "Incorrect !");
+					sprintf(TEXT3,"%d attemps left", 3-attemps);
+					print_lcd(3,TEXT3);
+				 	attemps++;
+				}
+				if(attemps==3)
+				{
+				 	print_lcd(2, "Reached max attemps");
+					current_state = IDLE;		
+				}
+				break;
+			case(OTP_AUTH):
+				((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 1;		
 				while(time_s <= 30)
 				{
 					for(i=0;i<4;i++)
@@ -11196,23 +11265,48 @@ int main (void)
 						}
 					}
 					inputOTP[4] = '\0';
- 
-				 	print_lcd(3,inputOTP); 
-					attemps=unlock_attemp(attemps);
-					if(attemps==0)
+					if(0==strcmp(inputOTP,otp))
 					{
-					 	
-						servo_open();
+						print_lcd(2, "Correct !");
+					 	current_state = DR_OPEN;;
+						((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 0;		
+						time_s = 0;
+						attemps=1;
+					}
+					else
+					{
+						print_lcd(2, "Incorrect !");
+						sprintf(TEXT3,"%d attemps left", 3-attemps);
+						print_lcd(3,TEXT3);
+					 	attemps++;
 					}
 					if(attemps==3)
 					{
-					 	
-						
-						break;
+					 	print_lcd(2, "Reached Max attemps");
+						current_state = IDLE;
+						((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 0;		
+						time_s = 0;
+						break;		
+					}
+					if(time_s==30)
+					{
+					 	print_lcd(1, "Timed out!");
+						current_state = IDLE;
+						((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 0;		
+						time_s = 0;
+						break;		
 					}
 				}
-				((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 0;		
+				break;
+			case(DR_OPEN):
+					print_lcd(1, "Opening door");
+					servo_open();
+					DrvSYS_Delay(50000);
+					print_lcd(1, "Closing door");
+					servo_close();
+					current_state = IDLE;
+					break;
 		}
 	}
-	
 }
+		
