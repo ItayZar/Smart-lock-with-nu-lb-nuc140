@@ -1,35 +1,23 @@
 import bluetooth
+import re
 
-def process_message(message):
-    # Perform your desired action based on the received message
-    print("Received message:", message)
-    # Add your code here to perform the desired action based on the message
+# Bluetooth MAC address of the HC-05 module
+hc05_address = '20:17:01:03:41:02'  # Replace with the actual address
 
-def start_server():
-    server_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
-    port = 4  # RFCOMM port used by the HC-05 device
+# Create a Bluetooth socket
+sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
 
-    server_sock.bind(("", port))
-    server_sock.listen(1)
+# Connect to the HC-05 module
+sock.connect((hc05_address, 1))  # Port number 1 for RFCOMM
 
-    print("Waiting for connections...")
-    client_sock, client_info = server_sock.accept()
-    print("Accepted connection from", client_info)
+# Receive and display messages
+while True:
+    data = sock.recv(1024)  # Adjust the buffer size as per your requirements
+    data = data.decode('utf-8', 'ignore')  # Convert bytes to string
+    data = data.strip()  # Strip whitespace
+    data = re.sub(r'[^\x20-\x7E]', '', data)  # Filter non-printable characters
+    if data:
+        print("Received message:", data)  # Display the received message
 
-    try:
-        while True:
-            data = client_sock.recv(1024)
-            if len(data) == 0:
-                break
-
-            message = data.decode("utf-8")
-            process_message(message)
-
-    except IOError:
-        pass
-
-    client_sock.close()
-    server_sock.close()
-
-if __name__ == "__main__":
-    start_server()
+# Close the socket connection when done
+sock.close()
