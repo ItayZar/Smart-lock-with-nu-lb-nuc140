@@ -58,7 +58,7 @@
 #define RGB_RED				14
 
 //PWM
-#define HITIME_MIN 		22  // was 0.17ms [17]
+#define HITIME_MIN 		30  // was 0.17ms [17]
 #define HITIME_MAX 		128 // was 1.2ms  [120]
 
 unsigned char DisplayBuf [128*8];
@@ -99,15 +99,15 @@ State current_state = IDLE;
 	return ((value-HITIME_MIN)*90)/(HITIME_MAX-HITIME_MIN); 	// 0 to 90 degrees!
 } */
 
-void servo_open(void) {
+void servo_close(void) {
 	 for (hitime=HITIME_MIN; hitime<=HITIME_MAX; hitime++) {
 		PWM_Servo(0, hitime);
 		DrvSYS_Delay(20000);
 	}
 }
 
-void servo_close(void) {
-	 for (hitime=HITIME_MAX; hitime<=HITIME_MIN; hitime--) {
+void servo_open(void) {
+	 for (hitime=HITIME_MAX; hitime>=HITIME_MIN; hitime--) {
 		PWM_Servo(0, hitime);
 		DrvSYS_Delay(20000);
 	}
@@ -282,10 +282,10 @@ void display_status(int locked)
 {
 	clr_all_panel();
  	if (locked){
-		print_lcd(0, "  Status: Locked  "); 	
+		print_lcd(0, "Status: Locked"); 	
 	}
 	else{
-		print_lcd(0, "  Status: Unlocked  "); 	
+		print_lcd(0, "Status: Unlocked"); 	
 	}
 }
 
@@ -301,8 +301,7 @@ void delay_sec(int sec)
 }
 
 void clearText(char* text) {
-// sets all elements of text to null
-    memset(text, '\0', sizeof(text));
+    strcpy(text, "                 ");
 }
 
 
@@ -345,12 +344,9 @@ int main (void)
 	Init_TMR2();
 	Init_GPIO_SR04();
 	InitPWM(0);   // initialize PWM0
-
+	PWM_Servo(0, HITIME_MAX); //Make sure gate is closed at the beginning
 	time_s = 0;
-	
-	DrvGPIO_SetDebounceTime(5, 1);
-	DrvGPIO_EnableDebounce(E_GPA, 15);
-	DrvGPIO_EnableDebounce(E_GPE, 15);	
+		
 
 	while(1) {
 		switch(current_state){
@@ -386,6 +382,7 @@ int main (void)
 					while(tmp!=0){
 						tmp=Scankey();
 					}
+					DrvSYS_Delay(335000);
 				}
 				input_local_password[OTP_LENGTH] = '\0';
 				clr_all_panel();
@@ -393,7 +390,7 @@ int main (void)
 				if(0==strcmp(input_local_password,local_password))
 				{
 					print_lcd(2, "Correct !");
-					delay_sec(2);
+					delay_sec(1);
 				 	current_state = OTP_AUTH;
 					generateOTP();
 					sendOTP();
@@ -420,7 +417,7 @@ int main (void)
 				display_status(1);
 				TIMER0->TCSR.CEN = 1;		// Enable Timer0
 				print_lcd(2, "OTP sent via BT");
-				delay_sec(2);
+				delay_sec(1);
 				clr_all_panel();
 				while(time_s <= 30)
 				{
@@ -438,10 +435,10 @@ int main (void)
 						while(tmp!=0){
 							tmp=Scankey();
 						}
+						DrvSYS_Delay(335000);
 					}
 					input_otp[OTP_LENGTH] = '\0';
-					print_lcd(3,input_otp);
-					delay_sec(2);
+					delay_sec(1);
 					clr_all_panel();
 					display_status(1);;
 					if(0==strcmp(input_otp,otp))
@@ -452,6 +449,7 @@ int main (void)
 						TIMER0->TCSR.CEN = 0;		// Disable Timer0
 						time_s = 0;
 						attemps=1;
+						break;
 					}
 					else
 					{
@@ -484,6 +482,8 @@ int main (void)
 				clr_all_panel();
 				print_lcd(1, "Opening door");
 				servo_open();
+				clr_all_panel();
+				display_status(0);
 				delay_sec(3);
 				print_lcd(1, "Closing door");
 				servo_close();

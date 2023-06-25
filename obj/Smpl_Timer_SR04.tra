@@ -19,7 +19,7 @@
 ### ADS-LD Output File: '.\obj\Smpl_Timer_SR04.axf'
 ### ADS-LD Command File: '.\obj\Smpl_Timer_SR04.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '.\obj\Smpl_Timer_SR04.lnp', Handle=0x000009C4
+### Creating CmdFile '.\obj\Smpl_Timer_SR04.lnp', Handle=0x000007C8
 ### Writing '.lnp' file
 ### ADS-LD Command file '.\obj\Smpl_Timer_SR04.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

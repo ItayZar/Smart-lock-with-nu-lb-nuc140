@@ -7,7 +7,7 @@ def process_message(message):
 
 def start_server():
     server_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
-    port = 1  # RFCOMM port used by the HC-05 device
+    port = 4  # RFCOMM port used by the HC-05 device
 
     server_sock.bind(("", port))
     server_sock.listen(1)
