@@ -10909,6 +10909,9 @@ extern void PWM_Servo(uint8_t PWM_no, uint16_t Servo_HiTime);
 
 
 
+
+
+
 unsigned char DisplayBuf [128*8];
 char TEXT[16];
 volatile uint8_t comRbuf[9];
@@ -11063,7 +11066,7 @@ void SR04_Trigger(void)
 
 
 
-int DistMeasure(void)
+void DistMeasure(void)
 {
 	SR04_Trigger();                 
 	DrvSYS_Delay(40000);            
@@ -11076,7 +11079,6 @@ int DistMeasure(void)
 		print_lcd(2, TEXT2);	        
  	}   
 	DrvSYS_Delay(10000);           
-	return distance_mm; 
 }
 
 
@@ -11104,21 +11106,6 @@ void UART_INT_HANDLE(void)
 		}
 	}
 }
-
-
-void generateOTP()
-{
-	
-	int i;
-	srand(DistMeasure());
-
-    for (i = 0; i < 4; i++) {
-        otp[i] = '1' + (rand() % 9);   
-    }
-    otp[4] = '\0';  
-}
-
-
 void sendID(int id)
 {
    	
@@ -11128,7 +11115,6 @@ void sendID(int id)
 	DrvUART_Write(UART_PORT0 , id_ascii , strlen(id_ascii));
 
 }
-
 void display_status(int locked)
 {
 	clr_all_panel();
@@ -11139,7 +11125,6 @@ void display_status(int locked)
 		print_lcd(0, "Status: Unlocked"); 	
 	}
 }
-
 void delay_sec(int sec)
 {
 	int t=0;
@@ -11151,12 +11136,10 @@ void delay_sec(int sec)
 	}
 }
 
-void clearText(char* text) {
+void clearText(char* text)
+{
     strcpy(text, "                 ");
 }
-
-
-
 
 
 
@@ -11165,12 +11148,20 @@ int main (void)
 {	
 	STR_UART_T sParam;
 	int flag;
-	int i,tmp,attemps=1 ;
+	int i,tmp,attemps=1,correct ;
 
-	 
-	user master;
-	master.id=1;
-	strcpy(master.password,"1987");
+	
+
+
+ 
+
+	user users[5];
+	users[0].id = 1;
+    snprintf(users[0].password, sizeof(users[0].password), "1987");
+
+    users[1].id = 2;
+    snprintf(users[1].password, sizeof(users[1].password), "1234");
+
 
 
 	
@@ -11206,7 +11197,6 @@ int main (void)
 	time_s = 0;
 	
 
-	
 
 	while(1) {
 		switch(current_state){
@@ -11247,15 +11237,20 @@ int main (void)
 				input_local_password[4] = '\0';
 				clr_all_panel();
 				display_status(1);
-				if(0==strcmp(input_local_password,master.password))
+				for(i=0;i<5;i++)
 				{
-					print_lcd(2, "Correct !");
-					delay_sec(1);
-				 	current_state = OTP_AUTH;
-					sendID(master.id);
-					attemps=1;
+					if(0==strcmp(input_local_password,users[i].password))
+					{
+						print_lcd(2, "Correct !");
+						delay_sec(1);
+					 	current_state = OTP_AUTH;
+						sendID(users[i].id);
+						attemps=1;
+						correct=1;
+						break;
+					}
 				}
-				else
+				if(!correct)
 				{
 					print_lcd(2, "Incorrect !");
 					sprintf(TEXT3,"%d attemps left", 3-attemps);

@@ -56,6 +56,9 @@
 #define HITIME_MIN 		77  // was 0.17ms [17]
 #define HITIME_MAX 		128 // was 1.2ms  [120]
 
+//Users
+#define MAX_USERS 5
+
 unsigned char DisplayBuf [128*8];
 char TEXT[16];
 volatile uint8_t comRbuf[9];
@@ -210,7 +213,7 @@ void SR04_Trigger(void)
 
 
 
-int DistMeasure(void)
+void DistMeasure(void)
 {
 	SR04_Trigger();                 // Trigger Ultrasound Sensor for 10us   		
 	DrvSYS_Delay(40000);            // Wait 40ms for Echo to trigger interrupt
@@ -222,8 +225,7 @@ int DistMeasure(void)
 		sprintf(TEXT2+6, " %d mm  ", distance_mm);	
 		print_lcd(2, TEXT2);	        //Line 2: distance [mm]
  	}   
-	DrvSYS_Delay(10000);           // 10ms from Echo to next Trigger
-	return distance_mm; 
+	DrvSYS_Delay(10000);           // 10ms from Echo to next Trigger 
 }
 
 
@@ -251,21 +253,6 @@ void UART_INT_HANDLE(void)
 		}
 	}
 }
-
-
-void generateOTP()
-{
-	// Function to generate a random 4-digit OTP
-	int i;
-	srand(DistMeasure());
-
-    for (i = 0; i < OTP_LENGTH; i++) {
-        otp[i] = '1' + (rand() % 9);   // from 1 to 0 ' because no zero on keypad
-    }
-    otp[OTP_LENGTH] = '\0';  // Add null terminator	
-}
-
-
 void sendID(int id)
 {
    	// Function to send the ID to a Bluetooth terminal
@@ -275,7 +262,6 @@ void sendID(int id)
 	DrvUART_Write(UART_PORT0 , id_ascii , strlen(id_ascii));
 
 }
-
 void display_status(int locked)
 {
 	clr_all_panel();
@@ -286,7 +272,6 @@ void display_status(int locked)
 		print_lcd(0, "Status: Unlocked"); 	
 	}
 }
-
 void delay_sec(int sec)
 {
 	int t=0;
@@ -298,12 +283,10 @@ void delay_sec(int sec)
 	}
 }
 
-void clearText(char* text) {
+void clearText(char* text)
+{
     strcpy(text, "                 ");
 }
-
-
-
 
 //------------------------------
 // MAIN function
@@ -312,12 +295,20 @@ int main (void)
 {	
 	STR_UART_T sParam;
 	int flag;
-	int i,tmp,attemps=1 ;
+	int i,tmp,attemps=1,correct ;
 
-	/* Create a master user */
+	/*/* Create a master user 
 	user master;
 	master.id=1;
-	strcpy(master.password,"1987");
+	strcpy(master.password,"1987");*/
+
+	user users[MAX_USERS];
+	users[0].id = 1;
+    snprintf(users[0].password, sizeof(users[0].password), "1987");
+
+    users[1].id = 2;
+    snprintf(users[1].password, sizeof(users[1].password), "1234");
+
 
 
 	
@@ -353,7 +344,6 @@ int main (void)
 	time_s = 0;
 	
 
-	
 
 	while(1) {
 		switch(current_state){
@@ -394,15 +384,20 @@ int main (void)
 				input_local_password[OTP_LENGTH] = '\0';
 				clr_all_panel();
 				display_status(1);
-				if(0==strcmp(input_local_password,master.password))
+				for(i=0;i<MAX_USERS;i++)
 				{
-					print_lcd(2, "Correct !");
-					delay_sec(1);
-				 	current_state = OTP_AUTH;
-					sendID(master.id);
-					attemps=1;
+					if(0==strcmp(input_local_password,users[i].password))
+					{
+						print_lcd(2, "Correct !");
+						delay_sec(1);
+					 	current_state = OTP_AUTH;
+						sendID(users[i].id);
+						attemps=1;
+						correct=1;
+						break;
+					}
 				}
-				else
+				if(!correct)
 				{
 					print_lcd(2, "Incorrect !");
 					sprintf(TEXT3,"%d attemps left", 3-attemps);
