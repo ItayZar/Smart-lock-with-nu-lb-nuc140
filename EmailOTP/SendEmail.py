@@ -4,7 +4,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from requests import HTTPError
 
-users={'1':'itayzar10@gmail.com','2':'myprojct2023@gmail.com'}
+users={'1':'itayzar10@gmail.com','2':'elimakora@gmail.com'}
 
 def gmail_init():
     global service

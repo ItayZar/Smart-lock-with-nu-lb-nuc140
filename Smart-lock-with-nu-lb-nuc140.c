@@ -297,11 +297,7 @@ int main (void)
 	int flag;
 	int i,tmp,attemps=1,correct ;
 
-	/*/* Create a master user 
-	user master;
-	master.id=1;
-	strcpy(master.password,"1987");*/
-
+	/*You can define up to 9 users  */
 	user users[MAX_USERS];
 	users[0].id = 1;
     snprintf(users[0].password, sizeof(users[0].password), "1987");
@@ -356,7 +352,7 @@ int main (void)
 				{
 					TIMER0->TCSR.CEN = 1;		// Enable Timer0
 				}
-				if(distance_mm <= 100 &&  time_s == 3)
+				if(distance_mm <= 100 &&  time_s == 3) //
 				{
 				 	current_state = USR_PSWD;
 					TIMER0->TCSR.CEN = 0;		// Disable Timer0
