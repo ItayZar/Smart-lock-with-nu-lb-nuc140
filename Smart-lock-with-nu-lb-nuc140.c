@@ -52,13 +52,8 @@
 //OTP
 #define  OTP_LENGTH 4
 
-//LEDS
-#define RGB_BLUE			12
-#define RGB_GREEN			13
-#define RGB_RED				14
-
 //PWM
-#define HITIME_MIN 		30  // was 0.17ms [17]
+#define HITIME_MIN 		77  // was 0.17ms [17]
 #define HITIME_MAX 		128 // was 1.2ms  [120]
 
 unsigned char DisplayBuf [128*8];

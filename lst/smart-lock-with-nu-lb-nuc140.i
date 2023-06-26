@@ -10909,11 +10909,6 @@ extern void PWM_Servo(uint8_t PWM_no, uint16_t Servo_HiTime);
 
 
 
-
-
-
-
-
 unsigned char DisplayBuf [128*8];
 char TEXT[16];
 volatile uint8_t comRbuf[9];
@@ -10957,14 +10952,14 @@ typedef struct{
 
 
 void servo_close(void) {
-	 for (hitime=30; hitime<=128; hitime++) {
+	 for (hitime=77; hitime<=128; hitime++) {
 		PWM_Servo(0, hitime);
 		DrvSYS_Delay(20000);
 	}
 }
 
 void servo_open(void) {
-	 for (hitime=128; hitime>=30; hitime--) {
+	 for (hitime=128; hitime>=77; hitime--) {
 		PWM_Servo(0, hitime);
 		DrvSYS_Delay(20000);
 	}

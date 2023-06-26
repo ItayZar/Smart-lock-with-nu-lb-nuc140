@@ -30,8 +30,8 @@
     Program header entries: 1
     Section header entries: 16
 
-    Program header offset: 332928 (0x00051480)
-    Section header offset: 332960 (0x000514a0)
+    Program header offset: 332888 (0x00051458)
+    Section header offset: 332920 (0x00051478)
 
     Section header string table index: 15
 
@@ -3746,7 +3746,7 @@
     servo_close
         0x00001da8:    b570        p.      PUSH     {r4-r6,lr}
         0x00001daa:    4c08        .L      LDR      r4,[pc,#32] ; [0x1dcc] = 0x2000061c
-        0x00001dac:    201e        .       MOVS     r0,#0x1e
+        0x00001dac:    204d        M       MOVS     r0,#0x4d
         0x00001dae:    4d08        .M      LDR      r5,[pc,#32] ; [0x1dd0] = 0x4e20
         0x00001db0:    6160        `a      STR      r0,[r4,#0x14]
         0x00001db2:    b281        ..      UXTH     r1,r0
@@ -3779,7 +3779,7 @@
         0x00001dec:    6960        `i      LDR      r0,[r4,#0x14]
         0x00001dee:    1e40        @.      SUBS     r0,r0,#1
         0x00001df0:    6160        `a      STR      r0,[r4,#0x14]
-        0x00001df2:    281e        .(      CMP      r0,#0x1e
+        0x00001df2:    284d        M(      CMP      r0,#0x4d
         0x00001df4:    d2f3        ..      BCS      0x1dde ; servo_open + 10
         0x00001df6:    bd70        p.      POP      {r4-r6,pc}
     $d
@@ -3850,7 +3850,7 @@
 
 
 ** Section #9 '.debug_macinfo' (SHT_PROGBITS)
-    Size   : 155780 bytes
+    Size   : 155740 bytes
 
 
 ** Section #10 '.debug_pubnames' (SHT_PROGBITS)
