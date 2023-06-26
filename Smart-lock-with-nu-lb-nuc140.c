@@ -78,7 +78,7 @@ char	TEXT3[17] = "                 ";
 
 char 	otp[OTP_LENGTH + 1];
 char 	input_otp[OTP_LENGTH + 1];
-char	local_password[OTP_LENGTH + 1]="1987" ;
+//char	local_password[OTP_LENGTH + 1]="1987" ;
 char 	input_local_password[OTP_LENGTH + 1];
 
 uint32_t time_s =0;
@@ -95,9 +95,13 @@ typedef enum {
 State current_state = IDLE;
 
 
-/*uint8_t calc_deg(uint8_t value) {
-	return ((value-HITIME_MIN)*90)/(HITIME_MAX-HITIME_MIN); 	// 0 to 90 degrees!
-} */
+typedef struct{
+	int id;
+	char password[OTP_LENGTH + 1];
+}user;
+
+
+
 
 void servo_close(void) {
 	 for (hitime=HITIME_MIN; hitime<=HITIME_MAX; hitime++) {
@@ -238,19 +242,17 @@ void Init_GPIO_SR04(void)
 
 void UART_INT_HANDLE(void)
 {
-	uint8_t TxString[9] = "ACK\r\n";
+	int i;
 
 	while(UART0->ISR.RDA_IF==1) 
 	{
 		// Data recieved to  comRbuf[] array
 		comRbuf[comRbytes]=UART0->DATA;
-		comRbytes++;		
-		if (comRbytes==3) {
-			DrvUART_Write(UART_PORT0 , TxString , 9);
-			sprintf(TEXT,"cmd: %s",comRbuf);
-			print_lcd(0,TEXT);
-				
-			comRbytes=0;
+		comRbytes++;
+		if(comRbytes==OTP_LENGTH){
+		    for (i = 0; i < OTP_LENGTH; i++) {
+	        otp[i] = comRbuf[i]; 
+	    	}
 		}
 	}
 }
@@ -269,12 +271,13 @@ void generateOTP()
 }
 
 
-void sendOTP()
+void sendID(int id)
 {
-   	// Function to send the OTP to a Bluetooth terminal
-	DrvUART_Write(UART_PORT0 , "OTP:\t" , strlen("OTP:\t"));
-	DrvUART_Write(UART_PORT0 , otp , OTP_LENGTH);
-	DrvUART_Write(UART_PORT0 , "\n\r" , 2); //new line and return cursor for next message
+   	// Function to send the ID to a Bluetooth terminal
+	char id_ascii[1];
+	id_ascii[0] = 48 + id;
+	id_ascii[1] = '\0';
+	DrvUART_Write(UART_PORT0 , id_ascii , strlen(id_ascii));
 
 }
 
@@ -315,6 +318,13 @@ int main (void)
 	STR_UART_T sParam;
 	int flag;
 	int i,tmp,attemps=1 ;
+
+	/* Create a master user */
+	user master;
+	master.id=1;
+	strcpy(master.password,"1987");
+
+
 	
 	//System Clock Initial
 	UNLOCKREG();
@@ -346,7 +356,9 @@ int main (void)
 	InitPWM(0);   // initialize PWM0
 	PWM_Servo(0, HITIME_MAX); //Make sure gate is closed at the beginning
 	time_s = 0;
-		
+	
+
+	
 
 	while(1) {
 		switch(current_state){
@@ -387,13 +399,12 @@ int main (void)
 				input_local_password[OTP_LENGTH] = '\0';
 				clr_all_panel();
 				display_status(1);
-				if(0==strcmp(input_local_password,local_password))
+				if(0==strcmp(input_local_password,master.password))
 				{
 					print_lcd(2, "Correct !");
 					delay_sec(1);
 				 	current_state = OTP_AUTH;
-					generateOTP();
-					sendOTP();
+					sendID(master.id);
 					attemps=1;
 				}
 				else

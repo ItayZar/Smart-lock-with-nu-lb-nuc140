@@ -10931,7 +10931,7 @@ char	TEXT3[17] = "                 ";
 
 char 	otp[4 + 1];
 char 	input_otp[4 + 1];
-char	local_password[4 + 1]="1987" ;
+
 char 	input_local_password[4 + 1];
 
 uint32_t time_s =0;
@@ -10948,9 +10948,13 @@ typedef enum {
 State current_state = IDLE;
 
 
+typedef struct{
+	int id;
+	char password[4 + 1];
+}user;
 
 
- 
+
 
 void servo_close(void) {
 	 for (hitime=30; hitime<=128; hitime++) {
@@ -11091,19 +11095,17 @@ void Init_GPIO_SR04(void)
 
 void UART_INT_HANDLE(void)
 {
-	uint8_t TxString[9] = "ACK\r\n";
+	int i;
 
 	while(((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->ISR.RDA_IF==1) 
 	{
 		
 		comRbuf[comRbytes]=((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->DATA;
-		comRbytes++;		
-		if (comRbytes==3) {
-			DrvUART_Write(UART_PORT0 , TxString , 9);
-			sprintf(TEXT,"cmd: %s",comRbuf);
-			print_lcd(0,TEXT);
-				
-			comRbytes=0;
+		comRbytes++;
+		if(comRbytes==4){
+		    for (i = 0; i < 4; i++) {
+	        otp[i] = comRbuf[i]; 
+	    	}
 		}
 	}
 }
@@ -11122,12 +11124,13 @@ void generateOTP()
 }
 
 
-void sendOTP()
+void sendID(int id)
 {
    	
-	DrvUART_Write(UART_PORT0 , "OTP:\t" , strlen("OTP:\t"));
-	DrvUART_Write(UART_PORT0 , otp , 4);
-	DrvUART_Write(UART_PORT0 , "\n\r" , 2); 
+	char id_ascii[1];
+	id_ascii[0] = 48 + id;
+	id_ascii[1] = '\0';
+	DrvUART_Write(UART_PORT0 , id_ascii , strlen(id_ascii));
 
 }
 
@@ -11168,6 +11171,13 @@ int main (void)
 	STR_UART_T sParam;
 	int flag;
 	int i,tmp,attemps=1 ;
+
+	 
+	user master;
+	master.id=1;
+	strcpy(master.password,"1987");
+
+
 	
 	
 	*((volatile uint32_t *)(((( uint32_t)0x50000000) + 0x00000) + 0x100)) = 0x59;*((volatile uint32_t *)(((( uint32_t)0x50000000) + 0x00000) + 0x100)) = 0x16;*((volatile uint32_t *)(((( uint32_t)0x50000000) + 0x00000) + 0x100)) = 0x88;
@@ -11199,7 +11209,9 @@ int main (void)
 	InitPWM(0);   
 	PWM_Servo(0, 128); 
 	time_s = 0;
-		
+	
+
+	
 
 	while(1) {
 		switch(current_state){
@@ -11240,13 +11252,12 @@ int main (void)
 				input_local_password[4] = '\0';
 				clr_all_panel();
 				display_status(1);
-				if(0==strcmp(input_local_password,local_password))
+				if(0==strcmp(input_local_password,master.password))
 				{
 					print_lcd(2, "Correct !");
 					delay_sec(1);
 				 	current_state = OTP_AUTH;
-					generateOTP();
-					sendOTP();
+					sendID(master.id);
 					attemps=1;
 				}
 				else
