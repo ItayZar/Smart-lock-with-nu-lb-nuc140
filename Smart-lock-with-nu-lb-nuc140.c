@@ -37,7 +37,7 @@
 #include "scankey.h"
 #include "Driver_PWM_Servo.h"
 
-// Global definition
+//SR04 definition
 #define	_SR04A_ECHO		   (GPB_2)			//NUC140VE3xN, Pin19
 #define	_SR04A_TRIG		   (GPB_4)			//NUC140VE3xN, Pin34
 #define	_SR04A_TRIG_Low	 (GPB_4=0)
@@ -76,7 +76,6 @@ char	TEXT3[17] = "                 ";
 
 char 	otp[OTP_LENGTH + 1];
 char 	input_otp[OTP_LENGTH + 1];
-//char	local_password[OTP_LENGTH + 1]="1987" ;
 char 	input_local_password[OTP_LENGTH + 1];
 
 uint32_t time_s =0;
@@ -94,11 +93,19 @@ State current_state = IDLE;
 
 
 typedef struct{
-	int id;
+	int id; //Must be corresponding to the one on the server.py
 	char password[OTP_LENGTH + 1];
 }user;
 
-
+ void Init_LED()
+{
+	// initialize GPIO pins
+	DrvGPIO_Open(E_GPA, 13, E_IO_OUTPUT); // GPA13 pin set to output mode
+	DrvGPIO_Open(E_GPA, 14, E_IO_OUTPUT); // GPA14 pin set to output mode
+	// set GPIO pins output Hi to disable LEDs
+	DrvGPIO_SetBit(E_GPA, 13); // GPA13 pin output Hi to turn off Green LED
+	DrvGPIO_SetBit(E_GPA, 14); // GPA14 pin output Hi to turn off Red   LED
+}   
 
 
 void servo_close(void) {
@@ -257,7 +264,7 @@ void sendID(int id)
 {
    	// Function to send the ID to a Bluetooth terminal
 	char id_ascii[1];
-	id_ascii[0] = 48 + id;
+	id_ascii[0] = 48 + id;	//48 dec is '0' in ASCII
 	id_ascii[1] = '\0';
 	DrvUART_Write(UART_PORT0 , id_ascii , strlen(id_ascii));
 
@@ -266,10 +273,28 @@ void display_status(int locked)
 {
 	clr_all_panel();
  	if (locked){
-		print_lcd(0, "Status: Locked"); 	
+		print_lcd(0, "Status: Locked"); 
+		// set RGBled to Red
+	    DrvGPIO_SetBit(E_GPA,13); 
+	    DrvGPIO_ClrBit(E_GPA,14); // GPA14 = Red,   0 : on, 1 : off	
 	}
 	else{
-		print_lcd(0, "Status: Unlocked"); 	
+		print_lcd(0, "Status: Unlocked"); 
+		// set RGBled to Green
+	    DrvGPIO_ClrBit(E_GPA,13); // GPA13 = Green, 0 : on, 1 : off
+	    DrvGPIO_SetBit(E_GPA,14); 	
+	}
+}
+
+void buzzer(int times)
+{
+	int i;
+	for(i=0;i<times;i++)
+	{
+		DrvGPIO_ClrBit(E_GPB,11); // GPB11 = 0 to turn on Buzzer
+		DrvSYS_Delay(100000);	    // Delay 
+		DrvGPIO_SetBit(E_GPB,11); // GPB11 = 1 to turn off Buzzer	
+		DrvSYS_Delay(100000);	    // Delay 
 	}
 }
 void delay_sec(int sec)
@@ -305,8 +330,6 @@ int main (void)
     users[1].id = 2;
     snprintf(users[1].password, sizeof(users[1].password), "1234");
 
-
-
 	
 	//System Clock Initial
 	UNLOCKREG();
@@ -333,10 +356,12 @@ int main (void)
 	display_status(1);
 	OpenKeyPad();                          
 	InitTIMER0();
+	Init_LED();
 	Init_TMR2();
 	Init_GPIO_SR04();
 	InitPWM(0);   // initialize PWM0
 	PWM_Servo(0, HITIME_MAX); //Make sure gate is closed at the beginning
+	DrvGPIO_Open(E_GPB, 11, E_IO_OUTPUT); // initial GPIO pin GPB11 for controlling Buzzer
 	time_s = 0;
 	
 
@@ -351,13 +376,15 @@ int main (void)
 				if(distance_mm <= 100)
 				{
 					TIMER0->TCSR.CEN = 1;		// Enable Timer0
+					if(distance_mm <= 100 &&  time_s == 3) //
+					{
+					 	current_state = USR_PSWD;
+						TIMER0->TCSR.CEN = 0;		// Disable Timer0
+						time_s = 0;	
+					}
 				}
-				if(distance_mm <= 100 &&  time_s == 3) //
-				{
-				 	current_state = USR_PSWD;
-					TIMER0->TCSR.CEN = 0;		// Disable Timer0
-					time_s = 0;	
-				}
+				else{time_s=0;}
+				//DistMeasure();
 				break;
 			case(USR_PSWD):
 				clr_all_panel();
@@ -398,6 +425,7 @@ int main (void)
 					print_lcd(2, "Incorrect !");
 					sprintf(TEXT3,"%d attemps left", 3-attemps);
 					print_lcd(3,TEXT3);
+					buzzer(3);
 					delay_sec(2);
 				 	attemps++;
 				}
@@ -413,7 +441,9 @@ int main (void)
 				clearText(TEXT2);
 				display_status(1);
 				TIMER0->TCSR.CEN = 1;		// Enable Timer0
-				print_lcd(2, "OTP sent via BT");
+				time_s=0;
+				print_lcd(2, "OTP sent to your");
+				print_lcd(3, "Email");
 				delay_sec(1);
 				clr_all_panel();
 				while(time_s <= 30)
@@ -453,6 +483,7 @@ int main (void)
 						print_lcd(2, "Incorrect !");
 						sprintf(TEXT3,"%d attemps left", 3-attemps);
 						print_lcd(3,TEXT3);
+						buzzer(3);
 						delay_sec(2);
 					 	attemps++;
 					}

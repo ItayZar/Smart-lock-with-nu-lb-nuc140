@@ -10929,7 +10929,6 @@ char	TEXT3[17] = "                 ";
 
 char 	otp[4 + 1];
 char 	input_otp[4 + 1];
-
 char 	input_local_password[4 + 1];
 
 uint32_t time_s =0;
@@ -10947,11 +10946,19 @@ State current_state = IDLE;
 
 
 typedef struct{
-	int id;
+	int id; 
 	char password[4 + 1];
 }user;
 
-
+ void Init_LED()
+{
+	
+	DrvGPIO_Open(E_GPA, 13, E_IO_OUTPUT); 
+	DrvGPIO_Open(E_GPA, 14, E_IO_OUTPUT); 
+	
+	DrvGPIO_SetBit(E_GPA, 13); 
+	DrvGPIO_SetBit(E_GPA, 14); 
+}   
 
 
 void servo_close(void) {
@@ -11110,7 +11117,7 @@ void sendID(int id)
 {
    	
 	char id_ascii[1];
-	id_ascii[0] = 48 + id;
+	id_ascii[0] = 48 + id;	
 	id_ascii[1] = '\0';
 	DrvUART_Write(UART_PORT0 , id_ascii , strlen(id_ascii));
 
@@ -11119,10 +11126,28 @@ void display_status(int locked)
 {
 	clr_all_panel();
  	if (locked){
-		print_lcd(0, "Status: Locked"); 	
+		print_lcd(0, "Status: Locked"); 
+		
+	    DrvGPIO_SetBit(E_GPA,13); 
+	    DrvGPIO_ClrBit(E_GPA,14); 
 	}
 	else{
-		print_lcd(0, "Status: Unlocked"); 	
+		print_lcd(0, "Status: Unlocked"); 
+		
+	    DrvGPIO_ClrBit(E_GPA,13); 
+	    DrvGPIO_SetBit(E_GPA,14); 	
+	}
+}
+
+void buzzer(int times)
+{
+	int i;
+	for(i=0;i<times;i++)
+	{
+		DrvGPIO_ClrBit(E_GPB,11); 
+		DrvSYS_Delay(100000);	    
+		DrvGPIO_SetBit(E_GPB,11); 
+		DrvSYS_Delay(100000);	    
 	}
 }
 void delay_sec(int sec)
@@ -11150,19 +11175,13 @@ int main (void)
 	int flag;
 	int i,tmp,attemps=1,correct ;
 
-	
-
-
- 
-
+	 
 	user users[5];
 	users[0].id = 1;
     snprintf(users[0].password, sizeof(users[0].password), "1987");
 
     users[1].id = 2;
     snprintf(users[1].password, sizeof(users[1].password), "1234");
-
-
 
 	
 	
@@ -11190,10 +11209,12 @@ int main (void)
 	display_status(1);
 	OpenKeyPad();                          
 	InitTIMER0();
+	Init_LED();
 	Init_TMR2();
 	Init_GPIO_SR04();
 	InitPWM(0);   
 	PWM_Servo(0, 128); 
+	DrvGPIO_Open(E_GPB, 11, E_IO_OUTPUT); 
 	time_s = 0;
 	
 
@@ -11208,13 +11229,15 @@ int main (void)
 				if(distance_mm <= 100)
 				{
 					((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 1;		
+					if(distance_mm <= 100 &&  time_s == 3) 
+					{
+					 	current_state = USR_PSWD;
+						((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 0;		
+						time_s = 0;	
+					}
 				}
-				if(distance_mm <= 100 &&  time_s == 3)
-				{
-				 	current_state = USR_PSWD;
-					((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 0;		
-					time_s = 0;	
-				}
+				else{time_s=0;}
+				
 				break;
 			case(USR_PSWD):
 				clr_all_panel();
@@ -11255,6 +11278,7 @@ int main (void)
 					print_lcd(2, "Incorrect !");
 					sprintf(TEXT3,"%d attemps left", 3-attemps);
 					print_lcd(3,TEXT3);
+					buzzer(3);
 					delay_sec(2);
 				 	attemps++;
 				}
@@ -11270,7 +11294,9 @@ int main (void)
 				clearText(TEXT2);
 				display_status(1);
 				((TIMER_T *) ((( uint32_t)0x40000000) + 0x10000))->TCSR.CEN = 1;		
-				print_lcd(2, "OTP sent via BT");
+				time_s=0;
+				print_lcd(2, "OTP sent to your");
+				print_lcd(3, "Email");
 				delay_sec(1);
 				clr_all_panel();
 				while(time_s <= 30)
@@ -11310,6 +11336,7 @@ int main (void)
 						print_lcd(2, "Incorrect !");
 						sprintf(TEXT3,"%d attemps left", 3-attemps);
 						print_lcd(3,TEXT3);
+						buzzer(3);
 						delay_sec(2);
 					 	attemps++;
 					}

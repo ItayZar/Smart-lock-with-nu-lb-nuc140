@@ -28,7 +28,7 @@ while True:
     data = data.strip()  # Strip whitespace
     data = re.sub(r'[^\x20-\x7E]', '', data)  # Filter non-printable characters
     if data:
-        print("Received message:", data)  # Display the received message
+        #print("Received message:", data)  # Display the received message
         myotp=generate_otp()
         send_email_message(otp=myotp,id=data)  # Send the message via email
         try:

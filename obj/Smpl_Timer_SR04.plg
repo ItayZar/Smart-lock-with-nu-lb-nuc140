@@ -10,797 +10,151 @@ Project File Date:  06/20/2023
 Build target 'Smpl_Timer_SR04'
 creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
 compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(338): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(351): warning:  #188-D: enumerated type mixed with another type
-Smart-lock-with-nu-lb-nuc140.c(317): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+Smart-lock-with-nu-lb-nuc140.c(326): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
+Smart-lock-with-nu-lb-nuc140.c(296): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(263): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(297): warning: C3017W: correct may be used before being set
 linking...
-Program Size: Code=7708 RO-data=300 RW-data=1684 ZI-data=1052  
+Program Size: Code=7616 RO-data=300 RW-data=1676 ZI-data=1036  
 User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
 User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
+".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 5 Warning(s).
 Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
 Build target 'Smpl_Timer_SR04'
 creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
 compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(338): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(351): warning:  #188-D: enumerated type mixed with another type
-Smart-lock-with-nu-lb-nuc140.c(317): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+Smart-lock-with-nu-lb-nuc140.c(326): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
+Smart-lock-with-nu-lb-nuc140.c(296): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(263): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(297): warning: C3017W: correct may be used before being set
 linking...
-Program Size: Code=7708 RO-data=300 RW-data=1684 ZI-data=1052  
+Program Size: Code=7596 RO-data=300 RW-data=1676 ZI-data=1036  
 User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
 User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
+".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 5 Warning(s).
 Build target 'Smpl_Timer_SR04'
+creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
+compiling Smart-lock-with-nu-lb-nuc140.c...
+Smart-lock-with-nu-lb-nuc140.c(261): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+Smart-lock-with-nu-lb-nuc140.c(326): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
+Smart-lock-with-nu-lb-nuc140.c(296): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(263): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(297): warning: C3017W: correct may be used before being set
 linking...
-Program Size: Code=7708 RO-data=300 RW-data=1684 ZI-data=1052  
+Program Size: Code=7596 RO-data=300 RW-data=1676 ZI-data=1036  
 User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
 User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 0 Warning(s).
+".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 5 Warning(s).
 Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
 Build target 'Smpl_Timer_SR04'
 creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
 compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(337): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(316): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(269): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+Smart-lock-with-nu-lb-nuc140.c(340): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
+Smart-lock-with-nu-lb-nuc140.c(310): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(271): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(311): warning: C3017W: correct may be used before being set
 linking...
-Program Size: Code=7592 RO-data=320 RW-data=1684 ZI-data=1052  
+Program Size: Code=7708 RO-data=264 RW-data=1676 ZI-data=1036  
 User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
 User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 3 Warning(s).
+".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 5 Warning(s).
 Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
 Build target 'Smpl_Timer_SR04'
 creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
 compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(337): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(316): warning:  #177-D: variable "flag" was declared but never referenced
-linking...
-Program Size: Code=7568 RO-data=312 RW-data=1684 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(337): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(316): warning:  #177-D: variable "flag" was declared but never referenced
-linking...
-Program Size: Code=7584 RO-data=312 RW-data=1684 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(337): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(316): warning:  #177-D: variable "flag" was declared but never referenced
-linking...
-Program Size: Code=7628 RO-data=312 RW-data=1684 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(337): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(316): warning:  #177-D: variable "flag" was declared but never referenced
-linking...
-Program Size: Code=7616 RO-data=312 RW-data=1684 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(337): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(316): warning:  #177-D: variable "flag" was declared but never referenced
-linking...
-Program Size: Code=7620 RO-data=312 RW-data=1684 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(337): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(316): warning:  #177-D: variable "flag" was declared but never referenced
-linking...
-Program Size: Code=7624 RO-data=312 RW-data=1684 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(337): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(316): warning:  #177-D: variable "flag" was declared but never referenced
-linking...
-Program Size: Code=7624 RO-data=312 RW-data=1684 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-linking...
-Program Size: Code=7624 RO-data=312 RW-data=1684 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 0 Warning(s).
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(98): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(98): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(101): warning:  #12-D: parsing restarts here after previous syntax error
-Smart-lock-with-nu-lb-nuc140.c(103): error:  #20: identifier "user" is undefined
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(183): warning:  #12-D: parsing restarts here after previous syntax error
-Smart-lock-with-nu-lb-nuc140.c(184): error:  #18: expected a ")"
-Smart-lock-with-nu-lb-nuc140.c(184): error:  #79: expected a type specifier
-Smart-lock-with-nu-lb-nuc140.c(184): error:  #101: "TIMER_T" has already been declared in the current scope
-Smart-lock-with-nu-lb-nuc140.c(184): error:  #141-D: unnamed prototyped parameters not allowed when body is present
-Smart-lock-with-nu-lb-nuc140.c(184): error:  #130: expected a "{"
-Smart-lock-with-nu-lb-nuc140.c(190): warning:  #12-D: parsing restarts here after previous syntax error
-Smart-lock-with-nu-lb-nuc140.c(195): error:  #29: expected an expression
-Smart-lock-with-nu-lb-nuc140.c(195): error:  #32: expression must have arithmetic type
-Smart-lock-with-nu-lb-nuc140.c(196): error:  #29: expected an expression
-Smart-lock-with-nu-lb-nuc140.c(196): error:  #32: expression must have arithmetic type
-Smart-lock-with-nu-lb-nuc140.c(198): error:  #29: expected an expression
-Smart-lock-with-nu-lb-nuc140.c(198): error:  #32: expression must have arithmetic type
-Smart-lock-with-nu-lb-nuc140.c(200): error:  #29: expected an expression
-Smart-lock-with-nu-lb-nuc140.c(200): error:  #32: expression must have arithmetic type
-Smart-lock-with-nu-lb-nuc140.c(201): error:  #29: expected an expression
-Smart-lock-with-nu-lb-nuc140.c(201): error:  #32: expression must have arithmetic type
-Smart-lock-with-nu-lb-nuc140.c(216): error:  #29: expected an expression
-Smart-lock-with-nu-lb-nuc140.c(216): error:  #32: expression must have arithmetic type
-Smart-lock-with-nu-lb-nuc140.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(344): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(350): warning:  #223-D: function "InitTIMER0" declared implicitly
-Smart-lock-with-nu-lb-nuc140.c(351): warning:  #223-D: function "Init_TMR2" declared implicitly
-Smart-lock-with-nu-lb-nuc140.c(367): error:  #29: expected an expression
-Smart-lock-with-nu-lb-nuc140.c(367): error:  #32: expression must have arithmetic type
-Smart-lock-with-nu-lb-nuc140.c(372): error:  #29: expected an expression
-Smart-lock-with-nu-lb-nuc140.c(372): error:  #32: expression must have arithmetic type
-Smart-lock-with-nu-lb-nuc140.c(425): error:  #29: expected an expression
-Smart-lock-with-nu-lb-nuc140.c(425): error:  #32: expression must have arithmetic type
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(98): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(98): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(101): warning:  #12-D: parsing restarts here after previous syntax error
-Smart-lock-with-nu-lb-nuc140.c(103): error:  #20: identifier "user" is undefined
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(344): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(100): error:  #40: expected an identifier
-Smart-lock-with-nu-lb-nuc140.c(100): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #147: declaration is incompatible with "user master" (declared at line 103)
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(344): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #147: declaration is incompatible with "user master" (declared at line 103)
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(344): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #147: declaration is incompatible with "struct user master" (declared at line 103)
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #757: variable "master" is not a type name
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #18: expected a ")"
-Smart-lock-with-nu-lb-nuc140.c(105): warning:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #147: declaration is incompatible with "char *strcpy(char *restrict, const char *restrict)" (declared at line 68 of "C:\Keil\ARM\RV31\INC\string.h")
-Smart-lock-with-nu-lb-nuc140.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(311): error:  #140: too many arguments in function call
-Smart-lock-with-nu-lb-nuc140.c(344): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(103): error:  #235: variable "master" was declared with a never-completed type
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #147: declaration is incompatible with "struct user master" (declared at line 103)
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #757: variable "master" is not a type name
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #18: expected a ")"
-Smart-lock-with-nu-lb-nuc140.c(105): warning:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #147: declaration is incompatible with "char *strcpy(char *restrict, const char *restrict)" (declared at line 68 of "C:\Keil\ARM\RV31\INC\string.h")
-Smart-lock-with-nu-lb-nuc140.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(311): error:  #140: too many arguments in function call
-Smart-lock-with-nu-lb-nuc140.c(344): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(103): error:  #235: variable "master" was declared with a never-completed type
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #147: declaration is incompatible with "user master" (declared at line 103)
-Smart-lock-with-nu-lb-nuc140.c(104): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #757: variable "master" is not a type name
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #18: expected a ")"
-Smart-lock-with-nu-lb-nuc140.c(105): warning:  #77-D: this declaration has no storage class or type specifier
-Smart-lock-with-nu-lb-nuc140.c(105): error:  #147: declaration is incompatible with "char *strcpy(char *restrict, const char *restrict)" (declared at line 68 of "C:\Keil\ARM\RV31\INC\string.h")
-Smart-lock-with-nu-lb-nuc140.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(311): error:  #140: too many arguments in function call
-Smart-lock-with-nu-lb-nuc140.c(344): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(341): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(354): error:  #268: declaration may not appear after executable statement in block
-Smart-lock-with-nu-lb-nuc140.c(320): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(345): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(320): warning:  #177-D: variable "flag" was declared but never referenced
-linking...
-Program Size: Code=7664 RO-data=312 RW-data=1684 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 3 Warning(s).
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(345): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(320): warning:  #177-D: variable "flag" was declared but never referenced
-linking...
-Program Size: Code=7644 RO-data=312 RW-data=1680 ZI-data=1056  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 3 Warning(s).
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(345): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(320): warning:  #177-D: variable "flag" was declared but never referenced
-linking...
-Program Size: Code=7644 RO-data=312 RW-data=1680 ZI-data=1056  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(282): error:  #29: expected an expression
-Smart-lock-with-nu-lb-nuc140.c(346): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(321): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(282): error:  #20: identifier "master" is undefined
-Smart-lock-with-nu-lb-nuc140.c(346): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(321): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(282): error:  #167: argument of type "int" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(346): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(321): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(282): error:  #167: argument of type "int" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(346): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(321): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(282): error:  #167: argument of type "int" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(346): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(321): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(282): error:  #167: argument of type "int" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(346): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(321): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(282): error:  #167: argument of type "uint8_t" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(346): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(321): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(282): error:  #167: argument of type "int" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(346): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(321): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(282): warning:  #2548-D: multicharacter character literal (potential portability problem)
-Smart-lock-with-nu-lb-nuc140.c(282): error:  #167: argument of type "int" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(346): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(321): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(284): error:  #167: argument of type "char" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(348): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(284): error:  #167: argument of type "char" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(348): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(282): warning:  #550-D: variable "id_ascii" was set but never used
-Smart-lock-with-nu-lb-nuc140.c(348): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "flag" was declared but never referenced
-linking...
-Program Size: Code=7508 RO-data=316 RW-data=1676 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 3 Warning(s).
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(282): warning:  #520-D: initialization with "{...}" expected for aggregate object
-Smart-lock-with-nu-lb-nuc140.c(282): error:  #28: expression must have a constant value
-Smart-lock-with-nu-lb-nuc140.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(347): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(322): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(283): error:  #167: argument of type "char" is incompatible with parameter of type "const char *"
-Smart-lock-with-nu-lb-nuc140.c(283): error:  #167: argument of type "char" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(347): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(322): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(283): error:  #167: argument of type "int" is incompatible with parameter of type "const char *restrict"
-Smart-lock-with-nu-lb-nuc140.c(284): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(348): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(284): error:  #20: identifier "id_scii" is undefined
-Smart-lock-with-nu-lb-nuc140.c(285): error:  #65: expected a ";"
-Smart-lock-with-nu-lb-nuc140.c(282): warning:  #550-D: variable "id_ascii" was set but never used
-Smart-lock-with-nu-lb-nuc140.c(349): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(324): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(284): error:  #20: identifier "id_scii" is undefined
-Smart-lock-with-nu-lb-nuc140.c(285): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(349): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(324): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(284): error:  #513: a value of type "char *" cannot be assigned to an entity of type "char"
-Smart-lock-with-nu-lb-nuc140.c(285): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(349): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(324): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(284): error:  #513: a value of type "char *" cannot be assigned to an entity of type "char"
-Smart-lock-with-nu-lb-nuc140.c(285): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(349): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(324): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(285): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(349): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(324): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(287): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7528 RO-data=312 RW-data=1676 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(253): error:  #20: identifier "TxString" is undefined
-Smart-lock-with-nu-lb-nuc140.c(285): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(349): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(324): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(285): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(349): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(324): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(287): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7500 RO-data=300 RW-data=1676 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(286): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(350): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(325): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(288): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7516 RO-data=300 RW-data=1676 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(286): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(350): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(325): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(288): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7536 RO-data=300 RW-data=1676 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(286): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(350): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(325): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(288): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7540 RO-data=300 RW-data=1676 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(286): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(350): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(325): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(288): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7540 RO-data=312 RW-data=1676 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(286): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(350): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(325): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(288): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7516 RO-data=300 RW-data=1676 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(281): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(345): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(320): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(283): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7512 RO-data=300 RW-data=1676 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(347): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(322): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(285): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7516 RO-data=300 RW-data=1676 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(253): error:  #167: argument of type "volatile uint8_t *" is incompatible with parameter of type "const char *restrict"
-Smart-lock-with-nu-lb-nuc140.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(347): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(322): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(253): error:  #20: identifier "i" is undefined
-Smart-lock-with-nu-lb-nuc140.c(285): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(349): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(324): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(285): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(349): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(324): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(287): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7520 RO-data=300 RW-data=1676 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(285): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(349): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(324): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(287): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7520 RO-data=300 RW-data=1676 ZI-data=1052  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(347): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(322): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(285): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7488 RO-data=300 RW-data=1676 ZI-data=1036  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(330): error:  #268: declaration may not appear after executable statement in block
-Smart-lock-with-nu-lb-nuc140.c(331): error:  #268: declaration may not appear after executable statement in block
-Smart-lock-with-nu-lb-nuc140.c(331): error:  #40: expected an identifier
-Smart-lock-with-nu-lb-nuc140.c(331): error:  #144: a value of type "int" cannot be used to initialize an entity of type "user"
+Smart-lock-with-nu-lb-nuc140.c(269): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
 Smart-lock-with-nu-lb-nuc140.c(352): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
 Smart-lock-with-nu-lb-nuc140.c(322): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(330): warning:  #177-D: variable "test" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(327): error:  #268: declaration may not appear after executable statement in block
-Smart-lock-with-nu-lb-nuc140.c(328): error:  #268: declaration may not appear after executable statement in block
-Smart-lock-with-nu-lb-nuc140.c(328): error:  #40: expected an identifier
-Smart-lock-with-nu-lb-nuc140.c(328): error:  #144: a value of type "int" cannot be used to initialize an entity of type "user"
-Smart-lock-with-nu-lb-nuc140.c(349): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(319): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(327): warning:  #177-D: variable "test" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(327): error:  #268: declaration may not appear after executable statement in block
-Smart-lock-with-nu-lb-nuc140.c(327): error:  #40: expected an identifier
-Smart-lock-with-nu-lb-nuc140.c(327): error:  #144: a value of type "int" cannot be used to initialize an entity of type "user"
-Smart-lock-with-nu-lb-nuc140.c(348): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(319): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "test" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(325): error:  #268: declaration may not appear after executable statement in block
-Smart-lock-with-nu-lb-nuc140.c(325): error:  #40: expected an identifier
-Smart-lock-with-nu-lb-nuc140.c(325): error:  #144: a value of type "int" cannot be used to initialize an entity of type "user"
-Smart-lock-with-nu-lb-nuc140.c(349): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(319): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "test" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(347): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(319): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(323): warning:  #177-D: variable "test" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(282): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(271): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(323): warning: C3017W: correct may be used before being set
 linking...
-Program Size: Code=7488 RO-data=300 RW-data=1676 ZI-data=1036  
+Program Size: Code=7720 RO-data=264 RW-data=1676 ZI-data=1036  
 User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
 User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
 ".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 5 Warning(s).
 Build target 'Smpl_Timer_SR04'
 creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
 compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(280): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(347): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(319): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(282): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(269): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+Smart-lock-with-nu-lb-nuc140.c(352): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
+Smart-lock-with-nu-lb-nuc140.c(322): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(271): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(323): warning: C3017W: correct may be used before being set
 linking...
-Program Size: Code=7488 RO-data=300 RW-data=1676 ZI-data=1036  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(275): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(342): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(314): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(277): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7488 RO-data=300 RW-data=1676 ZI-data=1036  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(259): error:  #167: argument of type "void" is incompatible with parameter of type "unsigned int"
-Smart-lock-with-nu-lb-nuc140.c(274): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(341): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(313): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(274): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(341): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(313): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(276): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7488 RO-data=300 RW-data=1676 ZI-data=1036  
-User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
-User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(300): warning:  #9-D: nested comment is not allowed
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(262): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(300): warning:  #9-D: nested comment is not allowed
-Smart-lock-with-nu-lb-nuc140.c(333): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(387): error:  #20: identifier "master" is undefined
-Smart-lock-with-nu-lb-nuc140.c(297): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(300): warning:  #9-D: nested comment is not allowed
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(262): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(300): warning:  #9-D: nested comment is not allowed
-Smart-lock-with-nu-lb-nuc140.c(333): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(297): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(493): error: At end of source:  #67: expected a "}"
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(300): warning:  #9-D: nested comment is not allowed
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(262): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(300): warning:  #9-D: nested comment is not allowed
-Smart-lock-with-nu-lb-nuc140.c(333): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(398): error:  #127: expected a statement
-Smart-lock-with-nu-lb-nuc140.c(412): warning:  #12-D: parsing restarts here after previous syntax error
-Smart-lock-with-nu-lb-nuc140.c(297): warning:  #177-D: variable "flag" was declared but never referenced
-Target not created
-Build target 'Smpl_Timer_SR04'
-creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(300): warning:  #9-D: nested comment is not allowed
-compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(262): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(300): warning:  #9-D: nested comment is not allowed
-Smart-lock-with-nu-lb-nuc140.c(333): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(297): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(264): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-linking...
-Program Size: Code=7584 RO-data=300 RW-data=1676 ZI-data=1036  
+Program Size: Code=7776 RO-data=264 RW-data=1676 ZI-data=1036  
 User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
 User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
 ".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 5 Warning(s).
 Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
 Build target 'Smpl_Timer_SR04'
 creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(300): warning:  #9-D: nested comment is not allowed
 compiling Smart-lock-with-nu-lb-nuc140.c...
-Smart-lock-with-nu-lb-nuc140.c(262): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-Smart-lock-with-nu-lb-nuc140.c(300): warning:  #9-D: nested comment is not allowed
-Smart-lock-with-nu-lb-nuc140.c(333): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
-Smart-lock-with-nu-lb-nuc140.c(297): warning:  #177-D: variable "flag" was declared but never referenced
-Smart-lock-with-nu-lb-nuc140.c(264): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
-Smart-lock-with-nu-lb-nuc140.c(298): warning: C3017W: correct may be used before being set
+Smart-lock-with-nu-lb-nuc140.c(269): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+Smart-lock-with-nu-lb-nuc140.c(352): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
+Smart-lock-with-nu-lb-nuc140.c(322): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(271): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(323): warning: C3017W: correct may be used before being set
 linking...
-Program Size: Code=7612 RO-data=300 RW-data=1676 ZI-data=1036  
+Program Size: Code=7800 RO-data=264 RW-data=1676 ZI-data=1036  
 User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
 User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
-".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 6 Warning(s).
+".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 5 Warning(s).
+Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
+Build target 'Smpl_Timer_SR04'
+creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
+compiling Smart-lock-with-nu-lb-nuc140.c...
+Smart-lock-with-nu-lb-nuc140.c(269): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+Smart-lock-with-nu-lb-nuc140.c(352): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
+Smart-lock-with-nu-lb-nuc140.c(322): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(271): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(323): warning: C3017W: correct may be used before being set
+linking...
+Program Size: Code=7800 RO-data=264 RW-data=1676 ZI-data=1036  
+User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
+User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
+".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 5 Warning(s).
+Build target 'Smpl_Timer_SR04'
+creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
+compiling Smart-lock-with-nu-lb-nuc140.c...
+Smart-lock-with-nu-lb-nuc140.c(269): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+Smart-lock-with-nu-lb-nuc140.c(352): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
+Smart-lock-with-nu-lb-nuc140.c(322): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(271): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(323): warning: C3017W: correct may be used before being set
+linking...
+Program Size: Code=7800 RO-data=264 RW-data=1676 ZI-data=1036  
+User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
+User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
+".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 5 Warning(s).
+Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
+Build target 'Smpl_Timer_SR04'
+creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
+compiling Smart-lock-with-nu-lb-nuc140.c...
+Smart-lock-with-nu-lb-nuc140.c(269): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+Smart-lock-with-nu-lb-nuc140.c(352): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
+Smart-lock-with-nu-lb-nuc140.c(322): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(271): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(323): warning: C3017W: correct may be used before being set
+linking...
+Program Size: Code=7804 RO-data=264 RW-data=1676 ZI-data=1036  
+User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
+User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
+".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 5 Warning(s).
+Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
+Build target 'Smpl_Timer_SR04'
+creating preprocessor file for Smart-lock-with-nu-lb-nuc140.c...
+compiling Smart-lock-with-nu-lb-nuc140.c...
+Smart-lock-with-nu-lb-nuc140.c(269): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+Smart-lock-with-nu-lb-nuc140.c(352): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "PFN_DRVUART_CALLBACK *"
+Smart-lock-with-nu-lb-nuc140.c(322): warning:  #177-D: variable "flag" was declared but never referenced
+Smart-lock-with-nu-lb-nuc140.c(271): warning: C3488E: write to variable 'id_ascii' with offset out of bounds
+Smart-lock-with-nu-lb-nuc140.c(323): warning: C3017W: correct may be used before being set
+linking...
+Program Size: Code=7800 RO-data=264 RW-data=1676 ZI-data=1036  
+User command #1: fromelf --bin ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.bin"
+User command #2: fromelf --text -c ".\obj\Smpl_Timer_SR04.axf" --output ".\obj\Smpl_Timer_SR04.txt"
+".\obj\Smpl_Timer_SR04.axf" - 0 Error(s), 5 Warning(s).
 Load "C:\\Nuvoton\\NUC140BSP\\NuvotonPlatform_Keil\\Sample\\EduSampleCode\\Smart-lock-with-nu-lb-nuc140\\obj\\Smpl_Timer_SR04.AXF" 
