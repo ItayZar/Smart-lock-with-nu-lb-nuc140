@@ -17,9 +17,9 @@ state USER_PASSWORD{
 USER_PASSWORD --> IDLE: \tIf failed for 3 attempts
 USER_PASSWORD --> OTP_AUTH
 state OTP_AUTH{
-  GenerateOTP: Generate one time password
-  GenerateOTP --> SendOTP
-  SendOTP: Send OTP via Bluetooth
+  SendID: Send ID reference of the relevant user to the server
+  SendID --> SendOTP
+  SendOTP: Send OTP via Email
   SendOTP --> Authentication
   Authentication: The user enters the OTP using the keypad
 }
