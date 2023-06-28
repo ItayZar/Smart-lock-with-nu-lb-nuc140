@@ -2,7 +2,7 @@ import bluetooth
 import re
 import random
 from SendEmail import send_email_message,gmail_init
-from config.py import hc05_address
+from config import hc05_address
 
 # Create a Bluetooth socket and connect to the HC-05 module
 sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
