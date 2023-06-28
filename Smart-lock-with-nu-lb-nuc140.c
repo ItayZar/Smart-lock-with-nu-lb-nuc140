@@ -1,5 +1,5 @@
-//
-//
+/* Wired connections */
+
 // Timer Capture :
 // GPB2 / RTS0 / T2EX (NUC140 pin34)
 // GPB4 / RX1         (NUC140 pin19)
@@ -50,14 +50,14 @@
 #define  CONTINUOUS 3 // keep counting and interrupt when reach TCMPR number
 
 //OTP
-#define  OTP_LENGTH 4
+#define  OTP_LENGTH 4 
 
 //PWM
-#define HITIME_MIN 		77  // was 0.17ms [17]
-#define HITIME_MAX 		128 // was 1.2ms  [120]
+#define HITIME_MIN 		77  
+#define HITIME_MAX 		128 
 
 //Users
-#define MAX_USERS 5
+#define MAX_USERS 8
 
 unsigned char DisplayBuf [128*8];
 char TEXT[16];
@@ -82,6 +82,7 @@ uint32_t time_s =0;
 uint32_t distance_mm;
 uint32_t hitime;
 
+/* States of the system */
 typedef enum {
     IDLE,	  
     USR_PSWD, 
@@ -91,7 +92,7 @@ typedef enum {
 
 State current_state = IDLE;
 
-
+/* Struct of a single user */
 typedef struct{
 	int id; //Must be corresponding to the one on the server.py
 	char password[OTP_LENGTH + 1];
@@ -107,7 +108,7 @@ typedef struct{
 	DrvGPIO_SetBit(E_GPA, 14); // GPA14 pin output Hi to turn off Red   LED
 }   
 
-
+/* Function to close the door */
 void servo_close(void) {
 	 for (hitime=HITIME_MIN; hitime<=HITIME_MAX; hitime++) {
 		PWM_Servo(0, hitime);
@@ -115,6 +116,7 @@ void servo_close(void) {
 	}
 }
 
+/* Function to open the door */
 void servo_open(void) {
 	 for (hitime=HITIME_MAX; hitime>=HITIME_MIN; hitime--) {
 		PWM_Servo(0, hitime);
@@ -262,32 +264,35 @@ void UART_INT_HANDLE(void)
 }
 void sendID(int id)
 {
-   	// Function to send the ID to a Bluetooth terminal
+   	// Function to send the ID to the server using BT
 	char id_ascii[1];
 	id_ascii[0] = 48 + id;	//48 dec is '0' in ASCII
 	id_ascii[1] = '\0';
 	DrvUART_Write(UART_PORT0 , id_ascii , strlen(id_ascii));
 
 }
+
 void display_status(int locked)
 {
+	// Displays status on LCD and lights appropriate color
 	clr_all_panel();
  	if (locked){
 		print_lcd(0, "Status: Locked"); 
 		// set RGBled to Red
-	    DrvGPIO_SetBit(E_GPA,13); 
-	    DrvGPIO_ClrBit(E_GPA,14); // GPA14 = Red,   0 : on, 1 : off	
+	    	DrvGPIO_SetBit(E_GPA,13); 
+	    	DrvGPIO_ClrBit(E_GPA,14); // GPA14 = Red,   0 : on, 1 : off	
 	}
 	else{
 		print_lcd(0, "Status: Unlocked"); 
 		// set RGBled to Green
-	    DrvGPIO_ClrBit(E_GPA,13); // GPA13 = Green, 0 : on, 1 : off
-	    DrvGPIO_SetBit(E_GPA,14); 	
+	    	DrvGPIO_ClrBit(E_GPA,13); // GPA13 = Green, 0 : on, 1 : off
+		DrvGPIO_SetBit(E_GPA,14); 	
 	}
 }
 
 void buzzer(int times)
 {
+	// Single buzzer sound
 	int i;
 	for(i=0;i<times;i++)
 	{
@@ -299,6 +304,7 @@ void buzzer(int times)
 }
 void delay_sec(int sec)
 {
+	//Delay approximation in seconds 0.335 sec * 3 = 1.005 sec -> +/- 5ms for each second
 	int t=0;
 	for(t=0;t<sec;t++)
 	{
@@ -310,7 +316,8 @@ void delay_sec(int sec)
 
 void clearText(char* text)
 {
-    strcpy(text, "                 ");
+	// Clears given string
+	strcpy(text, "                 ");
 }
 
 //------------------------------
@@ -322,13 +329,14 @@ int main (void)
 	int flag;
 	int i,tmp,attemps=1,correct ;
 
-	/*You can define up to 9 users  */
+	/* Up to 9 users can be defined  */
+	/* Password is set to be 4 digits */
 	user users[MAX_USERS];
-	users[0].id = 1;
-    snprintf(users[0].password, sizeof(users[0].password), "1987");
+	users[0].id = 0; // This ID should be matched to the one configured in the server.py
+    	snprintf(users[0].password, sizeof(users[0].password), "1987");
 
-    users[1].id = 2;
-    snprintf(users[1].password, sizeof(users[1].password), "1234");
+    	users[1].id = 1;
+    	snprintf(users[1].password, sizeof(users[1].password), "1234");
 
 	
 	//System Clock Initial
@@ -340,17 +348,18 @@ int main (void)
 
 	DrvGPIO_InitFunction(E_FUNC_UART0);	// Set UART pins
 
-		/* UART Setting */
-    sParam.u32BaudRate 		  = 9600;
-    sParam.u8cDataBits 		  = DRVUART_DATABITS_8;
-    sParam.u8cStopBits 		  = DRVUART_STOPBITS_1;
-    sParam.u8cParity 		    = DRVUART_PARITY_NONE;
-    sParam.u8cRxTriggerLevel= DRVUART_FIFO_1BYTES;
+	/* UART Setting */
+    	sParam.u32BaudRate 		  = 9600;
+    	sParam.u8cDataBits 		  = DRVUART_DATABITS_8;
+    	sParam.u8cStopBits 		  = DRVUART_STOPBITS_1;
+    	sParam.u8cParity 		    = DRVUART_PARITY_NONE;
+    	sParam.u8cRxTriggerLevel= DRVUART_FIFO_1BYTES;
 
 	/* Set UART Configuration */
  	if(DrvUART_Open(UART_PORT0,&sParam) != E_SUCCESS);
 	DrvUART_EnableInt(UART_PORT0, DRVUART_RDAINT, UART_INT_HANDLE);
-	
+
+	/* Initialization */
 	Initial_panel();                  // initialize LCD
 	clr_all_panel();                  // clear LCD display
 	display_status(1);
@@ -363,10 +372,9 @@ int main (void)
 	PWM_Servo(0, HITIME_MAX); //Make sure gate is closed at the beginning
 	DrvGPIO_Open(E_GPB, 11, E_IO_OUTPUT); // initial GPIO pin GPB11 for controlling Buzzer
 	time_s = 0;
-	
-
 
 	while(1) {
+		/* The OS is based on a state machine  */
 		switch(current_state){
 			case(IDLE):
 				clr_all_panel();
@@ -375,6 +383,7 @@ int main (void)
 				DistMeasure();
 				if(distance_mm <= 100)
 				{
+					/* If an object is detected for 3 seconds within 100mm the system will change its state to the first password authentication */
 					TIMER0->TCSR.CEN = 1;		// Enable Timer0
 					if(distance_mm <= 100 &&  time_s == 3) //
 					{
@@ -387,11 +396,14 @@ int main (void)
 				//DistMeasure();
 				break;
 			case(USR_PSWD):
+				/* First tier of authentication */
+				/* User has 3 authentication attempts, otherwise will return to idle state  */
 				clr_all_panel();
 				display_status(1);
 				print_lcd(1, "Enter Your Code");
 				for(i=0;i<OTP_LENGTH;i++)
 				{
+					/* Code input using the onboard keypad */
 					tmp=0;
 					while(tmp==0){
 						tmp=Scankey(); 
@@ -409,6 +421,8 @@ int main (void)
 				display_status(1);
 				for(i=0;i<MAX_USERS;i++)
 				{
+					/* Validation attempt of the entered code against all the users' codes */
+					/* When matches the system will send the matched ID to the server and changes its state to the second authentication */
 					if(0==strcmp(input_local_password,users[i].password))
 					{
 						print_lcd(2, "Correct !");
@@ -422,8 +436,9 @@ int main (void)
 				}
 				if(!correct)
 				{
+					/* When there is no matched code to any of the users */
 					print_lcd(2, "Incorrect !");
-					sprintf(TEXT3,"%d attemps left", 3-attemps);
+					sprintf(TEXT3,"%d attempts left", 3-attemps);
 					print_lcd(3,TEXT3);
 					buzzer(3);
 					delay_sec(2);
@@ -431,12 +446,17 @@ int main (void)
 				}
 				if(attemps==4)
 				{
+					/* After 3 mismatches */
 					clr_all_panel();
 				 	print_lcd(2, "Reached max attemps");
 					current_state = IDLE;		
 				}
 				break;
 			case(OTP_AUTH):
+				/* Second tier of authentication */
+				/* The system receives the same OTP that was sent to the user's email address and validates it  */
+				/* The user has 3 attempts and 30 seconds to validate his OTP */
+				/* When time out has reached, the state will be switched to IDLE */
 				clr_all_panel();
 				clearText(TEXT2);
 				display_status(1);
@@ -448,10 +468,12 @@ int main (void)
 				clr_all_panel();
 				while(time_s <= 30)
 				{
+					/* 30 seconds window for authentication begins */
 					clr_all_panel();
 					print_lcd(1, "Enter Your OTP");
 					for(i=0;i<OTP_LENGTH;i++)
 					{
+						/* Code input using the onboard keypad */
 						tmp=0;
 						while(tmp==0){
 							tmp=Scankey(); 
@@ -470,6 +492,8 @@ int main (void)
 					display_status(1);;
 					if(0==strcmp(input_otp,otp))
 					{
+						/* Authorized */
+						/* System state changes to unlock and open the door */
 						print_lcd(2, "Correct !");
 						delay_sec(2);
 					 	current_state = DR_OPEN;;
@@ -480,6 +504,7 @@ int main (void)
 					}
 					else
 					{
+						/* Incorrect OTP */
 						print_lcd(2, "Incorrect !");
 						sprintf(TEXT3,"%d attemps left", 3-attemps);
 						print_lcd(3,TEXT3);
@@ -489,8 +514,9 @@ int main (void)
 					}
 					if(attemps==4)
 					{
+						/* Reached maximum number of attempts */
 						clr_all_panel();
-					 	print_lcd(2, "Reached Max attemps");
+					 	print_lcd(2, "Reached Max attempts");
 						current_state = IDLE;
 						TIMER0->TCSR.CEN = 0;		// Disable Timer0
 						time_s = 0;
@@ -498,6 +524,7 @@ int main (void)
 					}
 					if(time_s==30)
 					{
+						/* 30 seconds time out has been reached */
 					 	print_lcd(1, "Timed out!");
 						current_state = IDLE;
 						TIMER0->TCSR.CEN = 0;		// Disable Timer0
@@ -507,6 +534,9 @@ int main (void)
 				}
 				break;
 			case(DR_OPEN):
+				/* This state opens the door for 3 seconds and closes it back */
+				/* Green light will be visible to the user as well as LCD output that indicates the door is unlocked */
+				/* When door closes the system goes back to IDLE */
 				clr_all_panel();
 				print_lcd(1, "Opening door");
 				servo_open();
